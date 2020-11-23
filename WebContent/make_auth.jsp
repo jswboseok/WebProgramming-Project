@@ -24,7 +24,18 @@
 
         </div>
         <div id ="contents">
-			팝니다
+			회원가입 <hr>
+			<br>
+			<center>
+				아이디 : <input type="text" name="id"><br><br>
+				비밀번호 : <input type="text" name="password"><br><br>
+				이름 : <input type="text" name="auth_name"><br><br>
+				email : <input type="text" name="email"><br><br>
+				<input type="submit" value="회원가입">
+				<input type="reset" value="다시 작성"><br><br>
+				<a href="main.html">뒤로가기</a>
+			
+			</center>
         </div>
         <div id="right_sidebar">
 	</div>

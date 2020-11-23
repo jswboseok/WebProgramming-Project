@@ -24,7 +24,7 @@
 
         </div>
         <div id ="contents">
-			팝니다
+			기타상품
         </div>
         <div id="right_sidebar">
 	</div>

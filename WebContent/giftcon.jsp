@@ -24,7 +24,7 @@
 
         </div>
         <div id ="contents">
-			팝니다
+			기프티콘
         </div>
         <div id="right_sidebar">
 	</div>
