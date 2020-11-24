@@ -6,9 +6,9 @@ div {
     border:1px solid #ccc;
 }
 
-/* CJH , 메뉴바 구성 11/23*/
+/* CJH , 硫붾돱諛� 援ъ꽦 11/23*/
 #topMenu{ 
-	/*nav로 버튼 link들 묶고 있음*/
+	/*nav濡� 踰꾪듉 link�뱾 臾띔퀬 �엳�쓬*/
     height:3%;
     top:120px;
 }
@@ -31,12 +31,12 @@ div {
     font-family: "Trebuchet MS", Dotum, Arial; 
 }
 #topMenu .link:hover {            
-    color: red;                  
+    color: blue;                  
     background-color: #4d4d4d;    
 }
-/* 구) navigator를 위한 디자인 요소*/
+/* 援�) navigator瑜� �쐞�븳 �뵒�옄�씤 �슂�냼*/
 /* nav{ 
-	nav로 버튼 link들 묶고 있음
+	nav濡� 踰꾪듉 link�뱾 臾띔퀬 �엳�쓬
 	
 	height:3%;
     margin-bottom:20px;
@@ -45,7 +45,7 @@ div {
     top: 120px; 
     width:1100px; 
     
-    border에 관한 부분 수정 11/23
+    border�뿉 愿��븳 遺�遺� �닔�젙 11/23
     border:1px solid #FFDFB0;
     border:double;
     border: 1px solid black; 
@@ -54,7 +54,7 @@ div {
 	display: block;
 } */
 /* .link { 
-	메인화면의 버튼, sell, buy, 쪽지, mypage에 관한
+	硫붿씤�솕硫댁쓽 踰꾪듉, sell, buy, 履쎌�, mypage�뿉 愿��븳
     float:left;
     width:20%;
     height:70%;
@@ -70,7 +70,7 @@ div {
     display:block;
     line-height: 30px;
     
-    CJH, 디자인 요소 추가 11/23
+    CJH, �뵒�옄�씤 �슂�냼 異붽� 11/23
     position: relative;
 	z-index: 2;
 	
@@ -107,14 +107,14 @@ div {
     height:7%;
     /* margin-bottom:20px; */
     padding: 20px;
-    /*CJH 수정 11/23*/
+    /*CJH �닔�젙 11/23*/
     border-style : none;
     /* border:double; */
    /*  background-color: lightblue; */
     /* border: 1px solid black; */ 
 }
 #headerFont {
-	/*웹사이트 제목 폰트에 관련된 css*/
+	/*�쎒�궗�씠�듃 �젣紐� �룿�듃�뿉 愿��젴�맂 css*/
 	font-family: 'Nanum Pen Script', cursive; /*CJH : 11/23 added */
 	font-weight: bold;
 	font-size: 40;
@@ -130,7 +130,7 @@ div {
 
     /* margin:0; */
 }
-/*CJH_카테고리 요소 부분_11/23 */
+/*CJH_移댄뀒怨좊━ �슂�냼 遺�遺�_11/23 */
 #category{
 	border:none;
 }
@@ -144,7 +144,7 @@ div {
 	color:#333333;
 	
 }
-/*hover 이벤트 처리*/
+/*hover �씠踰ㅽ듃 泥섎━*/
 #category .cate_link:hover{
 	text-decoration: underline; 
 	color: red;
