@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>동국마켓</title>
 <link href="main.css" rel="stylesheet" type="text/css"> 
-<link rel="stylesheet" href="CSS/JoinCss.css">
+<link rel="stylesheet" href="CSS/LoginCss.css">
 
 <!-- CJH, 제목 폰트 관련 추가 (11/23)  -->
 <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -39,55 +39,26 @@
 <div id="contents-join">
 
 	<div class="titleArea">
-	<h2>JOIN MEMBER</h2>
+	<div class="container">
+	
+	<div class="titleArea">
+	<h2>Log In</h2>
 	</div>
 	<br>
-	<form class="join-frm" name = "join" action="Join_Action.jsp" method = "post">
-	<div style="display:inline-block;vertical-align:top;margin:0 0;text-align:left;">
-  <table class="table">  
-    <tbody>
-      <tr>
-        <td class="joinc1">아이디</td>
-        <td>     
-		<input type="text" class="input" style="ime-mode:disabled;" placeholder="아이디를 입력하세요." 
-		name="userID" title="아이디" maxlength="20">
-		</td>
-      </tr>
-      
-      <tr>
-        <td class="joinc1">패스워드</td>
-        <td>
-        <input type="password" class="input" placeholder="패스워드를 입력하세요." name="userPassword" 
-        title="비밀번호" maxlength="20">
-        </td>
-      </tr>
-      <tr>
-        <td class="joinc1">이름</td>
-        <td>
-        <input type="text" class="input" placeholder="이름" name="userName" title="이름" maxlength="20">
-        </td>
-      </tr>
-      
-      <tr>
-        <td class="joinc1">생년월일</td>
-        <td>
-        <input type="date" class="input" placeholder="생년월일" name="userDate">
-        </td>
-      </tr>
-      
-       <tr>
-        <td class="joinc1">성별</td>
-        <td>     
-		<input type="radio" name="userGender" value="M" title="성별"> 남자 
-		<input type="radio" name="userGender" value="F" title="성별"> 여자
-
-       
-      <tr>
-      <input type="submit" class="log_button" value="회원가입">
-      </tr>
-    </tbody>
-  </table>
-  </div>
+	<form action="login_Action.jsp" method = "post">
+	<div class="main">
+		<p>ID
+		<br>
+		 <input type="text" class="input" name="userID" maxlength="20"></p> 
+		<br>
+		<p>PASSWORD 
+		<br>
+		 <input type="password" class="input" name="userPassword" maxlength="20"></p>	
+		 	
+	</div>
+	<br><br>
+	
+	<input type="submit" class="log_button" value="log in"> 
  
   </form>
 </div>

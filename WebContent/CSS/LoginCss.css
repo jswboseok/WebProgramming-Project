@@ -1,0 +1,95 @@
+@charset "UTF-8";
+
+/*전체 페이지 크기 & 가운데 정렬*/
+.container{
+	position: relative;
+    max-width: 1100px;
+    min-width: 1100px; 
+    top: 50px;
+    width:250px; 
+    height:300px;    
+	margin-left: 200px;
+} 
+
+/*모든 페이지 동일 제목 디자인*/
+.titleArea h2 {
+    display: inline-block;
+    color: #2e2e2e;
+    font-size: 20px;
+    margin-left: 50px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    border-bottom: 1px solid #666;
+    padding: 0 15px 7px 17px;
+    font-family: Montserrat,Poppins,Lato,sans-serif;
+}
+/*id,pw 디자인*/
+.main p{
+    display: block;
+    height: 15px;
+    font-size: 13px;
+    line-height: 19px;
+    color: #000;
+    font-family: Montserrat,Poppins,Lato,sans-serif;
+}
+
+.main input{
+	display: inline;
+    width: 170px;
+    height: 2px;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 0 none;
+    color: #000;
+    margin: 0 0 5px;
+    border: 1px solid #dedede;
+}
+
+/*login버튼 css*/
+.log_button {
+    width: 200px;
+    display: block;
+    background: #000;
+    border: 1px solid #000;
+    color: #fff;
+    text-align: center;
+    padding: 13px 0;
+    font-weight: normal;
+    margin: 10px 0 5px;
+    transition-duration: .4s;
+    -webkit-transition-duration: .4s;
+    -moz-transition-duration: .4s;
+    -o-transition-duration: .4s;
+    letter-spacing: 1px;
+    
+    /*가운데 정렬
+   margin: 0 auto;*/
+    
+}
+.log_button:hover {
+	color: #242526;
+	background-color:#f7f7f7;
+}
+.log_button:active {	
+	top:1px;
+}
+
+
+
+.link > a{
+	font-size: 13px;
+	font-family: Montserrat,Poppins,Lato,sans-serif;
+	text-decoration: none;
+	margin-left: 40px;
+}
+/*링크 파란색 컬러 없애기*/
+.link > a:link {
+	color : black; 
+}
+.link > a:visited {
+	color : black;
+} 
+.link > a:hover { 
+ color : black; text-decoration: underline;
+}
+      

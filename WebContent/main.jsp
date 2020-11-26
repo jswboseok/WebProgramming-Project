@@ -110,15 +110,16 @@
         <div id="right_sidebar">
         <!-- CJH : 11/23,로그인창에 대하여 fieldset과 legend태그로 묶어주기,  -->
         	<hr>
-        	<form>
+        	<form method="post" action="./login_Action.jsp">
         		<fieldset> 
 	        		<legend align="center">로그인 </legend>
-	        		&nbsp; ID<br><input type="text" name="id"><br>
+	        		&nbsp; ID<br><input type="text" class ="input" placeholder="아이디" name="userID" maxlength="20"><br>
 	        		<!-- type password로 변경 11/23 -->
-        			&nbsp;비밀번호<br><input type="password" name="password"><br><br>
-        			
-        			<input type="submit" value="로그인">
-        			
+        			&nbsp;비밀번호<br><input type="password" class="input" placeholder="비밀번호 "name="userPassword" maxlength="20"><br><br>
+        		
+        			<a href="login.jsp"><button type="button" class="btn btn-outline-dark">로그인</button>
+        </form>
+        </form>			
 					<a href="Join.jsp"><button type="button" class="btn btn-outline-dark">회원가입</button>
         		
         		</fieldset>
