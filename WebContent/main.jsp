@@ -119,7 +119,7 @@
         			
         			<input type="submit" value="로그인">
         			
-					<button onclick="location='make_auth.jsp'">회원가입</button>
+					<a href="Join.jsp"><button type="button" class="btn btn-outline-dark">회원가입</button>
         		
         		</fieldset>
 

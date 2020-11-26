@@ -6,6 +6,8 @@
 <meta charset="UTF-8">
 <title>동국마켓</title>
 <link href="main.css" rel="stylesheet" type="text/css"> 
+<link rel="stylesheet" href="style_join.css">
+
 <!-- CJH, 제목 폰트 관련 추가 (11/23)  -->
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
@@ -28,25 +30,28 @@
                 </ul>
         	</nav>
           
-        <div id="left_sidebar">
 
+      <div class="join_container"> <h2> 회원 가입 </h2> <form method="post" action="./join_Action.jsp"> 
+      <h3>아이디</h3> <div class="joinID">
+       <input type="text" class="input" style="ime-mode:disabled;" placeholder="아이디" name="userID" title="아이디" maxlength="20">
         </div>
-        <div id ="contents">
-			회원가입 <hr>
-			<br>
-			<center>
-				아이디 : <input type="text" name="id"><br><br>
-				비밀번호 : <input type="text" name="password"><br><br>
-				이름 : <input type="text" name="auth_name"><br><br>
-				email : <input type="text" name="email"><br><br>
-				<input type="submit" value="회원가입">
-				<input type="reset" value="다시 작성"><br><br>
-				<a href="main.html">뒤로가기</a>
+         <h3>비밀번호</h3> <div class="joinPassword"> 
+         <input type="password" class="input" placeholder="비밀번호" name="userPassword" title="비밀번호" maxlength="20"> 
+         </div> 
+         <h3>이름</h3> <div class="joinName">
+          <input type="text" class="input" placeholder="이름" name="userName" title="이름" maxlength="20">
+           </div> 
+           <h3>생년월일</h3> <div class="joinDate"> 
+           <input type="date" class="input" placeholder="생년월일" name="userDate"> </div> 
+           <h3>성별</h3> <div class="joinGender"> 
+           <input type="radio" name="userGender" value="M" title="성별"> 남자 <input type="radio" name="userGender" value="F" title="성별"> 
+           여자 </div> <input type="submit" class="bt_join" value="회원가입"> 
+           </form> </div>
+
 			
 			</center>
         </div>
-        <div id="right_sidebar">
-	</div>
+       
         <div id="footer">
 
         </div>
