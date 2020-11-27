@@ -5,12 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>동국마켓</title>
-<link href="main.css" rel="stylesheet" type="text/css"> 
-<link rel="stylesheet" href="CSS/LoginCss.css">
-
-<!-- CJH, 제목 폰트 관련 추가 (11/23)  -->
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+	<link href="main.css" rel="stylesheet" type="text/css"> 
+	<link rel="stylesheet" href="CSS/LoginCss.css">
+	
+	 <!-- CJH, 제목 폰트 관련 추가 (11/23 && 11/28)  -->
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 <!--기본 틀 구성하기 11_18-->
@@ -23,10 +23,14 @@
                 <ul>
                     <li><a class="link" onclick="location='sell.jsp'">팝니다</a> </li>
                     <li><a class="link" onclick="location='buy.jsp'">삽니다</a> </li>
-                    <li><a class="link" onclick="location='letter.jsp'">쪽지</a> </li>
+                    <!-- Join.jsp는 비로그인시만 보이기 때문에, 경고창만 띄움 --> 
+                    <!-- 쪽지 :  경고창 뜨게 함 -->  
+                    <li><a class="link" onclick="alert('로그인을 먼저 해주세요');">쪽지</a></li>
                     <!-- 고객센터부분 _11/23 -->
                     <li><a class="link" href="#">고객센터</a></li>
-                    <li><a class="link" onclick="location='mypage.jsp'">마이페이지</a> </li>
+                     <!-- Join.jsp는 비로그인시만 보이기 때문에, 경고창만 띄움 -->     
+                    <li><a class="link" onclick="alert('로그인을 먼저 해주세요');">마이페이지</a></li>
+                    <!-- <li><a class="link" onclick="location='mypage.jsp'">마이페이지</a> </li> -->
                 </ul>
         	</nav>
           

@@ -4,14 +4,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>동국마켓</title>
-<link href="main.css" rel="stylesheet" type="text/css">
-<!-- 글쓰기 창 -JSW  -->
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet"> 
+	<meta charset="UTF-8">
+	<title>동국마켓</title>
+	<link href="main.css" rel="stylesheet" type="text/css">
+	<!-- 글쓰기 창 -JSW  -->
+	 <!-- CJH, 제목 폰트 관련 추가 (11/23 && 11/28)  -->
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet"> 
 </head>
 <body>
+<!-- 로그인된  사람은 로그인 정보를 담을 수 있도록 만듬 11/27 -->
+	<%
+		String userID=null;
+		if(session.getAttribute("userID")!= null){
+			userID=(String) session.getAttribute("userID");
+		}
+	
+	%>
 <!--기본 틀 구성하기 11_18-->
     <div id ="container">
         <div id ="headerTop">
@@ -22,15 +31,31 @@
                 <ul>
                     <li><a class="link" onclick="location='sell.jsp'">팝니다</a> </li>
                     <li><a class="link" onclick="location='buy.jsp'">삽니다</a> </li>
+                    <!-- 쪽지 : 로그인을 안해 세션이 없다면, 경고창 뜨게 함 -->
+                    <%
+                    	if(userID==null){ //로그인 되어있지 않다면,
+                    %>
+                     <li><a class="link" onclick="alert('로그인을 먼저 해주세요');">쪽지</a></li>
+                    <%} else { %>
                     <li><a class="link" onclick="location='letter.jsp'">쪽지</a> </li>
+                    <% } %>
                     <!-- 고객센터부분 _11/23 -->
                     <li><a class="link" href="#">고객센터</a></li>
+                     <!-- 로그인을 안하여 세션이 없다면, 경고창 뜨게 하기. 1128 -->
+                    <%
+                    	if(userID==null){ //로그인 되어있지 않다면,
+
+                    %>
+                    <!-- 로그인 되어 있지 않은 경우 팝업 경고 -->
+                    <li><a class="link" onclick="alert('로그인을 먼저 해주세요');">마이페이지</a></li>
+                    <%} else { %>
                     <li><a class="link" onclick="location='mypage.jsp'">마이페이지</a> </li>
+                    <% } %>
                 </ul>
         	</nav>
           
         <div id="left_sidebar">
-			카테고리
+			<span class="left_bar_text">CATEGORY</span>
 			<hr>
 			<!-- 카테고리 요소 -->
 			<div id="category">
@@ -81,14 +106,14 @@
 			</fieldset>
 		   	<a href="buy.jsp">뒤로</a>
         </div>
-        <div id="right_sidebar">
-		<!-- CJH : 11/23,로그인창에 대하여 fieldset과 legend태그로 묶어주기,  -->
+        <!-- <div id="right_sidebar">
+		CJH : 11/23,로그인창에 대하여 fieldset과 legend태그로 묶어주기, 
         	<hr>
         	<form>
         		<fieldset> 
 	        		<legend align="center">로그인 </legend>
 	        		&nbsp; ID<br><input type="text" name="id"><br>
-	        		<!-- type password로 변경 11/23 -->
+	        		type password로 변경 11/23
         			&nbsp;비밀번호<br><input type="password" name="password"><br><br>
         			
         			<input type="submit" value="로그인">
@@ -99,7 +124,7 @@
 
         	</form>
         	
-		</div>
+		</div> -->
         <div id="footer">
 
         </div>

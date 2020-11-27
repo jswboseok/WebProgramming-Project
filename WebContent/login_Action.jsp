@@ -13,7 +13,10 @@
 	 String userPassword = request.getParameter("userPassword");
 	 UserDAO userDAO = new UserDAO(); 
 	 int result = userDAO.login(userID, userPassword); 
- 
+ 	//마지막 접속 시간을 위하여
+ 	long logtime=session.getLastAccessedTime();
+ 	
+ 	
  	if(result == 1) { 
 		 session.setAttribute("userID", userID); 
 		 PrintWriter script = response.getWriter(); 
@@ -21,6 +24,8 @@
 		 script.println("alert('로그인 성공')"); 
 		 script.println("location.href = 'main.jsp'"); 
 		 script.println("</script>");
+		 //마지막 접속 시간 설정
+		 session.setAttribute("log", logtime);
 		 } 
  	else if(result == 0) { 
 		 PrintWriter script = response.getWriter();

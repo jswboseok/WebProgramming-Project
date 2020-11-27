@@ -5,6 +5,10 @@
 div {
     border:1px solid #ccc;
 }
+/*body의 폰트에 대해서, */
+/* body{
+	font-family: 'Noto Sans KR', sans-serif;
+} */
 
 /* CJH , topMenu 설정 11/23*/
 #topMenu{ 
@@ -15,20 +19,31 @@ div {
 #topMenu ul li {                      
     list-style: none;           
     color: white;               
-    background-color: #2d2d2d;  
+    
     float: left;               
-    line-height: 30px;          
+    line-height: 30px; /*글자 높이*/         
     vertical-align: middle;     
-    text-align: center;  
+    text-align: center;
+    
+    width: 205px;
+    
+    /*About backgroud-color;*/
+    /* background-color: #2d2d2d;   */
+     background-color:#282828;
+     /*list의 font에 관한 부분*/
+     font-family: 'Noto Sans KR', sans-serif;
+	 font-size: 14px;
+	font-weight: 300;
 }
-#topMenu .link {                               
+#topMenu .link {
+	/*a 태그에 관한 부분*/
     text-decoration:none;                     
     color: white;                              
     display: block;                            
-    width: 205px;                             
+    /* width: 205px;                             
     font-size: 12px;                           
     font-weight: bold;                        
-    font-family: "Trebuchet MS", Dotum, Arial;
+    font-family: "Trebuchet MS", Dotum, Arial; */
      
 }
 #topMenu .link:hover {            
@@ -58,7 +73,7 @@ div {
 	/*웹사이트 제목 폰트에 관련된 css*/
 	font-family: 'Nanum Pen Script', cursive; /*CJH : 11/23 added */
 	font-weight: bold;
-	font-size: 40;
+	font-size: 50px;
 	text-align: center;
 }
 
@@ -68,16 +83,29 @@ div {
     padding: 20px;
     width : 16%;
     float:left;
+    
 
     /* margin:0; */
 }
 /*CJH_카테고리 css디자인_11/23 */
 #category{
 	border:none;
+
+}
+.left_bar_text{
+	/*카테고리 폰트 적용*/
+	
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size:18px;
+	font-weight: 400;
 }
 #category ul li{
 	list-style:none;
 	line-height:30px;
+	/*리스트에 대한 폰트 적용*/
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size:24px;
+	font-weight: 700;
 	
 }
 #category .cate_link{
@@ -133,14 +161,22 @@ header{
 	float:left;
 	/* border:1px solid #ccc; */
 	list-style:none;
+	/*list의 font에 관한 부분*/
+     font-family: 'Noto Sans KR', sans-serif;
+	 font-size: 16px;
+	 font-weight: 300;
+	 /* padding:0 5px; */
+	 line-height:30px;
+	
 }
 .login_menu a{
 	/*로긴메뉴의 a태그와 관련된 부분*/
-	line-height:30px;
+	/* line-height:30px; */
 	color:black;
-	padding : 0 10px;
+	padding : 0 10px; 
 	display:block;
 	text-decoration : none;
+	
 }
 .login_menu a:hover{
 	text-decoration: underline; 
