@@ -14,8 +14,47 @@
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet"> 
 </head>
 <body>
-<!--기본 틀 구성하기 11_18-->
+    <!-- 로그인된  사람은 로그인 정보를 담을 수 있도록 만듬 11/27 -->
+	<%
+		String userID=null;
+		if(session.getAttribute("userID")!= null){
+			userID=(String) session.getAttribute("userID");
+		}
+	%>
+    <!--기본 틀 구성하기 11_18-->
     <div id ="container">
+    	<!-- 로그인 되어있지 않다면,  -->
+    	<%
+    		if(userID == null){
+    	%>
+    	<!-- CJH, 로그인 회원가입 창을 우측 화면 상단으로 올리기,  -->
+    	<header>
+    		<nav>
+    			<ul class="login_menu">
+    				<li><img src="images/netlog.svg" height="30" width="30"></li>
+    				<li><a href="login.jsp">로그인</a>
+    				<li><a href="Join.jsp">회원가입</a>
+    			
+    			</ul>
+    		</nav>
+    	</header>
+    	<%
+    		} else{
+    	%>
+    	<!-- 로그인 되어 있다면, -->
+    	<header>
+    		<nav>
+    			<ul class="login_menu">
+    				<li><img src="images/netlog.svg" height="30" width="30"></li>
+    				<li><a href="#">환영합니다 <%=userID%> 님</a>
+    				<li><a href="logoutAction.jsp">로그아웃</a>
+    			
+    			</ul>
+    		</nav>
+    	</header>
+    	<%
+    		}
+    	%>
         <div id ="headerTop">
         <h1 id="headerFont"><a href="main.jsp" style="text-decoration:none; color:black;">동국대학교 중고거래장터</a></h1>
         </div>
@@ -107,14 +146,14 @@
       		
       		
         </div>
-        <div id="right_sidebar">
-        <!-- CJH : 11/23,로그인창에 대하여 fieldset과 legend태그로 묶어주기,  -->
+        <!-- <div id="right_sidebar">
+        CJH : 11/23,로그인창에 대하여 fieldset과 legend태그로 묶어주기, 
         	<hr>
         	<form>
         		<fieldset> 
 	        		<legend align="center">로그인 </legend>
 	        		&nbsp; ID<br><input type="text" name="id"><br>
-	        		<!-- type password로 변경 11/23 -->
+	        		type password로 변경 11/23
         			&nbsp;비밀번호<br><input type="password" name="password"><br><br>
         			
         			<input type="submit" value="로그인">
@@ -126,7 +165,7 @@
         	</form>
         	
         	
-		</div>
+		</div> -->
         <div id="footer">
 
         </div>

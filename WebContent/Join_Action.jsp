@@ -57,7 +57,7 @@
             	PrintWriter script = response.getWriter();
             	script.println("<script>");
             	script.println("alert('회원가입을 축하드립니다.')");
-            	script.println("location.href = '../main.jsp'");
+            	script.println("location.href = 'main.jsp'");
             	script.println("</script>");
             }
         }
