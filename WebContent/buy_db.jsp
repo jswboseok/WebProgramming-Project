@@ -16,6 +16,19 @@
 <body>
 <!--기본 틀 구성하기 11_18-->
     <div id ="container">
+    <!-- CJH, 로그인 회원가입 창을 우측 화면 상단으로 올리기,  -->
+    	<header>
+    		<!-- <div class="loginbar"> -->
+    		<nav>
+    			<ul class="login_menu">
+    				<li><img src="images/netlog.svg" height="30" width="30"></li>
+    				<li><a href="login.jsp">로그인</a>
+    				<li><a href="Join.jsp">회원가입</a>
+    			
+    			</ul>
+    		</nav>
+    		<!-- </div> -->
+    	</header>
         <div id ="headerTop">
         <h1 id="headerFont"><a href="main.jsp" style="text-decoration:none; color:black;">동국대학교 중고거래장터</a></h1>
         </div>
@@ -107,15 +120,15 @@
 				<a href="buy.jsp">게시글 목록 보기</a>
 			</center>
         </div>
-        <div id="right_sidebar">
+        <!-- <div id="right_sidebar">
         
-        <!-- CJH : 11/23,로그인창에 대하여 fieldset과 legend태그로 묶어주기,  -->
+        CJH : 11/23,로그인창에 대하여 fieldset과 legend태그로 묶어주기, 
         	<hr>
         	<form>
         		<fieldset> 
 	        		<legend align="center">로그인 </legend>
 	        		&nbsp; ID<br><input type="text" name="id"><br>
-	        		<!-- type password로 변경 11/23 -->
+	        		type password로 변경 11/23
         			&nbsp;비밀번호<br><input type="password" name="password"><br><br>
         			
         			<input type="submit" value="로그인">
@@ -127,7 +140,7 @@
         	</form>
         	
         	
-		</div>
+		</div> -->
         <div id="footer">
 
         </div>

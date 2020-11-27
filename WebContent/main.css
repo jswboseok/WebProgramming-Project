@@ -6,9 +6,9 @@ div {
     border:1px solid #ccc;
 }
 
-/* CJH , 硫붾돱諛� 援ъ꽦 11/23*/
+/* CJH , topMenu 설정 11/23*/
 #topMenu{ 
-	/*nav濡� 踰꾪듉 link�뱾 臾띔퀬 �엳�쓬*/
+	/*nav로 버튼 link들 묶음*/
     height:3%;
     top:120px;
 }
@@ -28,72 +28,13 @@ div {
     width: 205px;                             
     font-size: 12px;                           
     font-weight: bold;                        
-    font-family: "Trebuchet MS", Dotum, Arial; 
+    font-family: "Trebuchet MS", Dotum, Arial;
+     
 }
 #topMenu .link:hover {            
     color: blue;                  
     background-color: #4d4d4d;    
 }
-/* 援�) navigator瑜� �쐞�븳 �뵒�옄�씤 �슂�냼*/
-/* nav{ 
-	nav濡� 踰꾪듉 link�뱾 臾띔퀬 �엳�쓬
-	
-	height:3%;
-    margin-bottom:20px;
-    padding-top: 15px;
-    
-    top: 120px; 
-    width:1100px; 
-    
-    border�뿉 愿��븳 遺�遺� �닔�젙 11/23
-    border:1px solid #FFDFB0;
-    border:double;
-    border: 1px solid black; 
-    background-color: lightblue; 
-	margin-top: 10px;
-	display: block;
-} */
-/* .link { 
-	硫붿씤�솕硫댁쓽 踰꾪듉, sell, buy, 履쎌�, mypage�뿉 愿��븳
-    float:left;
-    width:20%;
-    height:70%;
-    margin-left:25px;
-    margin-right:25px; 
-    border:1px solid black;
-    background-color: thistle;
-    
-    border-radius:5px;
-    text-align: center;
-    text-decoration: none;
-    
-    display:block;
-    line-height: 30px;
-    
-    CJH, �뵒�옄�씤 �슂�냼 異붽� 11/23
-    position: relative;
-	z-index: 2;
-	
-	background-color: #333; 
-	
-	border-right : 2px solid #333;
-	color: #F4FFFF;
-	line-height: 30px;
-}
-.link:hover{
-	background-color: #bebebe;
-	border-color: #59b1eb;
-	color: black;
-} */
-
-
-/* .link::before {
-	top: 0;
-}
-.link::after {
-	bottom: 0;
-} */
-
 
 /* ID */
 #container {
@@ -107,14 +48,14 @@ div {
     height:7%;
     /* margin-bottom:20px; */
     padding: 20px;
-    /*CJH �닔�젙 11/23*/
+    /*CJH 11/23*/
     border-style : none;
     /* border:double; */
    /*  background-color: lightblue; */
     /* border: 1px solid black; */ 
 }
 #headerFont {
-	/*�쎒�궗�씠�듃 �젣紐� �룿�듃�뿉 愿��젴�맂 css*/
+	/*웹사이트 제목 폰트에 관련된 css*/
 	font-family: 'Nanum Pen Script', cursive; /*CJH : 11/23 added */
 	font-weight: bold;
 	font-size: 40;
@@ -130,7 +71,7 @@ div {
 
     /* margin:0; */
 }
-/*CJH_移댄뀒怨좊━ �슂�냼 遺�遺�_11/23 */
+/*CJH_카테고리 css디자인_11/23 */
 #category{
 	border:none;
 }
@@ -144,7 +85,7 @@ div {
 	color:#333333;
 	
 }
-/*hover �씠踰ㅽ듃 泥섎━*/
+/*hover 카테고리 css 호버 처리*/
 #category .cate_link:hover{
 	text-decoration: underline; 
 	color: red;
@@ -152,20 +93,58 @@ div {
 #contents{
     height: 70%;
     margin-bottom:20px;
-    width:53%;
+    width:74.15%;
     padding:20px;
     float:left;
 
 }
-#right_sidebar{
-    height: 70%;
+/*폐기 예정 no more _right_sidebar */
+#right_sidebar{ 
+   /*  height: 70%;
     margin-bottom: 20px;
     width:16%;
     float:right;
-    padding:20px;
+    padding:20px; */
 
 
     /* margin:0; */
+}
+/* 대체 로그인 창 11/27 */
+header{
+	/* height : 0;  */
+	/*background-color : #006F84;*/
+	/* border:1px solid #253342; */
+	position:absoulte; 
+	/*  width:80%; */
+	/* 	z-index: 9999; */ 
+	top:0; left:0;
+}
+/* #loginbar{
+	width:1100px;
+	margin:0 auto;
+	border:1px solid #253342;
+} */
+.login_menu{
+	/*ul 클래스 이름*/
+	float:right;
+	margin:0;
+}
+.login_menu li{
+	float:left;
+	/* border:1px solid #ccc; */
+	list-style:none;
+}
+.login_menu a{
+	/*로긴메뉴의 a태그와 관련된 부분*/
+	line-height:30px;
+	color:black;
+	padding : 0 10px;
+	display:block;
+	text-decoration : none;
+}
+.login_menu a:hover{
+	text-decoration: underline; 
+	color: red;
 }
 #footer {
     height:5%;
