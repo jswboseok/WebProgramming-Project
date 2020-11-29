@@ -5,12 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>동국마켓</title>
-	<link href="main.css" rel="stylesheet" type="text/css"> 
-	<link rel="stylesheet" href="CSS/LoginCss.css">
+	<!-- <link href="main.css" rel="stylesheet" type="text/css">  -->
+	<link href="css/LoginCss.css" rel="stylesheet" type="text/css" >
 	
 	 <!-- CJH, 제목 폰트 관련 추가 (11/23 && 11/28)  -->
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+
 </head>
 <body>
 <!--기본 틀 구성하기 11_18-->
@@ -33,51 +34,39 @@
                     <!-- <li><a class="link" onclick="location='mypage.jsp'">마이페이지</a> </li> -->
                 </ul>
         	</nav>
-          
 
-     <div id="wrap">
-
-<div id="container">
-
-	
-<div id="contents-join">
-
-	<div class="titleArea">
-	<div class="container">
-	
-	<div class="titleArea">
-	<h2>Log In</h2>
+	<div id="contents-join">
+		<div class="titleArea">
+			<!-- login container -->
+			<div class="login_container">
+			
+				<div class="titleArea">
+				<h2>Log In</h2>
+				</div>
+				<br>
+				<form action="login_Action.jsp" method = "post">
+					<div class="main">
+						<p>ID
+						<br>
+						 <input type="text" class="input" name="userID" maxlength="20"></p> 
+						<br>
+						<p>PASSWORD 
+						<br>
+						<input type="password" class="input" name="userPassword" maxlength="20"></p>		
+					</div>
+					<br><br>
+					<input type="submit" class="log_button" value="로그인"> 
+			  </form>
+			</div>
+		</div>
 	</div>
-	<br>
-	<form action="login_Action.jsp" method = "post">
-	<div class="main">
-		<p>ID
-		<br>
-		 <input type="text" class="input" name="userID" maxlength="20"></p> 
-		<br>
-		<p>PASSWORD 
-		<br>
-		 <input type="password" class="input" name="userPassword" maxlength="20"></p>	
-		 	
-	</div>
-	<br><br>
-	
-	<input type="submit" class="log_button" value="log in"> 
- 
-  </form>
-</div>
-</div>
-</div>
 			</center>
-        </div>
+        
        
         <div id="footer">
 
         </div>
-
-
-    </div>
-    
+</div>
 </body>
 </body>
 </html>

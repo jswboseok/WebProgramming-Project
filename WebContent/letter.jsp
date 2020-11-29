@@ -22,7 +22,9 @@
 				 PrintWriter script = response.getWriter();
 				 script.println("<script>");
 				 script.println("alert('로그인을 먼저 해주세요.')");
-				 script.println("location.href = 'main.jsp'");
+				 /* 로그인 화면을 띄우기*/
+				 /* script.println("location.href = 'main.jsp'"); */
+				 script.println("location.href='login.jsp' ");
 				 script.println("</script>"); 
 		}
 		
