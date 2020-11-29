@@ -2,15 +2,16 @@
     pageEncoding="UTF-8"%>
 <%@ page import="user.UserDAO" %> 
 <%@ page import="java.io.PrintWriter" %>
+<%@ page import="java.text.SimpleDateFormat" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>동국마켓</title>
-<link href="main.css" rel="stylesheet" type="text/css">
-<!-- CJH, 제목 폰트 관련 추가 (11/23)  -->
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet"> 
+	<meta charset="UTF-8">
+	<title>동국마켓</title>
+	<link href="main.css" rel="stylesheet" type="text/css">
+	 <!-- CJH, 제목 폰트 관련 추가 (11/23 && 11/28)  -->
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 <!--기본 틀 구성하기 11_18-->
@@ -20,15 +21,26 @@
 		
 		String userID=null;
 		userID=(String) session.getAttribute("userID");
-		
+		if(userID==null){
+			 PrintWriter script = response.getWriter();
+			 script.println("<script>");
+			 script.println("alert('서버 오류 입니다.')");
+			 script.println("location.href = 'main.jsp'");
+			 script.println("</script>"); 
+		}
 		UserDAO userDAO= new UserDAO();
 		userDAO = userDAO.getUser(userID);
 		
 		// 세션의 ID로부터 DB 검색 통해 관련 정보가져옴
+		
 		String userPassword =userDAO.getUserPassword();
 		String userName = userDAO.getUserName();
 		String userDate = userDAO.getUserDate();
 		String userGender = userDAO.getUserGender();
+		
+		// 마지막 로그인 정보(세션만들어진 시간) 1128
+		long lastLog = (long)session.getAttribute("log");
+		SimpleDateFormat fmat=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 		
 		//로그인용 세션 ID
 		String userforLogin=null;
@@ -52,8 +64,8 @@
     		<nav>
     			<ul class="login_menu">
     				<li><img src="images/netlog.svg" height="30" width="30"></li>
-    				<li><a href="login.jsp">로그인</a>
-    				<li><a href="Join.jsp">회원가입</a>
+    				<li><a href="login.jsp">로그인</a></li>
+    				<li><a href="Join.jsp">회원가입</a></li>
     			
     			</ul>
     		</nav>
@@ -66,15 +78,13 @@
     		<nav>
     			<ul class="login_menu">
     				<li><img src="images/netlog.svg" height="30" width="30"></li>
-    				<li><a href="#">환영합니다 <%=userforLogin%> 님</a>
-    				<li><a href="logoutAction.jsp">로그아웃</a>
+    				<li><a href="#">환영합니다 <%=userforLogin%> 님</a></li>
+    				<li><a href="logoutAction.jsp">로그아웃</a></li>
     			
     			</ul>
     		</nav>
     	</header>
-    	<%
-    		}
-    	%>
+    	<!--  -->
         
         <div id ="headerTop">
         <h1 id="headerFont"><a href="main.jsp" style="text-decoration:none; color:black;">동국대학교 중고거래장터</a></h1>
@@ -85,6 +95,7 @@
                 <ul>
                     <li><a class="link" onclick="location='sell.jsp'">팝니다</a> </li>
                     <li><a class="link" onclick="location='buy.jsp'">삽니다</a> </li>
+                    <!-- 로그인하여 세션이 생겨야 이 jsp파일에 접근가능하므로, ㄱㅊ-->
                     <li><a class="link" onclick="location='letter.jsp'">쪽지</a> </li>
                     <!-- 고객센터부분 _11/23 -->
                     <li><a class="link" href="#">고객센터</a></li>
@@ -93,7 +104,7 @@
         	</nav>
           
         <div id="left_sidebar">
-			카테고리
+			<span class="left_bar_text">CATEGORY</span>
 			<hr>
 			<!-- 카테고리 요소 -->
 			<div id="category">
@@ -115,7 +126,8 @@
 					<li>비밀번호 : <%=userPassword %></li>
 					<li>이름 : <%=userName %></li>
 					<li>성별 :  <%=userDate %></li>			
-					<li>생일 :  <%=userGender %></li>			
+					<li>생일 :  <%=userGender %></li>	
+					<li>마지막 접속 시간 : <%=fmat.format(lastLog) %></li>		
 				</ul>
 			</div><br>
 			게시글 정보<hr>
@@ -144,8 +156,10 @@
 
         </div>
 
-
-    </div>
+		<%
+    		}
+    	%>
+    </div><!-- container end -->
     
 </body>
 </body>

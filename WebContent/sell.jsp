@@ -6,12 +6,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>동국마켓</title>
-<link href="main.css" rel="stylesheet" type="text/css">
-<!-- CJH, 제목 폰트 관련 추가 (11/23)  -->
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet"> 
+	<meta charset="UTF-8">
+	<title>동국마켓</title>
+	<link href="main.css" rel="stylesheet" type="text/css">
+	 <!-- CJH, 제목 폰트 관련 추가 (11/23 && 11/28)  -->
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 <!-- 로그인된  사람은 로그인 정보를 담을 수 있도록 만듬 11/27 -->
@@ -32,8 +32,8 @@
     		<nav>
     			<ul class="login_menu">
     				<li><img src="images/netlog.svg" height="30" width="30"></li>
-    				<li><a href="login.jsp">로그인</a>
-    				<li><a href="Join.jsp">회원가입</a>
+    				<li><a href="login.jsp">로그인</a></li>
+    				<li><a href="Join.jsp">회원가입</a></li>
     			
     			</ul>
     		</nav>
@@ -46,8 +46,8 @@
     		<nav>
     			<ul class="login_menu">
     				<li><img src="images/netlog.svg" height="30" width="30"></li>
-    				<li><a href="#">환영합니다 <%=userID%> 님</a>
-    				<li><a href="logoutAction.jsp">로그아웃</a>
+    				<li><a href="#">환영합니다 <%=userID%> 님</a></li>
+    				<li><a href="logoutAction.jsp">로그아웃</a></li>
     			
     			</ul>
     		</nav>
@@ -63,15 +63,31 @@
                 <ul>
                     <li><a class="link" onclick="location='sell.jsp'">팝니다</a> </li>
                     <li><a class="link" onclick="location='buy.jsp'">삽니다</a> </li>
+                    <!-- 쪽지 : 로그인을 안해 세션이 없다면, 경고창 뜨게 함 -->
+                    <%
+                    	if(userID==null){ //로그인 되어있지 않다면,
+                    %>
+                     <li><a class="link" onclick="alert('로그인을 먼저 해주세요');">쪽지</a></li>
+                    <%} else { %>
                     <li><a class="link" onclick="location='letter.jsp'">쪽지</a> </li>
+                    <% } %>
                     <!-- 고객센터부분 _11/23 -->
                     <li><a class="link" href="#">고객센터</a></li>
+                     <!-- 로그인을 안하여 세션이 없다면, 경고창 뜨게 하기. 1128 -->
+                    <%
+                    	if(userID==null){ //로그인 되어있지 않다면,
+
+                    %>
+                    <!-- 로그인 되어 있지 않은 경우 팝업 경고 -->
+                    <li><a class="link" onclick="alert('로그인을 먼저 해주세요');">마이페이지</a></li>
+                    <%} else { %>
                     <li><a class="link" onclick="location='mypage.jsp'">마이페이지</a> </li>
+                    <% } %>
                 </ul>
         	</nav>
           
         <div id="left_sidebar">
-			카테고리
+			<span class="left_bar_text">CATEGORY</span>
 			<hr>
 			<!-- 카테고리 요소 -->
 			<div id="category">
