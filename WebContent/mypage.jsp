@@ -21,43 +21,47 @@
 		
 		String userID=null;
 		userID=(String) session.getAttribute("userID");
+		
 		if(userID==null){
 			 PrintWriter script = response.getWriter();
 			 script.println("<script>");
-			 script.println("alert('서버 오류 입니다.')");
-			 script.println("location.href = 'main.jsp'");
+			 script.println("alert('로그인을 먼저 해주세요')");
+			 script.println("location.href = 'login.jsp'");
 			 script.println("</script>"); 
-		}
-		UserDAO userDAO= new UserDAO();
-		userDAO = userDAO.getUser(userID);
-		
-		// 세션의 ID로부터 DB 검색 통해 관련 정보가져옴
-		
-		String userPassword =userDAO.getUserPassword();
-		String userName = userDAO.getUserName();
-		String userDate = userDAO.getUserDate();
-		String userGender = userDAO.getUserGender();
-		
-		// 마지막 로그인 정보(세션만들어진 시간) 1128
-		long lastLog = (long)session.getAttribute("log");
-		SimpleDateFormat fmat=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-		
-		//로그인용 세션 ID
-		String userforLogin=null;
+		} 
+		else{ //else 이페이지 맨끝까지 좀복잡한데.. http 500안뜸..
+			UserDAO userDAO= new UserDAO();
+			userDAO = userDAO.getUser(userID);
+			
+			// 세션의 ID로부터 DB 검색 통해 관련 정보가져옴
+			
+			String userPassword =userDAO.getUserPassword();
+			String userName = userDAO.getUserName();
+			String userDate = userDAO.getUserDate();
+			String userGender = userDAO.getUserGender();
+			
+			// 마지막 로그인 정보(세션만들어진 시간) 1128
+			long lastLog = (long)session.getAttribute("log");
+			SimpleDateFormat fmat=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+			
+			//로그인용 세션 ID
+			String userforLogin=null;
 		
 	%>
         <!-- 로그인된  사람은 로그인 정보를 담을 수 있도록 만듬 11/27 -->
 	<%
 		/* String userID=null; */
-		if(session.getAttribute("userID")!= null){
+		/* if(session.getAttribute("userID")!= null){
 			userforLogin=(String) session.getAttribute("userID");
-		}
+		} */
+			userforLogin=(String) session.getAttribute("userID");
 	%>
     <!--기본 틀 구성하기 11_18-->
     <div id ="container">
     	<!-- 로그인 되어있지 않다면,  -->
     	<%
     		if(userforLogin == null){
+    			
     	%>
     	<!-- CJH, 로그인 회원가입 창을 우측 화면 상단으로 올리기,  -->
     	<header>
@@ -85,7 +89,9 @@
     		</nav>
     	</header>
     	<!--  -->
-        
+        <%
+    		}//else end
+    	%>
         <div id ="headerTop">
         <h1 id="headerFont"><a href="main.jsp" style="text-decoration:none; color:black;">동국대학교 중고거래장터</a></h1>
         </div>
@@ -157,8 +163,8 @@
         </div>
 
 		<%
-    		}
-    	%>
+    		}//else end
+    	%> 
     </div><!-- container end -->
     
 </body>

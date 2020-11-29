@@ -5,8 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>동국마켓</title>
-	<link href="main.css" rel="stylesheet" type="text/css"> 
-	<link rel="stylesheet" href="CSS/JoinCss.css">
+	<!-- <link href="main.css" rel="stylesheet" type="text/css">  -->
+	<link href="css/JoinCss.css" rel="stylesheet" type="text/css">
 	
 	 <!-- CJH, 제목 폰트 관련 추가 (11/23 && 11/28)  -->
 	<link rel="preconnect" href="https://fonts.gstatic.com">
@@ -33,77 +33,99 @@
                     <!-- <li><a class="link" onclick="location='mypage.jsp'">마이페이지</a> </li> -->
                 </ul>
         	</nav>
-     <!-- <div id="wrap"> -->
-	<!-- <div id="container"> -->
+        <!-- 회원가입 div블록 -->
 		<div id="contents-join">
-		
-			<div class="titleArea">
-				<h2>JOIN MEMBER</h2>
-			</div>
-			
-			<br>
-			
-			<form class="join-frm" name = "join" action="Join_Action.jsp" method = "post">
-				<div id="contents-join" style="display:inline-block;vertical-align:top;margin:0 0;text-align:left;">
-				  <table class="table">  
-					    <tbody>
-					      <!-- tr1 -->
-					      <tr>
-						        <td class="joinc1">아이디</td>
-						        <td>     
-								<input type="text" class="input" style="ime-mode:disabled;" placeholder="아이디를 입력하세요." 
-								name="userID" title="아이디" maxlength="20">
-								</td>
-					      </tr>
-					      <!-- tr2 -->
-					      <tr>
-					        	<td class="joinc1">패스워드</td>
-						        <td>
-						        <input type="password" class="input" placeholder="패스워드를 입력하세요." name="userPassword" 
-						        title="비밀번호" maxlength="20">
-						        </td>
-					      </tr>
-					      <!-- tr3 -->
-					      <tr>
-						        <td class="joinc1">이름</td>
-						        <td>
-						        <input type="text" class="input" placeholder="이름" name="userName" title="이름" maxlength="20">
-						        </td>
-					      </tr>
-					      <!-- tr4 -->
-					      <tr>
-					        <td class="joinc1">생년월일</td>
-						        <td>
-						        <input type="date" class="input" placeholder="YYYYDDMM" name="userDate" >
-						        </td>
-					      </tr>
-					      <!-- tr5 -->
-					       <tr>
-					        <td class="joinc1">성별</td>
-						        <td>     
-								<input type="radio" name="userGender" value="M" title="성별"> 남자 
-								<input type="radio" name="userGender" value="F" title="성별"> 여자
-								<td>
-					       </tr>
-					      <!-- submit -->
-					      <input type="submit" class="log_button" value="회원가입">
-					      <!-- </tr> -->
-					    </tbody>
-				  </table>
-				  </div>
-		  </form>
+			<div class="join_container">
+				<div class="titleArea">
+					<h2>JOIN MEMBER</h2>
+				</div>	
+				<br>
+				<form class="join-frm" name = "join" action="Join_Action.jsp" method = "post">
+					<div id="contents-join" style="display:inline-block;vertical-align:top;margin:0 0;text-align:left;">
+					  <table class="table">  
+						    <tbody>
+						      <!-- tr1 -->
+						      <tr>
+							        <td class="joinc1">아이디</td>
+							        <!-- <td>     
+									<input type="text" class="input" style="ime-mode:disabled;" placeholder="아이디를 입력하세요." 
+									name="userID" title="아이디" maxlength="20">
+									</td> -->
+						      </tr>
+						      <tr>
+						      <td>     
+									<input type="text" class="input" style="ime-mode:disabled;" placeholder="아이디를 입력하세요." 
+									name="userID" title="아이디" maxlength="20">
+									</td>
+						      </tr>
+						      <!-- tr2 -->
+						      <tr>
+						        	<td class="joinc1">패스워드</td>
+							        <!-- <td>
+							        <input type="password" class="input" placeholder="패스워드를 입력하세요." name="userPassword" 
+							        title="비밀번호" maxlength="20">
+							        </td> -->
+						      </tr>
+						      <tr>
+						      		<td>
+							        <input type="password" class="input" placeholder="패스워드를 입력하세요." name="userPassword" 
+							        title="비밀번호" maxlength="20">
+							        </td>
+						      </tr>
+						      <!-- tr3 -->
+						      <tr>
+							        <td class="joinc1">이름</td>
+							        <!-- <td>
+							        <input type="text" class="input" placeholder="이름" name="userName" title="이름" maxlength="20">
+							        </td> -->
+						      </tr>
+						      <tr>
+						       <td><input type="text" class="input" placeholder="이름" name="userName" title="이름" maxlength="20"></td>
+						      </tr>
+						      
+						      <!-- tr4 -->
+						      <tr>
+						        <td class="joinc1">생년월일</td>
+							        <!-- <td>
+							        <input type="date" class="input" placeholder="YYYYDDMM" name="userDate" >
+							        </td> -->
+						      </tr>
+						      <tr>
+							      <td><input type="date" class="input" placeholder="YYYYDDMM" name="userDate" ></td>
+							  </tr>
+						      <!-- tr5 -->
+						       <tr>
+						        <td class="joinc1">성별</td>
+							       <!--  <td>     
+									<input type="radio" name="userGender" value="M" title="성별"> 남자 
+									<input type="radio" name="userGender" value="F" title="성별"> 여자
+									<td> -->
+						       </tr>
+						       <tr>
+						       		<td>     
+									<input type="radio" class="input2" name="userGender" value="M" title="성별"> 남자 
+									<input type="radio" class="input2" name="userGender" value="F" title="성별"> 여자
+									<td>
+						       </tr>
+						      <!-- submit -->
+						      <tr>
+						      <td>
+						      <input type="submit" class="log_button" value="회원가입"></td>
+						      </tr>
+						      <!-- </tr> -->
+						    </tbody>
+					  </table>
+					  </div>
+			  </form>
+			</div> <!-- join container end -->
 		</div>
-<!-- 		</div>
-</div> -->
-			<!-- </center>
-        	</div> -->
-       
+
         <div id="footer">
 
         </div>
 
 
-    </div>
+    </div><!-- 전체컨테이너 div end -->
     
 </body>
 </body>
