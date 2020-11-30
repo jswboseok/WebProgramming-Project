@@ -6,10 +6,11 @@
 <head>
 <meta charset="EUC-KR">
 	<title>동국마켓</title>
-	<link href="main.css" rel="stylesheet" type="text/css">
+	<link href="css/main.css" rel="stylesheet" type="text/css">
 	 <!-- CJH, 제목 폰트 관련 추가 (11/23 && 11/28)  -->
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+	<!-- 쪽지함엔 지도 추가안함 -->
 </head>
 <body>
    <!-- 로그인된  사람은 로그인 정보를 담을 수 있도록 만듬 11/27 -->
@@ -81,7 +82,7 @@
                     <% } %>
                     
                     <!-- 고객센터부분 _11/23 -->
-                    <li><a class="link" href="#">고객센터</a></li>
+                    <li><a class="link" onclick="location='service.jsp'">고객센터</a></li>
                     <!-- 마이페이지 : 로그인을 안하여 세션이 없다면, 경고창 뜨게 하기. 1128 -->
                     <%
                     	if(userID==null){ //로그인 되어있지 않다면,
@@ -104,7 +105,8 @@
         <div id="right_sidebar">
 	</div>
         <div id="footer">
-
+			<span class="footer_text">About Us</span>
+			<p>동국대학교의 열정적인 웹프로그래밍 수업 수강생들입니다.</p>
         </div>
 
 

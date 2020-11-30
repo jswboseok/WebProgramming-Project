@@ -15,12 +15,12 @@
     <!-- CJH, 제목 폰트 관련 추가 (11/23 && 11/28)  -->
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
-	
+	<!-- jquery -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 	<!-- 1201 Naver Map API -->
 	<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=db4sb1wr4q&callback=initMap"></script>
 	<script type="text/javascript">
         var map = null;
-
         function initMap() {
             map = new naver.maps.Map('map', {
                 center: new naver.maps.LatLng(37.55828, 127.00030),//동국대 위치로 수정하기.
@@ -34,12 +34,8 @@
             marker.setPosition(e.latlng);
         	});
         }
-       
     </script>
-		
-	
-	
-	
+
 </head>
 <body>
 	<!-- 로그인된  사람은 로그인 정보를 담을 수 있도록 만듬 11/27 -->
@@ -140,64 +136,57 @@
 			
         </div>
         <div id ="contents">
-			<table border="1" align="center" width="100%">
-		      <tr>
-			      <td align="center" bgcolor="silver" width="7%">번호</td>
-			      <td align="center" bgcolor="silver" width="14%">목적</td>
-			      <td align="center" bgcolor="silver" width="14%">카테고리</td>
-			      <td align="center" bgcolor="silver" width="54">글제목</td>
-			      <td align="center" bgcolor="silver" width="12">글쓴이</td>
-		      </tr>
-      		
-      		
-      		
-      		<!--  DB에서 데이터 얻어와 화면에 보여주는 부분 -->
-      		
-      		<% // JSP Start
-		         int id;
-      			 String category, title, name, content, isbuy;
-		         int rownum = 0;
-		         Connection conn = null; //Connection 객체 생성하여 DB에 연결, 경로와 사용자계정, 패스워드 통해 접속,
-		         Statement stmt = null; //Statement 객체 생성, SQL문을 실행하기 위함
-		         String sql = null;
-		         ResultSet rs = null;
-		         
-		         try { 
-		                 Class.forName("com.mysql.jdbc.Driver");  //JDBC드라이버 로드 , MySQL의 JDBC드라이버를 로드함.
-		                 String url = "jdbc:mysql://localhost:3306/dgumarket?serverTimezone=UTC"; //url JSP페이지내에서 사용할 DB이름을 포함하는 URL을 변수에 저장
-		                 conn = DriverManager.getConnection(url, "root", "0000"); // id root, p 0000
-		                 stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE); //Statement
-		                 //sql = "select * from board order by ref desc, id asc";
-		                 sql = "select * from board order by id desc";
-		                 rs = stmt.executeQuery(sql);
-		           } 
-		           catch(Exception e) {
-		                 out.println("DB : " + e.getMessage());
-		           }
-		        rs.last();
-		        rownum = rs.getRow();
-		        rs.beforeFirst(); 
-		         
-		         while(rs.next()){
-		            id = Integer.parseInt(rs.getString("id")); //getString()메소드를 활용해 각 행의 정보값 출력;
-		            name = rs.getString("name");
-		           	title=rs.getString("title");
-		           	isbuy=rs.getString("isbuy");
-		           	category=rs.getString("category");
-		         %>
-		            <tr>
-		               <td align="center"><%=rs.getString("id") %></td>
-		               <td align="center"><%=rs.getString("isbuy") %></td>
-		               <td align="center"><%=rs.getString("category") %></td>
-		               <%-- <td align="center"><a href="Board-read.jsp?id=<%=id%>"><%=rs.getString("title") %></a></td> --%>
-		               <td align="center"><a href="board_read.jsp?id=<%=id%>""><%=rs.getString("title") %></a></td>
-		               <td align="center"><%=rs.getString("name") %></td>
-		            </tr>
-		         <%}%>
-
-      		</table><br>
-      		
-      		<button type="button" onclick=" location.href='buy_write.jsp'">글쓰기</button>
+        	<!-- 고객센터, 드롭다운 테이블 적용해서 Q&A형식 으로 구성,  -->
+        	<span class="left_bar_text">Q&A</span>
+			<hr>
+			<ul class="menu">
+				  <!-- Q1 -->
+				  <li id="Q"><span class="QA_font">Q. Lorem?</span>
+				    <ul><!-- A -->
+					      <li>
+						      <p> A. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla, 
+						      ligula sit amet ornare faucibus, elit elit gravida tortor, a faucibus ex ligula at velit. 
+						      Duis venenatis mauris quis eleifend ornare. Ut fermentum nisi non sem mattis, ac auctor est malesuada.
+						       Ut metus erat, dapibus sit amet nisi non, pharetra rutrum velit. Donec dapibus feugiat ipsum, 
+						       in iaculis felis malesuada et. Suspendisse quis tortor sit amet quam maximus pulvinar et et metus.
+						        Proin lacus enim, sagittis porta justo sit amet, luctus egestas diam. Curabitur at convallis nulla.
+						         In gravida et ex sit amet volutpat. Donec at tincidunt nisl.</p>
+					      </li>
+				    </ul>
+				  </li>
+				  <!-- Q2 -->
+				  <li id="Q">
+				    <span class="QA_font">Q. Lorem?</span>
+				    <ul><!-- A -->
+					      <li id="A">
+						      <p> A. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla, 
+						      ligula sit amet ornare faucibus, elit elit gravida tortor, a faucibus ex ligula at velit. 
+						      Duis venenatis mauris quis eleifend ornare. Ut fermentum nisi non sem mattis, ac auctor est malesuada.
+						       Ut metus erat, dapibus sit amet nisi non, pharetra rutrum velit. Donec dapibus feugiat ipsum, 
+						       in iaculis felis malesuada et. Suspendisse quis tortor sit amet quam maximus pulvinar et et metus.
+						        Proin lacus enim, sagittis porta justo sit amet, luctus egestas diam. Curabitur at convallis nulla.
+						         In gravida et ex sit amet volutpat. Donec at tincidunt nisl.</p>
+					      </li>
+				    </ul>
+				  </li>
+				  <!-- Q3 -->
+				  <li id="Q">
+				    <!-- <a href="#">Q. 1</a>  -->
+				    <span class="QA_font">Q. Lorem?</span>
+				    <ul><!-- A -->
+					      <li>
+						      <p> A. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla, 
+						      ligula sit amet ornare faucibus, elit elit gravida tortor, a faucibus ex ligula at velit. 
+						      Duis venenatis mauris quis eleifend ornare. Ut fermentum nisi non sem mattis, ac auctor est malesuada.
+						       Ut metus erat, dapibus sit amet nisi non, pharetra rutrum velit. Donec dapibus feugiat ipsum, 
+						       in iaculis felis malesuada et. Suspendisse quis tortor sit amet quam maximus pulvinar et et metus.
+						        Proin lacus enim, sagittis porta justo sit amet, luctus egestas diam. Curabitur at convallis nulla.
+						         In gravida et ex sit amet volutpat. Donec at tincidunt nisl.</p>
+					      </li>
+				    </ul>
+				  </li>
+			</ul>
+			
 
         </div>
         <!-- <div id="right_sidebar">

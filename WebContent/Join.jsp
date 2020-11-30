@@ -6,11 +6,13 @@
 <meta charset="UTF-8">
 <title>동국마켓</title>
 	<!-- <link href="main.css" rel="stylesheet" type="text/css">  -->
+	<!-- 별도 css파일과 링크 -->
 	<link href="css/JoinCss.css" rel="stylesheet" type="text/css">
 	
 	 <!-- CJH, 제목 폰트 관련 추가 (11/23 && 11/28)  -->
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+	<!-- join에서는 map x -->
 </head>
 <body>
 <!--기본 틀 구성하기 11_18-->
@@ -105,6 +107,8 @@
 						       		<td>     
 									<input type="radio" class="input2" name="userGender" value="M" title="성별"> 남자 
 									<input type="radio" class="input2" name="userGender" value="F" title="성별"> 여자
+									<!-- 사용자경고 -->
+									<p id="warning">본 사이트는 웹프로그래밍 프로젝트를 위한 사이트로<br>아이디나 패스워드 등으로 민감한 정보를<br> 기재하지 마십시오.</p>
 									<td>
 						       </tr>
 						      <!-- submit -->
@@ -121,7 +125,7 @@
 		</div>
 
         <div id="footer">
-
+			<!-- join에선 nono -->
         </div>
 
 
