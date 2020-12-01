@@ -30,7 +30,7 @@ public class UserDAO {
 		
 	} 
 	
-	// 로그인 /* * -2: 아이디없음 * -1: 서버오류 * 0: 비밀번호 틀림 * 1: 성공 */ 
+	// 濡쒓렇�씤 /* * -2: �븘�씠�뵒�뾾�쓬 * -1: �꽌踰꾩삤瑜� * 0: 鍮꾨�踰덊샇 ��由� * 1: �꽦怨� */ 
 	public int login(String userID, String userPassword) { 
 		try { 
 			PreparedStatement pst = con.prepareStatement("SELECT userPassword FROM user WHERE userID = ?"); 
@@ -45,7 +45,7 @@ public class UserDAO {
 			e.printStackTrace(); 
 			return -1; 
 			} 
-	} // 중복여부 확인 
+	} // 以묐났�뿬遺� �솗�씤 
 	
 	public boolean ID_Check(String userID) { 
 		try {
@@ -64,7 +64,7 @@ public class UserDAO {
 			return false; 
 		} 
 	
-	// 회원가입 /* * -1: 서버오류 * 0: 이미 존재하는 아이디 * 1: 성공 */ 
+	// �쉶�썝媛��엯 /* * -1: �꽌踰꾩삤瑜� * 0: �씠誘� 議댁옱�븯�뒗 �븘�씠�뵒 * 1: �꽦怨� */ 
 	public int join(UserDAO userDAO) { 
 		if(!ID_Check(userDAO.getUserID())) 
 			return 0; 
@@ -82,7 +82,7 @@ public class UserDAO {
 		} 
 		catch (Exception e) {
 			e.printStackTrace(); return -1; } 
-		} // 유저 데이터 가져오기 
+		} // �쑀�� �뜲�씠�꽣 媛��졇�삤湲� 
 	
 	public UserDAO getUser(String userID) { 
 		try { 
@@ -121,6 +121,7 @@ public class UserDAO {
 	public String getUserDate() { 
 		return userDate; } 
 	public void setUserDate(String userDate) {
-		this.userDate = userDate; } 
-	}
+		this.userDate = userDate; 
+	} 
+}
 

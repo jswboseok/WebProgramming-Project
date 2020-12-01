@@ -3,6 +3,11 @@
 <% request.setCharacterEncoding("UTF-8"); %>
 <%@ page import ="java.sql.*" %>
 <%@ page import ="java.text.*" %>
+<%@ page import="com.oreilly.servlet.MultipartRequest,
+				com.oreilly.servlet.*,
+				com.oreilly.servlet.multipart.DefaultFileRenamePolicy,
+				java.util.*,
+				java.io.*" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -14,6 +19,32 @@
     <!-- CJH, 제목 폰트 관련 추가 (11/23)  -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+	
+	<!-- 이미지 파일 업로드를 위해 파일 경로를 찾아야 함. buy_db,jsp에서 전체 경로를 db에 저장하니 '\'가 날라가기 때문 -->
+	<%
+	
+	 MultipartRequest multi = null;
+	 request.setCharacterEncoding("UTF-8");
+	 String realFolder = "";
+	 String filename1 = "";
+	 int maxSize = 1024*1024*100; //100mb
+	 String encType = "utf-8";
+	 String savefile = "img";
+	 ServletContext scontext = getServletContext();
+	 realFolder = scontext.getRealPath(savefile);
+	 
+	 /* try{
+	     multi=new MultipartRequest(request, realFolder, maxSize, encType, new DefaultFileRenamePolicy());
+	  
+	     Enumeration<?> files = multi.getFileNames();
+	     String file1 = (String)files.nextElement();
+	     filename1 = multi.getFilesystemName(file1);
+	     
+	 } catch(Exception e) {
+	  e.printStackTrace();
+	 } */
+	 
+	%>
 </head>
 <body>
     <div id ="container">
@@ -109,7 +140,7 @@
 			
 			<%
 			   int id, ref=0;
-			   String name="", title="", category="", content = "", isbuy="";
+			   String name="", title="", category="", content = "", isbuy="", imgfile="";
 			   Connection conn=null;
 			   Statement stmt = null;
 			   ResultSet rs = null;
@@ -139,6 +170,7 @@
 					category=rs.getString("category");
 					content=rs.getString("content");
 			 		isbuy = rs.getString("isbuy");
+			 		imgfile = rs.getString("imgfile");
 			   }
 			%>
 			<fieldset>
@@ -147,25 +179,31 @@
 				      <td width="100">목적 : </td>
 				      <td><%=isbuy%></td>
 				   </tr>
-				      <tr>
+				   <tr>
 				      <td width="100">카테고리 : </td>
 				      <td><%=category %></td>
 				   </tr>
-				      <tr>
+				   <tr>
 				      <td width="100">글쓴이 : </td>
 				      <td><%=name %></td>
 				   </tr>
-				      <tr>
+				   <tr>
 				      <td>글내용 : </td>
 				      <td><%=content %></td>
 				   </tr>
+				   <% if(imgfile != null){%>
+				   		<tr>
+				      		<td>이미지 : </td>
+				      		<td><img src="<%=realFolder + "\\" + imgfile%>" width=380 height=284></img></td>
+				   		</tr>
+				   		<%} %>
 				</table><br><br>
 			</fieldset>
 			<hr>
 			<a href="main.jsp">메인 화면으로</a>
         </div>
        <!--  <div id="right_sidebar">
-        <!-- CJH : 11/23,로그인창에 대하여 fieldset과 legend태그로 묶어주기, 
+         CJH : 11/23,로그인창에 대하여 fieldset과 legend태그로 묶어주기, 
         	<hr>
         	<form>
         		<fieldset> 
@@ -183,7 +221,7 @@
         	</form>
         	
         	
-		</div> --> -->
+		</div> --> 
         <div id="footer">
 			
         </div>
