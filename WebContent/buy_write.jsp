@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <% request.setCharacterEncoding("UTF-8"); %>
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -74,7 +74,7 @@
         <!-- ---------------------------------------------------------------------- -->
 		    <center><h2>글쓰기</h2></center>
 		    <fieldset>
-				<form action="buy_db.jsp" method="POST" >
+				<form action="buy_db.jsp" enctype="multipart/form-data" method="POST" >
 					<table border="0">
 				        <tr> 
 				        	<td>제목 : </td>
@@ -94,6 +94,10 @@
 				         		<option>기프티콘</option>
 				          		<option>기타</option>
 				          	</select></td>
+ 				       	</tr>
+ 				       	<tr>
+ 				       		<td>파일 업로드 : </td>
+ 				       		<td><input type="file" name="filename1" size=40></td>
  				       	</tr>
  				       	<tr>
 				        	<td>내용 : </td>
