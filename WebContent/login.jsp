@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>동국마켓</title>
 	<!-- <link href="main.css" rel="stylesheet" type="text/css">  -->
-	<link href="css/LoginCss.css" rel="stylesheet" type="text/css" >
+	<link href="CSS/LoginCss.css" rel="stylesheet" type="text/css" >
 	
 	 <!-- CJH, 제목 폰트 관련 추가 (11/23 && 11/28)  -->
 	<link rel="preconnect" href="https://fonts.gstatic.com">
@@ -55,8 +55,9 @@
 						<input type="password" class="input" name="userPassword" maxlength="20"></p>		
 					</div>
 					<br><br>
-					<input type="submit" class="log_button" value="로그인"> 
+					<input type="submit" class="log_button" value="로그인">
 			  </form>
+			  <button class="log_button" onclick="location.href='main.jsp'">취소</button>
 			</div>
 		</div>
 	</div>

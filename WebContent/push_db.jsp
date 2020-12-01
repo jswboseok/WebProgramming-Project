@@ -2,9 +2,15 @@
     pageEncoding="UTF-8"%>
 <%@ page import ="java.sql.*" %>
 <%@ page import ="java.text.*" %>
-<% request.setCharacterEncoding("UTF-8"); %>
-<!DOCTYPE html>
-<html>
+<%@ page import="java.util.*" %>
+<%@ page import="com.oreilly.servlet.MultipartRequest,
+				com.oreilly.servlet.*,
+				com.oreilly.servlet.multipart.DefaultFileRenamePolicy,
+				java.util.*,
+				java.io.*" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko">
 <head>
 	<meta charset="UTF-8">
 	<title>동국마켓</title>
@@ -12,7 +18,39 @@
 	<!-- 글쓰기 db 부분 - JSW  -->
 	<!-- CJH, 제목 폰트 관련 추가 (11/23 && 11/28)  -->
 	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+	<!--  img file path를 받아서 db에 넘김 -->
+	<%
+	
+	MultipartRequest multi = null;
+	 request.setCharacterEncoding("UTF-8");
+	 String realFolder = "";
+	 String filename1 = "";
+	 int maxSize = 1024*1024*100;
+	 String encType = "utf-8";
+	 String savefile = "img";
+	 ServletContext scontext = getServletContext();
+	 realFolder = scontext.getRealPath(savefile);
+	 String name, title, content, category, isbuy; // 쿼리요소
+	 
+	 try{
+	  multi=new MultipartRequest(request, realFolder, maxSize, encType, new DefaultFileRenamePolicy());
+	  
+		
+	  Enumeration<?> files = multi.getFileNames();
+	     String file1 = (String)files.nextElement();
+	     filename1 = multi.getFilesystemName(file1);
+	     
+	 } catch(Exception e) {
+	  e.printStackTrace();
+	 }
+	 	 category = multi.getParameter("category");
+		 isbuy = multi.getParameter("isbuy");
+		 title = multi.getParameter("title");
+	 	 content = multi.getParameter("content");
+		 String imgfile = filename1;
+
+	%>
 </head>
 <body>
 <!-- 로그인된  사람은 로그인 정보를 담을 수 있도록 만듬 11/27 -->
@@ -21,8 +59,8 @@
 		if(session.getAttribute("userID")!= null){
 			userID=(String) session.getAttribute("userID");
 		}
-	
 	%>
+
 <!--기본 틀 구성하기 11_18-->
     <div id ="container">
     <!-- CJH, 로그인 회원가입 창을 우측 화면 상단으로 올리기,  -->
@@ -88,12 +126,10 @@
          	<!-- CONTENT 부분  -->
         	<!-- ---------------------------------------------------------------------- -->
 		  	<!-- 메인 부분  -->
-		
-		
 			<%
 				int temp =0, cnt;
 				int num=0, ref=0; //새로운 게시글 넘버, 답글의 게시글 넘버
-				String name, title, content, category, isbuy; // 쿼리요소
+				
 				Connection conn=null;
 				Statement stmt = null;
 				ResultSet rs=null;
@@ -108,8 +144,6 @@
 		            String sql= "select count(*) as cnt from board";
 		            //sql_update = "select * from cjh order by ref desc, id asc"; //이니셜 board_tbl 이름 넣기
 		            rs = stmt.executeQuery(sql);
-		            
-					
 				}catch(Exception e){
 					//out.println("A");
 					out.println("DB 연동 오류입니다.:" +e.getMessage());
@@ -117,25 +151,27 @@
 				
 				while(rs.next()){ //테이블 cjh 에서 다음 쿼리정보들이 존재할때,
 					cnt=Integer.parseInt(rs.getString("cnt")); //cnt에 저장
-					out.println(cnt);
 					num = cnt;
 				}
+				
 					num++;
 					name = "temp";
 					//name=request.getParameter("name");//name으로 요청받은 파마리터를 name에 저장
-					title=request.getParameter("title");
+					/* title=request.getParameter("title");
 					category=request.getParameter("category");
 					content=request.getParameter("content");
-					isbuy=request.getParameter("isbuy");
+					isbuy=request.getParameter("isbuy"); */
 					//<!--my answer-->
+
 					sql_update="insert into board values ('"
-							+ num +"','" + isbuy + "','" + category + "','" + name + "','" + title + "','" + content + "')"; 
+							+ num +"','" + isbuy + "','" + category + "','" + name + "','" + title + "','" + content + "','" + imgfile + "')"; 
 		
 					try{
 						//<!--my answer-->
 						stmt.executeUpdate(sql_update);
 					}catch(Exception e){
 						out.println("2nd DB 연동 오류입니다 :"+e.getMessage());
+						out.println("imgfile  :"+ imgfile);
 					} 
 				
 			%>
