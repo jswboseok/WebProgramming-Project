@@ -74,7 +74,7 @@
         <!-- ---------------------------------------------------------------------- -->
 		    <center><h2>글쓰기</h2></center>
 		    <fieldset>
-				<form action="buy_db.jsp" enctype="multipart/form-data" method="POST" >
+				<form action="push_db.jsp" enctype="multipart/form-data" method="POST" >
 					<table border="0">
 				        <tr> 
 				        	<td>제목 : </td>
