@@ -127,7 +127,7 @@
         	<!-- ---------------------------------------------------------------------- -->
 		  	<!-- 메인 부분  -->
 			<%
-				int temp =0, cnt;
+				int temp =0, cnt, max_id=0;
 				int num=0, ref=0; //새로운 게시글 넘버, 답글의 게시글 넘버
 				
 				Connection conn=null;
@@ -141,7 +141,7 @@
 		            String url = "jdbc:mysql://localhost:3306/dgumarket?serverTimezone=UTC"; //url JSP페이지내에서 사용할 DB이름을 포함하는 URL을 변수에 저장
 		            conn = DriverManager.getConnection(url, "root", "0000"); // id root, p 0000
 		            stmt = conn.createStatement(); //Statement
-		            String sql= "select count(*) as cnt from board";
+		            String sql= "select count(*) as cnt, max(id) as max_id from board";
 		            //sql_update = "select * from cjh order by ref desc, id asc"; //이니셜 board_tbl 이름 넣기
 		            rs = stmt.executeQuery(sql);
 				}catch(Exception e){
@@ -150,11 +150,12 @@
 				}
 				
 				while(rs.next()){ //테이블 cjh 에서 다음 쿼리정보들이 존재할때,
-					cnt=Integer.parseInt(rs.getString("cnt")); //cnt에 저장
-					num = cnt;
+					//cnt=Integer.parseInt(rs.getString("cnt")); //cnt에 저장
+					max_id = Integer.parseInt(rs.getString("max_id"));
+					//num = cnt;
 				}
 				
-					num++;
+					num = max_id + 1;
 					name = "temp";
 					//name=request.getParameter("name");//name으로 요청받은 파마리터를 name에 저장
 					/* title=request.getParameter("title");

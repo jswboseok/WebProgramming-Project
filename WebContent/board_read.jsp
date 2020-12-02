@@ -191,7 +191,7 @@
 				      <td>글내용 : </td>
 				      <td><%=content %></td>
 				   </tr>
-				   <% if(imgfile != null){%>
+				   <% if(!imgfile.equals("null")){%>
 				   		<tr>
 				      		<td>이미지 : </td>
 				      		<td><img src="<%=realFolder + "\\" + imgfile%>" width=380 height=284></img></td>
