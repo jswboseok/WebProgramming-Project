@@ -19,8 +19,9 @@
 	<!-- CJH, 제목 폰트 관련 추가 (11/23 && 11/28)  -->
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+	
 	<!--  img file path를 받아서 db에 넘김 -->
-	<%
+	<%-- <%
 	
 	MultipartRequest multi = null;
 	 request.setCharacterEncoding("UTF-8");
@@ -50,7 +51,7 @@
 	 	 content = multi.getParameter("content");
 		 String imgfile = filename1;
 
-	%>
+	%> --%>
 </head>
 <body>
 <!-- 로그인된  사람은 로그인 정보를 담을 수 있도록 만듬 11/27 -->
@@ -127,13 +128,14 @@
         	<!-- ---------------------------------------------------------------------- -->
 		  	<!-- 메인 부분  -->
 			<%
-				int temp =0, cnt, max_id=0;
+				int temp =0, cnt, id;
 				int num=0, ref=0; //새로운 게시글 넘버, 답글의 게시글 넘버
 				
 				Connection conn=null;
 				Statement stmt = null;
 				ResultSet rs=null;
 				String sql_update; //sql 업데이트 용도인듯
+				id = Integer.parseInt(request.getParameter("id"));
 				
 				try{
 					//my answer //일단 DB에 접근해서, while로 읽게 하기, 
@@ -141,22 +143,21 @@
 		            String url = "jdbc:mysql://localhost:3306/dgumarket?serverTimezone=UTC"; //url JSP페이지내에서 사용할 DB이름을 포함하는 URL을 변수에 저장
 		            conn = DriverManager.getConnection(url, "root", "0000"); // id root, p 0000
 		            stmt = conn.createStatement(); //Statement
-		            String sql= "select count(*) as cnt, max(id) as max_id from board";
+		            //String sql= "select count(*) as cnt from board";
 		            //sql_update = "select * from cjh order by ref desc, id asc"; //이니셜 board_tbl 이름 넣기
-		            rs = stmt.executeQuery(sql);
+		            //rs = stmt.executeQuery(sql);
 				}catch(Exception e){
 					//out.println("A");
 					out.println("DB 연동 오류입니다.:" +e.getMessage());
 				}
 				
-				while(rs.next()){ //테이블 cjh 에서 다음 쿼리정보들이 존재할때,
-					//cnt=Integer.parseInt(rs.getString("cnt")); //cnt에 저장
-					max_id = Integer.parseInt(rs.getString("max_id"));
-					//num = cnt;
-				}
+				/* while(rs.next()){ //테이블 cjh 에서 다음 쿼리정보들이 존재할때,
+					cnt=Integer.parseInt(rs.getString("cnt")); //cnt에 저장
+					num = cnt;
+				} */
 				
-					num = max_id + 1;
-					name = "temp";
+					//num++;
+					//name = "temp";
 					//name=request.getParameter("name");//name으로 요청받은 파마리터를 name에 저장
 					/* title=request.getParameter("title");
 					category=request.getParameter("category");
@@ -164,20 +165,19 @@
 					isbuy=request.getParameter("isbuy"); */
 					//<!--my answer-->
 
-					sql_update="insert into board values ('"
-							+ num +"','" + isbuy + "','" + category + "','" + name + "','" + title + "','" + content + "','" + imgfile + "')"; 
+					sql_update="delete from board where id="+id+"";
 		
 					try{
 						//<!--my answer-->
 						stmt.executeUpdate(sql_update);
 					}catch(Exception e){
 						out.println("2nd DB 연동 오류입니다 :"+e.getMessage());
-						out.println("imgfile  :"+ imgfile);
+						//out.println("imgfile  :"+ imgfile);
 					} 
 				
 			%>
 			<center>
-				<h2>작성한 글이 등록되었습니다.</h2>
+				<h2>글이 삭제되었습니다.</h2>
 				<img src="image/green_tree.gif">
 				<a href="main.jsp">게시글 목록 보기</a>
 			</center>

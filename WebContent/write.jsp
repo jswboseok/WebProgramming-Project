@@ -108,7 +108,7 @@
 			   		<input type="reset" value="다시쓰기">
 				</form>
 			</fieldset>
-		   	<a href="buy.jsp">뒤로</a>
+		   	<a href="main.jsp">메인 화면으로</a>
         </div>
         <!-- <div id="right_sidebar">
 		CJH : 11/23,로그인창에 대하여 fieldset과 legend태그로 묶어주기, 
