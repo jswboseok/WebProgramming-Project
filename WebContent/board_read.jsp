@@ -204,8 +204,10 @@
 			
 			<%if(name.equals(userID)){ %>
 				<a href="delete.jsp?id=<%=id %>">글삭제</a>
+				<a href="modify.jsp?id=<%=id %>">글수정</a>
 			<%} else{ %>
 				<a href="board_read.jsp?id=<%=id %>" onclick="alert('권한이 없습니다')">글삭제</a>
+				<a href="board_read.jsp?id=<%=id %>" onclick="alert('권한이 없습니다')">글수정</a>
 			<%}%>
 			
         </div>

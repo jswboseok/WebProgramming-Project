@@ -19,6 +19,7 @@
 	<!-- CJH, 제목 폰트 관련 추가 (11/23 && 11/28)  -->
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+	
 	<!--  img file path를 받아서 db에 넘김 -->
 	<%
 	 MultipartRequest multi = null;
@@ -124,50 +125,37 @@
         
          	<!-- CONTENT 부분  -->
         	<!-- ---------------------------------------------------------------------- -->
-		  	<!-- 메인 부분  -->
+
 			<%
-				int temp =0, cnt, max_id=0;
-				int num=0, ref=0; //새로운 게시글 넘버, 답글의 게시글 넘버
+				int temp =0, id;
+				int num=0, ref=0;
 				
 				Connection conn=null;
 				Statement stmt = null;
 				ResultSet rs=null;
-				String sql_update; //sql 업데이트 용도인듯
+				String sql_update, sql_delete;
+				id=Integer.parseInt(request.getParameter("id"));
 				
 				try{
-					//my answer //일단 DB에 접근해서, while로 읽게 하기, 
-					Class.forName("com.mysql.jdbc.Driver");  //DB접속을 위해 JDBC드라이버 로드 , MySQL의 JDBC드라이버를 로드함.
-		            String url = "jdbc:mysql://localhost:3306/dgumarket?serverTimezone=UTC"; //url JSP페이지내에서 사용할 DB이름을 포함하는 URL을 변수에 저장
-		            conn = DriverManager.getConnection(url, "root", "0000"); // id root, p 0000
-		            stmt = conn.createStatement(); //Statement
+					Class.forName("com.mysql.jdbc.Driver");  
+		            String url = "jdbc:mysql://localhost:3306/dgumarket?serverTimezone=UTC"; 
+		            conn = DriverManager.getConnection(url, "root", "0000");
+		            stmt = conn.createStatement();
 		            String sql= "select count(*) as cnt, max(id) as max_id from board";
-		            //sql_update = "select * from cjh order by ref desc, id asc"; //이니셜 board_tbl 이름 넣기
 		            rs = stmt.executeQuery(sql);
 				}catch(Exception e){
-					//out.println("A");
 					out.println("DB 연동 오류입니다.:" +e.getMessage());
 				}
 				
-				while(rs.next()){ //테이블 cjh 에서 다음 쿼리정보들이 존재할때,
-					//cnt=Integer.parseInt(rs.getString("cnt")); //cnt에 저장
-					max_id = Integer.parseInt(rs.getString("max_id"));
-					//num = cnt;
-				}
-				
-					num = max_id + 1;
-					name = "temp";
-					//name=request.getParameter("name");//name으로 요청받은 파마리터를 name에 저장
-					/* title=request.getParameter("title");
-					category=request.getParameter("category");
-					content=request.getParameter("content");
-					isbuy=request.getParameter("isbuy"); */
-					//<!--my answer-->
-
+					name=request.getParameter("name");//name으로 요청받은 파마리터를 name에 저장
+					
+					/* 원래 있던 data delete후 같은 id 숫자로 insert */
+					sql_delete = "DELETE FROM board WHERE id=" + id + "";
 					sql_update="insert into board values ('"
-							+ num +"','" + isbuy + "','" + category + "','" + name + "','" + title + "','" + content + "','" + imgfile + "')"; 
+							+ id +"','" + isbuy + "','" + category + "','" + name + "','" + title + "','" + content + "','" + imgfile + "')"; 
 		
 					try{
-						//<!--my answer-->
+						stmt.executeUpdate(sql_delete);
 						stmt.executeUpdate(sql_update);
 					}catch(Exception e){
 						out.println("2nd DB 연동 오류입니다 :"+e.getMessage());
@@ -175,7 +163,7 @@
 				
 			%>
 			<center>
-				<h2>작성한 글이 등록되었습니다.</h2>
+				<h2>글이 수정되었습니다.</h2>
 				<a href="main.jsp">게시글 목록 보기</a>
 			</center>
         </div>
