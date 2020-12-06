@@ -191,7 +191,7 @@
 				      <td>글내용 : </td>
 				      <td><%=content %></td>
 				   </tr>
-				   <% if(imgfile != null){%>
+				   <% if(!imgfile.equals("null")){%>
 				   		<tr>
 				      		<td>이미지 : </td>
 				      		<td><img src="<%=realFolder + "\\" + imgfile%>" width=380 height=284></img></td>
@@ -200,7 +200,16 @@
 				</table><br><br>
 			</fieldset>
 			<hr>
-			<a href="main.jsp">메인 화면으로</a>
+			<a href="main.jsp">메인 화면으로</a>&nbsp;
+			
+			<%if(name.equals(userID)){ %>
+				<a href="delete.jsp?id=<%=id %>">글삭제</a>
+				<a href="modify.jsp?id=<%=id %>">글수정</a>
+			<%} else{ %>
+				<a href="board_read.jsp?id=<%=id %>" onclick="alert('권한이 없습니다')">글삭제</a>
+				<a href="board_read.jsp?id=<%=id %>" onclick="alert('권한이 없습니다')">글수정</a>
+			<%}%>
+			
         </div>
        <!--  <div id="right_sidebar">
          CJH : 11/23,로그인창에 대하여 fieldset과 legend태그로 묶어주기, 

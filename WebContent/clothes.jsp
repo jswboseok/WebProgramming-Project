@@ -161,7 +161,7 @@
 
       		</table><br>
       		
-      		<button type="button" onclick=" location.href='buy_write.jsp'">글쓰기</button>
+      		<button type="button" onclick=" location.href='write.jsp'">글쓰기</button>
       		
       		
         </div>

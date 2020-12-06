@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ page import ="java.sql.*" %>
     <% request.setCharacterEncoding("UTF-8"); %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -71,28 +72,101 @@
         
         
         <!-- CONTENT 부분  -->
+        
+        <%
+				int id = Integer.parseInt(request.getParameter("id"));
+        		String name="", isbuy="", title="", category="", content="";
+				
+				Connection conn=null;
+				Statement stmt = null;
+				ResultSet rs=null;
+				String sql_update, sql_delete; //sql 업데이트 용도인듯
+				id=Integer.parseInt(request.getParameter("id"));
+				
+				try{
+					//my answer //일단 DB에 접근해서, while로 읽게 하기, 
+					Class.forName("com.mysql.jdbc.Driver");  //DB접속을 위해 JDBC드라이버 로드 , MySQL의 JDBC드라이버를 로드함.
+		            String url = "jdbc:mysql://localhost:3306/dgumarket?serverTimezone=UTC"; //url JSP페이지내에서 사용할 DB이름을 포함하는 URL을 변수에 저장
+		            conn = DriverManager.getConnection(url, "root", "0000"); // id root, p 0000
+		            stmt = conn.createStatement(); //Statement
+		            String sql = "select * from board where id = " + id; //이니셜 board_tbl 이름 넣기
+				       rs = stmt.executeQuery(sql);
+				    } 
+				    catch(Exception e) {
+				         out.println("DB 연동 오류입니다. : " + e.getMessage());
+				    }
+				   
+				   //title=request.getParameter("title");
+				   while(rs.next()){
+				      //my answer
+				      //조건문으로 id 번호랑 일치할때, 까지하고,밑에랑 name..content
+				    	name=rs.getString("name");//name으로 요청받은 파마리터를 name에 저장
+						title=rs.getString("title");
+						category=rs.getString("category");
+						content=rs.getString("content");
+				 		isbuy = rs.getString("isbuy");
+				   }
+			%>
+			
+			
         <!-- ---------------------------------------------------------------------- -->
 		    <center><h2>글쓰기</h2></center>
 		    <fieldset>
-				<form action="push_db.jsp" enctype="multipart/form-data" method="POST" >
+				<form action="modify_db.jsp?id=<%=request.getParameter("id") %>" enctype="multipart/form-data" method="POST" >
 					<table border="0">
 				        <tr> 
 				        	<td>제목 : </td>
-				         	<td><input type="text" name="title" size="50">(10자 이내)</td>
+				         	<td><input type="text" name="title" size="50" value=<%=title %>>(10자 이내)</td>
 				      	</tr>
 				      		<td>목적 : </td>
 				        	<td><select name="isbuy">
-				         		<option>팝니다</option>
+				        	<% if(isbuy.equals("팝니다")){ %>
+				        		<option selected>팝니다</option>
 				         		<option>삽니다</option>
+				        	<% }else{ %>
+				         		<option>팝니다</option>
+				         		<option selected>삽니다</option>
+				         	<% }%>
 				         	</select></td>
 				       	</tr>
 				       	<tr>
 				        	<td>카테고리 : </td>
 				          	<td><select name="category">
-				         		<option>책</option>
+				          	<% switch(category){
+				          	case "책":
+				          		%>  
+								<option selected>책</option>
 				         		<option>옷</option>
 				         		<option>기프티콘</option>
-				          		<option>기타</option>
+				          		<option>기타</option> 
+				          		<% 
+				          		break;
+							case "옷":
+								%>  
+								<option>책</option>
+				         		<option selected>옷</option>
+				         		<option>기프티콘</option>
+				          		<option>기타</option> 
+				          		<% 
+				          		break;
+							case "기프티콘":
+								%>  
+								<option>책</option>
+				         		<option>옷</option>
+				         		<option selected>기프티콘</option>
+				          		<option>기타</option> 
+				          		<% 
+								break;
+							default:
+								%>  
+								<option>책</option>
+				         		<option>옷</option>
+				         		<option>기프티콘</option>
+				          		<option selected>기타</option> 
+				          		<% 
+								break;
+				          	}
+				          	%>
 				          	</select></td>
  				       	</tr>
  				       	<tr>
@@ -101,7 +175,7 @@
  				       	</tr>
  				       	<tr>
 				        	<td>내용 : </td>
-				          	<td><textarea name="content" cols="60" rows="10"></textarea></td>
+				          	<td><textarea name="content" cols="60" rows="10"><%=content %></textarea></td>
 				       	</tr>
 				    </table><br><br>
 				   	<input type="submit" value="등록하기">
