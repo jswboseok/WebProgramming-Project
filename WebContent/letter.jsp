@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 	<title>동국마켓</title>
 	<link href="css/main.css" rel="stylesheet" type="text/css">
 	 <!-- CJH, 제목 폰트 관련 추가 (11/23 && 11/28)  -->

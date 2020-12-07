@@ -58,6 +58,7 @@
 					<br><br>
 					<input type="submit" class="log_button" value="로그인"> 
 			  </form>
+			  <button class="log_button" onclick="location.href='main.jsp'">취소</button> <!-- 추가 -->
 			</div>
 		</div>
 	</div>

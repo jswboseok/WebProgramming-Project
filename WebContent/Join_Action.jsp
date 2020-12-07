@@ -16,6 +16,7 @@
     
     <body>
         <%
+        //1207 변경사항없음
         String userID		= request.getParameter("userID");
         String userPassword = request.getParameter("userPassword");
         String userName		= request.getParameter("userName");

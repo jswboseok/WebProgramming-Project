@@ -174,14 +174,18 @@
 		               <td align="center"><%=rs.getString("isbuy") %></td>
 		               <td align="center"><%=rs.getString("category") %></td>
 		               <%-- <td align="center"><a href="Board-read.jsp?id=<%=id%>"><%=rs.getString("title") %></a></td> --%>
-		               <td align="center"><a href="board_read.jsp?id=<%=id%>""><%=rs.getString("title") %></a></td>
+		               <%-- <td align="center"><a href="board_read.jsp?id=<%=id%>""><%=rs.getString("title") %></a></td> --%>
+		               <% if(userID == null){%>
+		               <td align="center"><a href="buy.jsp" onclick="alert('로그인 하세요')"><%=rs.getString("title") %></a></td>
+		               <%}else{%><td align="center"><a href="board_read.jsp?id=<%=id%>""><%=rs.getString("title") %></a></td>
+		               <%}%>
 		               <td align="center"><%=rs.getString("name") %></td>
 		            </tr>
 		         <%}  }%>
 
       		</table><br>
       		
-      		<button type="button" onclick=" location.href='buy_write.jsp'">글쓰기</button>
+      		<button type="button" onclick=" location.href='write.jsp'">글쓰기</button> <!-- buy_write.jsp -> write.jsp -->
       		
         </div>
         <!-- <div id="right_sidebar">

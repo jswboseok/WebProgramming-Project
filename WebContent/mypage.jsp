@@ -3,6 +3,8 @@
 <%@ page import="user.UserDAO" %> 
 <%@ page import="java.io.PrintWriter" %>
 <%@ page import="java.text.SimpleDateFormat" %>
+<!-- 딱히 수정사항 x 1207 -->
+
 <!DOCTYPE html>
 <html>
 <head>

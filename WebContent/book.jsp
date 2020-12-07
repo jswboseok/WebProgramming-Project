@@ -138,7 +138,7 @@
       		
       		<% // JSP Start
 		         int id;
-      			 String category, title, name, content, isbuy;
+      			 String category, title, name, content, isbuy; //변화 x
 		         int rownum = 0;
 		         Connection conn = null; //Connection 객체 생성하여 DB에 연결, 경로와 사용자계정, 패스워드 통해 접속,
 		         Statement stmt = null; //Statement 객체 생성, SQL문을 실행하기 위함
@@ -174,7 +174,11 @@
 		               <td align="center"><%=rs.getString("isbuy") %></td>
 		               <td align="center"><%=rs.getString("category") %></td>
 		               <%-- <td align="center"><a href="Board-read.jsp?id=<%=id%>"><%=rs.getString("title") %></a></td> --%>
-		               <td align="center"><a href="board_read.jsp?id=<%=id%>""><%=rs.getString("title") %></a></td>
+		               <%--  <td align="center"><a href="board_read.jsp?id=<%=id%>""><%=rs.getString("title") %></a></td> --%>
+		                 <% if(userID == null){%>
+		               <td align="center"><a href="book.jsp" onclick="alert('로그인 하세요')"><%=rs.getString("title") %></a></td>
+		               <%}else{%><td align="center"><a href="board_read.jsp?id=<%=id%>""><%=rs.getString("title") %></a></td>
+		               <%}%>
 		               <td align="center"><%=rs.getString("name") %></td>
 		            </tr>
 		         <%}  }%>
