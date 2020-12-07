@@ -15,10 +15,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>동국마켓</title>
     <!-- 외부 css 링크하기 -->
-    <link href="main.css" rel="stylesheet" type="text/css">
+    <link href="css/main.css" rel="stylesheet" type="text/css">
     <!-- CJH, 제목 폰트 관련 추가 (11/23)  -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+	<!-- 1201 Naver Map API -->
+	<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=db4sb1wr4q&callback=initMap"></script>
+	<script type="text/javascript">
+        var map = null;
+
+        function initMap() {
+            map = new naver.maps.Map('map', {
+                center: new naver.maps.LatLng(37.55828, 127.00030),//동국대 위치로 수정하기.
+                zoom: 16
+            });
+            var marker = new naver.maps.Marker({
+                position: new naver.maps.LatLng(37.55828, 127.00030),
+                map: map,
+            }); 
+            naver.maps.Event.addListener(map, 'click', function(e) {
+            marker.setPosition(e.latlng);
+        	});
+        }
+       
+    </script>
 	
 	<!-- 이미지 파일 업로드를 위해 파일 경로를 찾아야 함. buy_db,jsp에서 전체 경로를 db에 저장하니 '\'가 날라가기 때문 -->
 	<%
@@ -130,6 +150,9 @@
 					<li><a class="cate_link" href="extraItem.jsp">기타</a></li>
 				</ul>
 			</div>
+			<!-- 네이버 지도 API -->
+			<span id="user_location">LOCATION<hr></span>
+			<div id="map" style="width:100%;height:350px;"></div>
         </div>
         <div id ="contents">
 			

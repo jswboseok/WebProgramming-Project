@@ -1,0 +1,332 @@
+/* Coded by Junho Choi  */
+/*  Purpose of this css file : Make a common css frame in our project */
+
+/* div */
+div {
+    border:1px solid #ccc;
+}
+/*body�쓽 �룿�듃�뿉 ���빐�꽌, */
+/* body{
+	font-family: 'Noto Sans KR', sans-serif;
+} */
+
+/* ----------CJH , topMenu �꽕�젙 11/23------------*/
+#topMenu{ 
+	/*nav濡� 踰꾪듉 link�뱾 臾띠쓬*/
+    height:3%;
+    top:120px;
+}
+#topMenu ul li {                      
+    list-style: none;           
+    color: white;               
+    
+    float: left;               
+    line-height: 30px; /*湲��옄 �넂�씠*/         
+    vertical-align: middle;     
+    text-align: center;
+    
+    width: 205px;
+    
+    /*About backgroud-color;*/
+    /* background-color: #2d2d2d;   */
+     background-color:#282828;
+     /*list�쓽 font�뿉 愿��븳 遺�遺�*/
+     font-family: 'Noto Sans KR', sans-serif;
+	 font-size: 14px;
+	font-weight: 300;
+}
+#topMenu .link {
+	/*a �깭洹몄뿉 愿��븳 遺�遺�*/
+    text-decoration:none;                     
+    color: white;                              
+    display: block;                            
+    /* width: 205px;                             
+    font-size: 12px;                           
+    font-weight: bold;                        
+    font-family: "Trebuchet MS", Dotum, Arial; */
+    transition-duration: .4s;
+   -webkit-transition-duration: .4s;
+   -moz-transition-duration: .4s;
+   -o-transition-duration: .4s;
+   letter-spacing: 1px;  
+     
+}
+#topMenu .link:hover {            
+    /* color: blue;  */         
+    font-weight:bold;       
+    background-color: #4d4d4d;    
+}
+
+/* ID */
+#container {
+    width:1100px;
+    height: 1600px;
+    margin: 0px auto;
+    padding: 20px;
+    /**/
+    border-bottom: 2px solid #036;
+	border-image: linear-gradient(to right, #036 50%, #c00 70%);
+	border-image-slice: 1;
+
+
+}
+#headerTop {
+    height:7%;
+    /* margin-bottom:20px; */
+    padding: 20px;
+    /*CJH 11/23*/
+    border-style : none;
+    /* border:double; */
+   /*  background-color: lightblue; */
+    /* border: 1px solid black; */ 
+}
+#headerFont {
+	/*�쎒�궗�씠�듃 �젣紐� �룿�듃�뿉 愿��젴�맂 css*/
+	font-family: 'Nanum Pen Script', cursive; /*CJH : 11/23 added */
+	font-weight: bold;
+	font-size: 50px;
+	text-align: center;
+}
+
+#left_sidebar{
+    height: 70%;
+    margin: 0 20px 20px 0;
+    padding: 20px;
+    width : 16%;
+    float:left;
+    
+
+    /* margin:0; */
+}
+/*-----------CJH_移댄뀒怨좊━ css�뵒�옄�씤_11/23------------ */
+#category{
+	border:none;
+	/* padding:0;
+	text-algin:center; */
+	
+}
+.left_bar_text{
+	/*移댄뀒怨좊━ �룿�듃 �쟻�슜*/
+	
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size:18px;
+	font-weight: 400;
+}
+
+/* #category ul,li {
+	margin:0; 
+	padding-left:20%;
+	
+}  */
+#category ul li{
+	list-style:none;
+	line-height:30px;
+	/* border:1px solid #ccc; */
+	/*由ъ뒪�듃�뿉 ���븳 �룿�듃 �쟻�슜*/
+	
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size:24px;
+	font-weight: 700;
+	/*1201*/
+	 
+	
+}
+#category .cate_link{
+	width:180px;
+	line-height:35px;
+	text-decoration:none;
+	color:#333333;
+	/* background :#ccc; */
+	transition-duration: .4s;
+   -webkit-transition-duration: .4s;
+   -moz-transition-duration: .4s;
+   -o-transition-duration: .4s;
+   letter-spacing: 1px;   
+  /*  border:1px solid #ccc; */
+	
+}
+/*hover 移댄뀒怨좊━ css �샇踰� 泥섎━*/
+#category .cate_link:hover{
+	text-decoration: underline; 
+	color: red;
+	/* background :#e9e9e9; */
+} 
+/* naver map API */
+#left_sidebar #map{
+	position:relative;
+	top:120px;
+}
+#left_sidebar #user_location{
+	position:relative;
+	top:120px;
+	padding:10px;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size:18px;
+	font-weight: 400;
+}
+#contents{
+    height: 70%;
+    margin-bottom:20px;
+    width:74.15%;
+    padding:20px;
+    float:left;
+
+}
+
+/*--------------QA page----------------*/
+ul.menu{
+	top:20px;
+}
+ul.menu, ul.menu ul {
+	position: relative;
+	list-style: none;
+	padding: 0;
+	
+	-webkit-transition: opacity .30s ease-in-out;
+    -moz-transition: opacity .30s ease-in-out;
+    -ms-transition: opacity .30s ease-in-out;
+    -o-transition: opacity .30s ease-in-out;
+    transition: opacity .30s ease-in-out;
+}
+ul.menu li {
+	margin: 5px 0;
+	
+}
+ul.menu #Q{
+	border-bottom:2px solid #ccc;
+}
+/* ul.menu #A{
+
+} */
+ul.menu ul {
+  visibility: hidden;
+  height: 0;
+  width: 0;
+  opacity: 0;
+  
+}
+ul.menu li:hover ul {
+	width: auto;
+	height: auto;
+	visibility: visible;
+	opacity: 1;
+}
+ul.menu .QA_font{
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size:24px;
+	font-weight: 400;
+}
+ul.menu p{
+	padding:5px;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size:16px;
+	font-weight: 400;
+}
+
+/*Mypage text*/
+#myPage_text{
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size:18px;
+	font-weight: 400;
+}
+#myPage_account ul{
+	list-style-type:square;
+	
+}
+#myPage_account li{
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size:14px;
+	font-weight: 400;
+	margin-bottom:4px;
+	letter-spacing: 1px;  
+	
+}
+/*�룓湲� �삁�젙 no more _right_sidebar */
+/* #right_sidebar{ 
+    height: 70%;
+    margin-bottom: 20px;
+    width:16%;
+    float:right;
+    padding:20px;
+
+
+    margin:0;
+} */
+
+/* ��泥� 濡쒓렇�씤 李� 11/27 */
+header{
+	/* height : 0;  */
+	/*background-color : #006F84;*/
+	/* border:1px solid #253342; */
+	position:absoulte; 
+	/*  width:80%; */
+	/* 	z-index: 9999; */ 
+	top:0; left:0;
+}
+/* #loginbar{
+	width:1100px;
+	margin:0 auto;
+	border:1px solid #253342;
+} */
+.login_menu{
+	/*ul �겢�옒�뒪 �씠由�*/
+	float:right;
+	margin:0;
+}
+.login_menu li{
+	float:left;
+	/* border:1px solid #ccc; */
+	list-style:none;
+	/*list�쓽 font�뿉 愿��븳 遺�遺�*/
+     font-family: 'Noto Sans KR', sans-serif;
+	 font-size: 16px;
+	 font-weight: 300;
+	 /* padding:0 5px; */
+	 line-height:30px;
+	
+}
+.login_menu a{
+	/*濡쒓릿硫붾돱�쓽 a�깭洹몄� 愿��젴�맂 遺�遺�*/
+	/* line-height:30px; */
+	color:black;
+	padding : 0 10px; 
+	display:block;
+	text-decoration : none;
+	/*1201*/
+	transition-duration: .4s;
+   -webkit-transition-duration: .4s;
+   -moz-transition-duration: .4s;
+   -o-transition-duration: .4s;
+   
+	
+}
+.login_menu a:hover{
+	text-decoration: underline; 
+	color: red;
+}
+#footer {
+    height:5%;
+    clear:both;
+    padding:20px;
+    border-left:none;
+    border-right:none;
+}
+#footer .footer_text{
+	text-decoration:underline;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size:18px;
+	font-weight: 400;
+	transition-duration: .4s;
+   -webkit-transition-duration: .4s;
+   -moz-transition-duration: .4s;
+   -o-transition-duration: .4s;
+   letter-spacing: 1px;   
+}
+#footer .footer_text:hover{
+	color: red;
+}
+#footer p{
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size:16px;
+	font-weight: 400;
+}

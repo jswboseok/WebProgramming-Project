@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>동국마켓</title>
 	<!-- <link href="main.css" rel="stylesheet" type="text/css">  -->
-	<link href="CSS/JoinCss.css" rel="stylesheet" type="text/css">
+	<link href="css/JoinCss.css" rel="stylesheet" type="text/css">
 	
 	 <!-- CJH, 제목 폰트 관련 추가 (11/23 && 11/28)  -->
 	<link rel="preconnect" href="https://fonts.gstatic.com">

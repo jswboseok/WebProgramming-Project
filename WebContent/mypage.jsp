@@ -3,15 +3,18 @@
 <%@ page import="user.UserDAO" %> 
 <%@ page import="java.io.PrintWriter" %>
 <%@ page import="java.text.SimpleDateFormat" %>
+<!-- 딱히 수정사항 x 1207 -->
+
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
 	<title>동국마켓</title>
-	<link href="main.css" rel="stylesheet" type="text/css">
+	<link href="css/main.css" rel="stylesheet" type="text/css">
 	 <!-- CJH, 제목 폰트 관련 추가 (11/23 && 11/28)  -->
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+	<!-- 마이페이지엔 네이버지도 x -->
 </head>
 <body>
 <!--기본 틀 구성하기 11_18-->
@@ -104,7 +107,7 @@
                     <!-- 로그인하여 세션이 생겨야 이 jsp파일에 접근가능하므로, ㄱㅊ-->
                     <li><a class="link" onclick="location='letter.jsp'">쪽지</a> </li>
                     <!-- 고객센터부분 _11/23 -->
-                    <li><a class="link" href="#">고객센터</a></li>
+                    <li><a class="link" onclick="location='service.jsp'">고객센터</a></li>
                     <li><a class="link" onclick="location='mypage.jsp'">마이페이지</a> </li>
                 </ul>
         	</nav>
@@ -124,9 +127,10 @@
         </div>
         <div id ="contents">
         <!-- myPages, 현재 로그인한 session으로부터 정보를 읽어옴. -->
-			마이페이지<hr>
-			회원정보
-			<div id="account">
+			<span id="myPage_text">마이페이지</span>
+			<hr>
+			<span id="myPage_text">회원정보</span>
+			<div id="myPage_account">
 				<ul>
 					<li>아이디 : <%=userID %></li>
 					<li>비밀번호 : <%=userPassword %></li>
@@ -136,30 +140,17 @@
 					<li>마지막 접속 시간 : <%=fmat.format(lastLog) %></li>		
 				</ul>
 			</div><br>
-			게시글 정보<hr>
-			<!-- DB에서 해당 닉네임으로 게시한 글의 정보를 가져옴  -->
+			<span id="myPage_text">최근 게시글 정보</span><hr>
+			<!-- DB에서 해당 닉네임으로 게시한 글의 최근  정보를 가져옴  -->
+			<% 
+			
+			%>
+			
         </div>
-        <!-- <div id="right_sidebar">
-        <hr>
-        	<form method="post" action="./login_Action.jsp">
-        		<fieldset> 
-	        		<legend align="center">로그인 </legend>
-	        		&nbsp; ID<br><input type="text" class ="input" placeholder="아이디" name="userID" maxlength="20"><br>
-	        		type password로 변경 11/23
-        			&nbsp;비밀번호<br><input type="password" class="input" placeholder="비밀번호 "name="userPassword" maxlength="20"><br><br>
-        		
-        			<a href="login.jsp"><button type="button" class="btn btn-outline-dark">로그인</button>
-        </form>
-        </form>			
-					<a href="Join.jsp"><button type="button" class="btn btn-outline-dark">회원가입</button>
-        		
-        		</fieldset>
-
-        	</form>
-        	
-		</div> -->
+       
         <div id="footer">
-
+			<span class="footer_text">About Us</span>
+			<p>동국대학교의 열정적인 웹프로그래밍 수업 수강생들입니다.</p>
         </div>
 
 		<%

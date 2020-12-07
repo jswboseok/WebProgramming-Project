@@ -35,8 +35,6 @@
 	 
 	 try{
 	  multi=new MultipartRequest(request, realFolder, maxSize, encType, new DefaultFileRenamePolicy());
-	  
-		
 	  Enumeration<?> files = multi.getFileNames();
 	     String file1 = (String)files.nextElement();
 	     filename1 = multi.getFilesystemName(file1);

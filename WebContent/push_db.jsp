@@ -8,17 +8,36 @@
 				com.oreilly.servlet.multipart.DefaultFileRenamePolicy,
 				java.util.*,
 				java.io.*" %>
-
+<% request.setCharacterEncoding("UTF-8"); %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko">
 <head>
 	<meta charset="UTF-8">
 	<title>동국마켓</title>
-	<link href="main.css" rel="stylesheet" type="text/css">
+	<link href="css/main.css" rel="stylesheet" type="text/css">
 	<!-- 글쓰기 db 부분 - JSW  -->
 	<!-- CJH, 제목 폰트 관련 추가 (11/23 && 11/28)  -->
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+	<!-- 1201 Naver Map API -->
+	<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=db4sb1wr4q&callback=initMap"></script>
+	<script type="text/javascript">
+        var map = null;
+
+        function initMap() {
+            map = new naver.maps.Map('map', {
+                center: new naver.maps.LatLng(37.55828, 127.00030),//동국대 위치로 수정하기.
+                zoom: 16
+            });
+            var marker = new naver.maps.Marker({
+                position: new naver.maps.LatLng(37.55828, 127.00030),
+                map: map,
+            }); 
+            naver.maps.Event.addListener(map, 'click', function(e) {
+            marker.setPosition(e.latlng);
+        	});
+        }
+    </script> 
 	<!--  img file path를 받아서 db에 넘김 -->
 	<%
 	 MultipartRequest multi = null;
@@ -118,6 +137,9 @@
 					<li><a class="cate_link" href="extraItem.jsp">기타</a></li>
 				</ul>
 			</div>
+			<!-- 네이버 지도 API -->
+			<span id="user_location">LOCATION<hr></span>
+			<div id="map" style="width:100%;height:350px;"></div>
         </div>
         <div id ="contents">
         
@@ -201,7 +223,8 @@
         	
 		</div> -->
         <div id="footer">
-
+			<span class="footer_text">About Us</span>
+			<p>동국대학교의 열정적인 웹프로그래밍 수업 수강생들입니다.</p>
         </div>
 
 
