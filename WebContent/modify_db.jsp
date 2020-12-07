@@ -145,19 +145,19 @@
 					out.println("DB 연동 오류입니다.:" +e.getMessage());
 				}
 				
-					name=request.getParameter("name");//name으로 요청받은 파마리터를 name에 저장
+				name=(String) session.getAttribute("userID");
 					
-					/* 원래 있던 data delete후 같은 id 숫자로 insert */
-					sql_delete = "DELETE FROM board WHERE id=" + id + "";
-					sql_update="insert into board values ('"
-							+ id +"','" + isbuy + "','" + category + "','" + name + "','" + title + "','" + content + "','" + imgfile + "')"; 
+				/* 원래 있던 data는 삭제하고 수정한 데이터를 같은 글번호(id)로 insert */
+				sql_delete = "DELETE FROM board WHERE id=" + id + "";
+				sql_update="insert into board values ('"
+					+ id +"','" + isbuy + "','" + category + "','" + name + "','" + title + "','" + content + "','" + imgfile + "')"; 
 		
-					try{
-						stmt.executeUpdate(sql_delete);
-						stmt.executeUpdate(sql_update);
-					}catch(Exception e){
-						out.println("2nd DB 연동 오류입니다 :"+e.getMessage());
-					} 
+				try{
+					stmt.executeUpdate(sql_delete);
+					stmt.executeUpdate(sql_update);
+				}catch(Exception e){
+					out.println("2nd DB 연동 오류입니다 :"+e.getMessage());
+				} 
 				
 			%>
 			<center>

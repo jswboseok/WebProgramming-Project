@@ -152,7 +152,8 @@
         	
 		</div> -->
         <div id="footer">
-
+			<span class="footer_text">About Us</span>
+			<p>동국대학교의 열정적인 웹프로그래밍 수업 수강생들입니다.</p>
         </div>
 
     </div>

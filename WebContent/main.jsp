@@ -34,12 +34,7 @@
             marker.setPosition(e.latlng);
         	});
         }
-       
     </script>
-		
-	
-	
-	
 </head>
 <body>
 	<!-- 로그인된  사람은 로그인 정보를 담을 수 있도록 만듬 11/27 -->
@@ -48,7 +43,6 @@
 		if(session.getAttribute("userID")!= null){
 			userID=(String) session.getAttribute("userID");
 		}
-	
 	%>
     <!--기본 틀 구성하기 11_18-->
     <div id ="container">
@@ -81,12 +75,9 @@
     			</ul>
     		</nav>
     	</header>
-    	
     	<%
-    	
     		}
     	%>
-    
         <div id ="headerTop">
         <h1 id="headerFont"><a href="main.jsp" style="text-decoration:none; color:black;">동국대학교 중고거래장터</a></h1>
         </div>
@@ -109,7 +100,6 @@
                     <!-- 로그인을 안하여 세션이 없다면, 경고창 뜨게 하기. 1128 -->
                     <%
                     	if(userID==null){ //로그인 되어있지 않다면,
-
                     %>
                     <!-- 로그인 되어 있지 않은 경우 팝업 경고 -->
                     <li><a class="link" onclick="alert('로그인을 먼저 해주세요');">마이페이지</a></li>
@@ -157,17 +147,16 @@
 		         int id;
       			 String category, title, name, content, isbuy;
 		         int rownum = 0;
-		         Connection conn = null; //Connection 객체 생성하여 DB에 연결, 경로와 사용자계정, 패스워드 통해 접속,
-		         Statement stmt = null; //Statement 객체 생성, SQL문을 실행하기 위함
+		         Connection conn = null;
+		         Statement stmt = null;
 		         String sql = null;
 		         ResultSet rs = null;
 		         
 		         try { 
-		                 Class.forName("com.mysql.jdbc.Driver");  //JDBC드라이버 로드 , MySQL의 JDBC드라이버를 로드함.
-		                 String url = "jdbc:mysql://localhost:3306/dgumarket?serverTimezone=UTC"; //url JSP페이지내에서 사용할 DB이름을 포함하는 URL을 변수에 저장
-		                 conn = DriverManager.getConnection(url, "root", "0000"); // id root, p 0000
-		                 stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE); //Statement
-		                 //sql = "select * from board order by ref desc, id asc";
+		                 Class.forName("com.mysql.jdbc.Driver");
+		                 String url = "jdbc:mysql://localhost:3306/dgumarket?serverTimezone=UTC";
+		                 conn = DriverManager.getConnection(url, "root", "0000");
+		                 stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 		                 sql = "select * from board order by id desc";
 		                 rs = stmt.executeQuery(sql);
 		           } 
