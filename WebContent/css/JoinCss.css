@@ -25,15 +25,27 @@
  	
  }
 /*테이블 페이지 크기*/
+.table_container{
+	width:300px;
+    margin-left:350px;
+    height: 500px;
+     border:2px groove #ccc;
+     background-color:white;
+}
 .table{ 
 	/* max-width: 700px;
     min-width: 600px;  */
     /* float:left; */
-    width:300px;
+   /*  width:300px;
     margin-left:350px;
     height: 400px;
      border:2px groove #ccc;
-     background-color:white;
+     background-color:white; */
+     /* border:1px solid #ccc; */
+     margin:40px;
+     margin-top:0;
+     margin-bottom:5px;
+     /* border:1px solid #ccc; */
   
 }
 /*내가만든 모든 페이지에 타이틀 css는 중복*/
@@ -53,8 +65,9 @@
 }
 
 /*td(테이블 제목들)조절*/
-.joinc1{
+.table .joinc1{
 	 /* display: block; */
+	
     height: 0px;
     font-size: 13px;
     padding: 10px;
@@ -62,8 +75,9 @@
     color: #000;
     font-family: Montserrat,Poppins,Lato,sans-serif;
     text-align:center;
-    
-     /* border:1px solid #ccc;  */
+    /* border:1px solid #ccc; */
+	
+     /* border:1px soliborder-spacing: lengthd #ccc;  */
 }
 
 /*select 칸 디자인*/
@@ -78,7 +92,7 @@
     vertical-align: middle;
     font-size: 11px;
     
-    margin-left:28.5%;
+    margin-left:22.0%;/*28.5*/
     
     border-radius: 0px;
     -webkit-appearance: menulist;
@@ -91,7 +105,7 @@
 }
 /*성별 칸 디자인*/
 .table .input2{
-	margin:0 5px 0 55px;
+	margin:0 0 0 40px;
 	vertical-align: middle;
 	font-family: Lato,sans-serif,"돋움",Dotum;
     color: #353535;
@@ -108,7 +122,7 @@
     background-color: white; 
 }
 
-.log_button {
+.table .log_button {
     width: 180px;
    /* display: block; */
    background: #000;
@@ -117,9 +131,9 @@
    text-align: center;
    padding: 8px 0;
    font-weight: normal;
-   margin-left: 60px;
+   margin-left: 20px;
    /* margin-left: 320px;  */
-   margin-top: 50px; /* 10 */
+   margin-top: 14px; /* 10 */
    transition-duration: .4s;
    -webkit-transition-duration: .4s;
    -moz-transition-duration: .4s;
@@ -129,12 +143,38 @@
    /*가운데 정렬
    margin: 0 auto; */
 }
+.table_container .cancle_button{
+   width: 180px;
+   /* display: block; */
+   background: #000;
+   border: 1px solid #000;
+   color: #fff;
+   text-align: center;
+   padding: 8px 0;
+   font-weight: normal;
+   margin-left: 63px;
+   /* margin-left: 320px;  */
+   margin-top:5px; /* 10 */
+   transition-duration: .4s;
+   -webkit-transition-duration: .4s;
+   -moz-transition-duration: .4s;
+   -o-transition-duration: .4s;
+   letter-spacing: 1px;  
+   /* float: left; */
+}
 
 .log_button:hover {
 	color: #242526;
 	background-color:#f7f7f7;
 }
 .log_button:active {	
+	top:1px;
+}
+.cancle_button:hover {
+	color: #242526;
+	background-color:#f7f7f7;
+}
+.cancle_button:active {	
 	top:1px;
 }
 

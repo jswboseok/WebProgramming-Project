@@ -40,6 +40,7 @@
 					<h2>JOIN MEMBER</h2>
 				</div>	
 				<br>
+				<div class="table_container">
 				<form class="join-frm" name = "join" action="Join_Action.jsp" method = "post">
 					<div id="contents-join" style="display:inline-block;vertical-align:top;margin:0 0;text-align:left;">
 					  <table class="table">  
@@ -117,7 +118,8 @@
 					  </table>
 					  </div>
 			  </form>
-			  <button class="log_button" onclick="location.href='main.jsp'">취소</button>
+			  <button class="cancle_button" onclick="location.href='main.jsp'">취소</button>
+			  </div><!-- table container end -->
 			</div> <!-- join container end -->
 		</div>
 
