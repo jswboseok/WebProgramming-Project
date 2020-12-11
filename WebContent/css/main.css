@@ -172,7 +172,13 @@ div {
     float:left;
 
 }
-
+#contents_main{
+	height: 70%;
+    margin-bottom:20px;
+    width:100%;
+    padding:20px;
+    float:left;
+}
 /*--------------QA page----------------*/
 ul.menu{
 	top:20px;

@@ -109,10 +109,11 @@
                     
                 </ul>
         	</nav>
+        	<!--   
         <div id="left_sidebar">
-        	<span class="left_bar_text">CATEGORY</span>
+        	<span class="left_bar_text">CATEGORY</span> -->
 			<hr>
-			<!-- 카테고리 요소 -->
+			<!-- 카테고리 요소 --> <!--  
 			<div id="category">
 				<ul>
 					<li><a class="cate_link" href="book.jsp">책</a></li>
@@ -120,82 +121,17 @@
 					<li><a class="cate_link" href="giftcon.jsp">기프티콘</a></li>
 					<li><a class="cate_link" href="extraItem.jsp">기타</a></li>
 				</ul>
-			</div>
+			</div>-->
 			
-			<!-- 네이버 지도 API -->
-			<span id="user_location">LOCATION<hr></span>
-			<div id="map" style="width:100%;height:350px;"></div>
+			 <!--  -네이버 지도 API  -->
+			<!--  <span id="user_location">LOCATION<hr></span>
+			<div id="map" style="width:100%;height:350px;"></div>-->
 			
 			
 			
-        </div>
-        <div id ="contents">
-			<table border="1" align="center" width="100%">
-		      <tr>
-			      <td align="center" bgcolor="silver" width="7%">번호</td>
-			      <td align="center" bgcolor="silver" width="14%">목적</td>
-			      <td align="center" bgcolor="silver" width="14%">카테고리</td>
-			      <td align="center" bgcolor="silver" width="54">글제목</td>
-			      <td align="center" bgcolor="silver" width="12">글쓴이</td>
-		      </tr>
-      		
-      		
-      		
-      		<!--  DB에서 데이터 얻어와 화면에 보여주는 부분 -->
-      		
-      		<% // JSP Start
-		         int id;
-      			 String category, title, name, content, isbuy;
-		         int rownum = 0;
-		         Connection conn = null;
-		         Statement stmt = null;
-		         String sql = null;
-		         ResultSet rs = null;
-		         
-		         try { 
-		                 Class.forName("com.mysql.jdbc.Driver");
-		                 String url = "jdbc:mysql://localhost:3306/dgumarket?serverTimezone=UTC";
-		                 conn = DriverManager.getConnection(url, "root", "0000");
-		                 stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-		                 sql = "select * from board order by id desc";
-		                 rs = stmt.executeQuery(sql);
-		           } 
-		           catch(Exception e) {
-		                 out.println("DB : " + e.getMessage());
-		           }
-		        rs.last();
-		        rownum = rs.getRow();
-		        rs.beforeFirst(); 
-		         
-		         while(rs.next()){
-		            id = Integer.parseInt(rs.getString("id")); //getString()메소드를 활용해 각 행의 정보값 출력;
-		            name = rs.getString("name");
-		           	title=rs.getString("title");
-		           	isbuy=rs.getString("isbuy");
-		           	category=rs.getString("category");
-		         %>
-		         
-		         <!-- 로그인 먼저 하고 글쓰기 && 글 조회 가능하도록 -->
-		            <tr>
-		               <td align="center"><%=rs.getString("id") %></td>
-		               <td align="center"><%=rs.getString("isbuy") %></td>
-		               <td align="center"><%=rs.getString("category") %></td>
-		               <%-- <td align="center"><a href="Board-read.jsp?id=<%=id%>"><%=rs.getString("title") %></a></td> --%>
-		               <% if(userID == null){%>
-		               <td align="center"><a href="main.jsp" onclick="alert('로그인을 먼저 해주세요.')"><%=rs.getString("title") %></a></td>
-		               <%}else{%><td align="center"><a href="board_read.jsp?id=<%=id%>""><%=rs.getString("title") %></a></td>
-		               <%}%>
-		               <td align="center"><%=rs.getString("name") %></td>
-		            </tr>
-		         <%}%>
-
-      		</table><br>
-      		 <% if(userID == null){%>
-		     	<button type="button" onclick="alert('로그인을 먼저 해주세요.')">글쓰기</button>
-		     <%}else{%>
-		     	<button type="button" onclick=" location.href='write.jsp'">글쓰기</button>
-		     <%}%>
-      		
+        
+        <div id ="contents_main">
+		<img src="images/mainpage.jpg" height="80%" width="100%">
 
         </div>
         <!-- <div id="right_sidebar">
