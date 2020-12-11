@@ -214,12 +214,12 @@
 				      <td>글내용 : </td>
 				      <td><%=content %></td>
 				   </tr>
-				   <% if(!imgfile.equals("null")){%>
+				   <% if(imgfile == null || !(imgfile.equals("null"))){%>
 				   		<tr>
 				      		<td>이미지 : </td>
 				      		<td><img src="<%=realFolder + "\\" + imgfile%>" width=380 height=284></img></td>
 				   		</tr>
-				   		<%} %>
+				   	<%} %> 
 				</table><br><br>
 			</fieldset>
 			<hr>
