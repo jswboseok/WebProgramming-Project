@@ -100,6 +100,8 @@ div {
 }
 /*-----------CJH_移댄뀒怨좊━ css�뵒�옄�씤_11/23------------ */
 #category{
+	/*new add*/
+	/* top:30%; */
 	border:none;
 	/* padding:0;
 	text-algin:center; */
@@ -175,13 +177,164 @@ div {
 #contents_main{
 	height: 70%;
     margin-bottom:20px;
-    width:100%;
+    width:96.2%;
     padding:20px;
     float:left;
+    /**/
+    position:relative;
+    
+}
+/*----moving subCategory*/
+.subPage_category{
+	border:none;
+}
+
+/*---------- moving check box ---------*/
+.show_category{
+	position:absolute;
+	top:5%;
+	left:4%;
+	transform:
+	translate(-50%,-50%);
+	border:0;
+}
+
+input[id="menuicon"]{
+	display:none;
+}
+input[id="menuicon"] + label {
+	display:block;
+	width:40px;
+	height:30px;
+	position:relative;
+	cursor:pointer;
+}
+input[id="menuicon"] + label span {
+	display:block;
+	position:absolute;
+	width:100%;
+	height:5px;
+	border-radius:30px;
+	background:#D27D32;
+	transition:all .35s;
+}
+input[id="menuicon"] + label span:nth-child(1) {
+	top:0;
+}
+input[id="menuicon"] + label span:nth-child(2) {
+	top:50%;
+	transform:translateY(-50%);
+} /* 비슷하게 사용할 수 있는 style top:calc(50% - 2.5px); margin-top:-2.5px;*/
+input[id="menuicon"] + label span:nth-child(3) {
+	bottom:0;
+}
+input[id="menuicon"]:checked + label span:nth-child(1) {
+	top:50%;transform:translateY(-50%) rotate(45deg);
+}
+input[id="menuicon"]:checked + label span:nth-child(2) {
+	opacity:0;
+}
+input[id="menuicon"]:checked + label span:nth-child(3) {
+	bottom:50%;transform:translateY(50%) rotate(-45deg);
+}
+div[class="sidebar"]{
+	width:300px;
+	height:100%; 
+	background:#FFEFD5;
+	position:fixed; /*레이어 속성 고정*/
+	top:0;
+	left:-300px; /*width ! */
+	z-index:1;
+	transition:all .35s;
+}
+input[id="menuicon"]:checked + label +div{ /*인접요소선택자*/
+	left:0; /*-300d에서*/
+}
+.quick_category{
+	position:relative;
+	top:25%;
+	border:0;
+}
+
+/*moving check2*/
+.subPage_category{ /*except for main.jsp, handling other sub category*/
+	border:none;
+}
+
+input[id="menuicon2"]{
+	display:none;
+}
+input[id="menuicon2"] + label {
+	display:block;
+	width:30px;
+	height:25px;
+	position:relative;
+	cursor:pointer;
+}
+input[id="menuicon2"] + label span {
+	display:block;
+	position:absolute;
+	width:100%;
+	height:5px;
+	border-radius:30px;
+	background:#D27D32;
+	transition:all .35s;
+}
+input[id="menuicon2"] + label span:nth-child(1) {
+	top:0;
+}
+input[id="menuicon2"] + label span:nth-child(2) {
+	top:50%;
+	transform:translateY(-50%);
+} /* 비슷하게 사용할 수 있는 style top:calc(50% - 2.5px); margin-top:-2.5px;*/
+input[id="menuicon2"] + label span:nth-child(3) {
+	bottom:0;
+}
+input[id="menuicon2"]:checked + label span:nth-child(1) {
+	top:50%;transform:translateY(-50%) rotate(45deg);
+}
+input[id="menuicon2"]:checked + label span:nth-child(2) {
+	opacity:0;
+}
+input[id="menuicon2"]:checked + label span:nth-child(3) {
+	bottom:50%;transform:translateY(50%) rotate(-45deg);
+}
+div[class="sidebar2"]{
+	/* width:300px;
+	height:100%; 
+	background:#FFEFD5;
+	position:fixed; 레이어 속성 고정
+	top:0;
+	bottom:-300px; width !
+	z-index:1; */
+	visibility:hidden;
+	height:0;
+	width:0;
+	opacity:0;
+	transition:all .35s;
+	border:0;
+}
+input[id="menuicon2"]:checked + label +div{ /*인접요소선택자*/
+	width:auto;
+	height:auto;
+	visibility:visible;
+	opacity:1;
+}
+.quick_category2{
+	position:relative;
+	top:25%;
+	border:0;
 }
 /*--------------QA page----------------*/
+.QA_list{
+	overflow:hidden;
+	box-shadow: 0px 15px 20px rgba( 0, 0, 0, 0.2 ); 
+}
 ul.menu{
 	top:20px;
+	/* border:5px solid #000000; */
+	
+	border-radius: 2px;
 }
 ul.menu, ul.menu ul {
 	position: relative;

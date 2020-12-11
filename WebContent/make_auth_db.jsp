@@ -23,7 +23,7 @@
                     <li><a class="link" onclick="location='buy.jsp'">삽니다</a> </li>
                     <li><a class="link" onclick="location='letter.jsp'">쪽지</a> </li>
                     <!-- 고객센터부분 _11/23 -->
-                    <li><a class="link" href="#">고객센터</a></li>
+                    <li><a class="link" onclick="location='service.jsp'">고객센터</a></li>
                     <li><a class="link" onclick="location='mypage.jsp'">마이페이지</a> </li>
                 </ul>
         	</nav>

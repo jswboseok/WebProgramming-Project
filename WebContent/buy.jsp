@@ -9,6 +9,7 @@
 	<meta charset="UTF-8">
 	<title>동국마켓</title>
 	<link href="css/main.css" rel="stylesheet" type="text/css">
+	<link href="css/table.css" rel="stylesheet" type="text/css">
 	 <!-- CJH, 제목 폰트 관련 추가 (11/23 && 11/28)  -->
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
@@ -89,7 +90,7 @@
                     %>
                      <li><a class="link" onclick="alert('로그인을 먼저 해주세요');">쪽지</a></li>
                     <%} else { %>
-                    <li><a class="link" onclick="location='letter.jsp'">쪽지</a> </li>
+                    <li><a class="link" onclick="location='message.jsp'">쪽지</a> </li>
                     <% } %>
                     <!-- 고객센터부분 _11/23 -->
                     <li><a class="link" onclick="location='service.jsp'">고객센터</a></li>
@@ -107,9 +108,9 @@
         	</nav>
           
         <div id="left_sidebar">
-			<span class="left_bar_text">CATEGORY</span>
+			<!-- <span class="left_bar_text">CATEGORY</span>
 			<hr>
-			<!-- 카테고리 요소 -->
+			카테고리 요소
 			<div id="category">
 				<ul>
 					<li><a class="cate_link" href="book.jsp">책</a></li>
@@ -117,23 +118,54 @@
 					<li><a class="cate_link" href="giftcon.jsp">기프티콘</a></li>
 					<li><a class="cate_link" href="extraItem.jsp">기타</a></li>
 				</ul>
+			</div> -->
+			<div class="subPage_category">
+				
+				<input type="checkbox" id="menuicon2">
+				<label for="menuicon2">
+					<span> </span>
+					<span> </span>
+					<span> </span>
+				</label>
+				<div class="sidebar2">
+					<div class="quick_category2">
+					<span style="font-family: 'Noto Sans KR', sans-serif;font-size:28px;font-weight: 400;">CATEGORY</span> 
+					<!-- <hr>  -->
+					<!-- 카테고리 요소 --> 
+						<div id="category">
+							<ul>
+								<li><a class="cate_link" href="book.jsp">책</a></li>
+								<li><a class="cate_link" href="clothes.jsp">옷</a></li>
+								<li><a class="cate_link" href="giftcon.jsp">기프티콘</a></li>
+								<li><a class="cate_link" href="extraItem.jsp">기타</a></li><br>
+							</ul>
+						</div>
+					</div>
+				</div>
 			</div>
 			<!-- 네이버 지도 API -->
 			<span id="user_location">LOCATION<hr></span>
 			<div id="map" style="width:100%;height:350px;"></div>
         </div>
         <div id ="contents">
-			<table border="1" align="center" width="100%">
-		      <tr>
-			      <td align="center" bgcolor="silver" width="7%">번호</td>
-			      <td align="center" bgcolor="silver" width="14%">목적</td>
-			      <td align="center" bgcolor="silver" width="14%">카테고리</td>
-			      <td align="center" bgcolor="silver" width="54">글제목</td>
-			      <td align="center" bgcolor="silver" width="12">글쓴이</td>
-		      </tr>
-      		
-      		
-      		
+        <!-- 테이블 디자인 -->
+        <div class="table-wrapper">
+			<table class="fl-table">
+		      <thead>
+			      <tr>
+				     <!--  <td align="center" bgcolor="silver" width="7%">번호</td>
+				      <td align="center" bgcolor="silver" width="14%">목적</td>
+				      <td align="center" bgcolor="silver" width="14%">카테고리</td>
+				      <td align="center" bgcolor="silver" width="54">글제목</td>
+				      <td align="center" bgcolor="silver" width="12">글쓴이</td> -->
+				      <th width="7%">번호</th>
+				      <th width="14%">목적</th>
+				      <th width="14%">카테고리</th>
+				      <th width="54">글제목</th>
+				      <th width="12">글쓴이</th>
+			      </tr>
+			 </thead>
+      		<tbody>
       		<!--  DB에서 데이터 얻어와 화면에 보여주는 부분 -->
       		
       		<% // JSP Start
@@ -170,25 +202,27 @@
 		         if(isbuy.equals("삽니다")){
 		         %>
 		            <tr>
-		               <td align="center"><%=rs.getString("id") %></td>
-		               <td align="center"><%=rs.getString("isbuy") %></td>
-		               <td align="center"><%=rs.getString("category") %></td>
+		               <td><%=rs.getString("id") %></td>
+		               <td><%=rs.getString("isbuy") %></td>
+		               <td><%=rs.getString("category") %></td>
 		               <%-- <td align="center"><a href="Board-read.jsp?id=<%=id%>"><%=rs.getString("title") %></a></td> --%>
 		               <%-- <td align="center"><a href="board_read.jsp?id=<%=id%>""><%=rs.getString("title") %></a></td> --%>
 		               <% if(userID == null){%>
-		               <td align="center"><a href="buy.jsp" onclick="alert('로그인을 먼저 해주세요.')"><%=rs.getString("title") %></a></td>
-		               <%}else{%><td align="center"><a href="board_read.jsp?id=<%=id%>""><%=rs.getString("title") %></a></td>
+		               <td><a href="buy.jsp" onclick="alert('로그인을 먼저 해주세요.')"><%=rs.getString("title") %></a></td>
+		               <%}else{%><td><a href="board_read.jsp?id=<%=id%>""><%=rs.getString("title") %></a></td>
 		               <%}%>
-		               <td align="center"><%=rs.getString("name") %></td>
+		               <td><%=rs.getString("name") %></td>
 		            </tr>
 		         <%}  }%>
-
-      		</table><br>
+			</tbody>
+      		</table>
+      		</div><br>
       		<% if(userID == null){%>
-		     	<button type="button" onclick="alert('로그인을 먼저 해주세요.')">글쓰기</button>
+		     	<button class="write_button" type="button" onclick="alert('로그인을 먼저 해주세요.')">글쓰기</button>
 		     <%}else{%>
-		     	<button type="button" onclick=" location.href='write.jsp'">글쓰기</button>
+		     	<button class="write_button" type="button" onclick=" location.href='write.jsp'">글쓰기</button>
 		     <%}%>
+		    
         </div>
         <!-- <div id="right_sidebar">
         CJH : 11/23,로그인창에 대하여 fieldset과 legend태그로 묶어주기, 
@@ -215,9 +249,9 @@
 			<p>동국대학교의 열정적인 웹프로그래밍 수업 수강생들입니다.</p>
         </div>
 
-
+		
     </div>
     
 </body>
-</body>
+
 </html>

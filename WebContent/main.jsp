@@ -132,7 +132,32 @@
         
         <div id ="contents_main">
 		<img src="images/mainpage.jpg" height="80%" width="100%">
-
+		<!-- 좀 삐죽튀어나옴 -->
+		<!-- 이미지 위에 카테고리 버튼 추가할 생각,  -->
+			<div class="show_category">
+				<input type="checkbox" id="menuicon">
+				<label for="menuicon">
+					<span> </span>
+					<span> </span>
+					<span> </span>
+				</label>
+				<div class="sidebar">
+					<div class="quick_category">
+					<span style="font-family: 'Noto Sans KR', sans-serif;font-size:32px;font-weight: 400;">CATEGORY</span>
+					<!-- <hr> -->
+					<!-- 카테고리 요소 --> 
+						<div id="category">
+							<ul>
+								<li><a class="cate_link" href="book.jsp">책</a></li>
+								<li><a class="cate_link" href="clothes.jsp">옷</a></li>
+								<li><a class="cate_link" href="giftcon.jsp">기프티콘</a></li>
+								<li><a class="cate_link" href="extraItem.jsp">기타</a></li><br>
+								<li><a class="cate_link" href="main.jsp">메인으로</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
         </div>
         <!-- <div id="right_sidebar">
         CJH : 11/23,로그인창에 대하여 fieldset과 legend태그로 묶어주기, 

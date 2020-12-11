@@ -18,25 +18,25 @@
 </HEAD>
 <BODY>
 <%
-String msgnum = request.getParameter("msgnum"); 
-String driverName = "com.mysql.jdbc.Driver";
-String dbURL = "jdbc:mysql://localhost:3306/dgumarket?serverTimezone=UTC";
- Class.forName(driverName);
- Connection conn = DriverManager.getConnection(dbURL, "root", "0000");
- Statement stmt = conn.createStatement();
-PreparedStatement pstmt = null;
-ResultSet rs = null;
-try {
-String strSQL = "SELECT * FROM message_3 WHERE num = ?";
-pstmt = conn.prepareStatement(strSQL);
-pstmt.setInt(1, Integer.parseInt(msgnum));
-rs = pstmt.executeQuery();
-rs.next();
-String msgid   = request.getParameter("msgid"); 
-String msgsendid   = request.getParameter("msgsendid"); 
-String msgtitle  = request.getParameter("msgtitle");
-String msgcontents  = request.getParameter("msgcontents");
-String msgdate = rs.getString("msgdate");
+	String msgnum = request.getParameter("msgnum"); 
+	String driverName = "com.mysql.jdbc.Driver";
+	String dbURL = "jdbc:mysql://localhost:3306/dgumarket?serverTimezone=UTC";
+	 Class.forName(driverName);
+	 Connection conn = DriverManager.getConnection(dbURL, "root", "0000");
+	 Statement stmt = conn.createStatement();
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
+	try {
+	String strSQL = "SELECT * FROM message_3 WHERE num = ?";
+	pstmt = conn.prepareStatement(strSQL);
+	pstmt.setInt(1, Integer.parseInt(msgnum));
+	rs = pstmt.executeQuery();
+	rs.next();
+	String msgid   = request.getParameter("msgid"); 
+	String msgsendid   = request.getParameter("msgsendid"); 
+	String msgtitle  = request.getParameter("msgtitle");
+	String msgcontents  = request.getParameter("msgcontents");
+	String msgdate = rs.getString("msgdate");
 %>
 <center><font size='3'><b> 쪽지 보관함</b></font>
 <TABLE border='0' width='600' cellpadding='0' cellspacing='0'>

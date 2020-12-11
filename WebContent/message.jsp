@@ -11,6 +11,7 @@
 <META http-equiv="Content-Type" content="text/html; charset=euc-kr">
 <title>동국마켓</title>
 	<link href="css/main.css" rel="stylesheet" type="text/css">
+	<link href="css/table.css" rel="stylesheet" type="text/css">
 	 <!-- CJH, 제목 폰트 관련 추가 (11/23 && 11/28)  -->
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
@@ -112,7 +113,7 @@
                     <% } %>
                     
                     <!-- 고객센터부분 _11/23 -->
-                    <li><a class="link" href="#">고객센터</a></li>
+                    <li><a class="link" onclick="location='service.jsp'">고객센터</a></li>
                     <!-- 마이페이지 : 로그인을 안하여 세션이 없다면, 경고창 뜨게 하기. 1128 -->
                     <%
                     	if(userID==null){ //로그인 되어있지 않다면,
@@ -125,10 +126,10 @@
                     <% } %>
                 </ul>
                 </nav>
-                  <div id="left_sidebar">
-        	<span class="left_bar_text">CATEGORY</span>
+            <div id="left_sidebar">
+        	<!-- <span class="left_bar_text">CATEGORY</span>
 			<hr>
-			<!-- 카테고리 요소 -->
+			카테고리 요소
 			<div id="category">
 				<ul>
 					<li><a class="cate_link" href="book.jsp">책</a></li>
@@ -136,7 +137,32 @@
 					<li><a class="cate_link" href="giftcon.jsp">기프티콘</a></li>
 					<li><a class="cate_link" href="extraItem.jsp">기타</a></li>
 				</ul>
-			</div>
+			</div> -->
+			<div class="subPage_category">
+				
+				<input type="checkbox" id="menuicon2">
+				<label for="menuicon2">
+					<span> </span>
+					<span> </span>
+					<span> </span>
+				</label>
+				<div class="sidebar2">
+					<div class="quick_category2">
+					<span style="font-family: 'Noto Sans KR', sans-serif;font-size:28px;font-weight: 400;">CATEGORY</span> 
+					<!-- <hr>  -->
+					<!-- 카테고리 요소 --> 
+						<div id="category">
+							<ul>
+								<li><a class="cate_link" href="book.jsp">책</a></li>
+								<li><a class="cate_link" href="clothes.jsp">옷</a></li>
+								<li><a class="cate_link" href="giftcon.jsp">기프티콘</a></li>
+								<li><a class="cate_link" href="extraItem.jsp">기타</a></li><br>
+								
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div><!-- subPage_end -->
 			
 			<!-- 네이버 지도 API -->
 			<span id="user_location">LOCATION<hr></span>
@@ -145,89 +171,81 @@
 	
         </div>
         <div id ="contents">
-        	
-
-<center>
-  
-      
-      <%=userID %>의 쪽지함                            
-<TABLE border='0' width='100%' cellpadding='0' cellspacing='0'>
-   <TR>
-      <TD><hr size='1' noshade>
-      </TD>
-    </TR>
-</TABLE>              
-                    
-<TABLE border='0' cellspacing=1 cellpadding=2 width='100%'>      
-   <TR bgcolor='cccccc'>           
-      <TD><font size=2><center><b>보낸이</b></center></font></TD>      
-      <TD><font size=2><center><b>제목</b></center></font></TD> 
-      <TD><font size=2><center><b>내용</b></center></font></TD>
-      <TD><font size=2><center><b>작성일</b></center></font></TD>
-	       
-   </TR>   
-    
-   <% 
-String s_id = (String)session.getAttribute("userId");
-String strSQL = "";
-   
-    String driverName = "com.mysql.jdbc.Driver";
-    String dbURL = "jdbc:mysql://localhost:3306/dgumarket?serverTimezone=UTC";
-   Class.forName(driverName);
-    Connection conn = DriverManager.getConnection(dbURL, "root", "0000");
-    Statement stmt = conn.createStatement();
-    ResultSet rs = null;
-%>
-   
-   
-<%
-      
-      strSQL = "SELECT * FROM message_3 where msgid='" + userID + "'";
-      rs = stmt.executeQuery(strSQL);
-      for (int i = 1; i < 10; i++){
-      while(rs.next()){
-         String msgtitle = rs.getString("msgtitle");
-         String msgcontents = rs.getString("msgcontents");
-         String msgsendid = rs.getString("msgsendid");
-         String msgdate = rs.getString("msgdate");
-         
-%>
-   <TR bgcolor='ededed'>  
-      <TD>  
-         <font size=2 color="black"><%=msgsendid %></font>
-      </TD>
-      <TD align=center>    
-         <font size=2 color="black"><%=msgtitle %></font>     
-      </TD>
-            <TD align=center>    
-         <font size=2 color="black"><%=msgcontents %></font>     
-      </TD>  
-      </TD>
-            <TD align=center>    
-         <font size=2 color="black"><%=msgdate %></font>     
-      </TD>         
-   </TR>  
-         
-<% }%>
-</TABLE>     
-                                        
-<%
-      }%>
-<TABLE border='0' width='600' cellpadding='0' cellspacing='0'>
-   <TR>
-      <TD><hr size='1' noshade>
-      </TD>
-    </TR>
-</TABLE>                    
-      <TD align='left'> 
-       <a href='main.jsp'>[메인화면]</a>    
-      </TD>
- 
-      <TD align='right'>      
-      <a href='message_send.jsp'>[쪽지 보내기]</a>            
-      </TD>
-   </TR>
-</TABLE>
-}           
+			<center><span style="font-family: 'Noto Sans KR', sans-serif;font-size:20px;font-weight: 400;"><%=userID %>의 쪽지함 </span></center> 
+			<br>
+			<!-- 쪽지함 css적용 -->
+			<div class="table-wrapper">                             
+				<TABLE class="fl-table"><!-- border='0' width='100%' cellpadding='0' cellspacing='0' -->
+					<THEAD>
+					   <TR >  <!-- bgcolor='cccccc'   -->       
+					      <!-- <TD><font size=2><center><b>보낸이</b></center></font></TD>      
+					      <TD><font size=2><center><b>제목</b></center></font></TD> 
+					      <TD><font size=2><center><b>내용</b></center></font></TD>
+					      <TD><font size=2><center><b>작성일</b></center></font></TD> -->
+						  <TH>보낸이</TH>      
+					      <TH>제목</TH> 
+					      <TH>내용</TH>
+					      <TH>작성일</TH>
+					   </TR>
+				    </THEAD>
+				    <TBODY>  
+				    
+				   <% 
+					String s_id = (String)session.getAttribute("userId");
+					String strSQL = "";
+				   
+				    String driverName = "com.mysql.jdbc.Driver";
+				    String dbURL = "jdbc:mysql://localhost:3306/dgumarket?serverTimezone=UTC";
+				   	Class.forName(driverName);
+				    Connection conn = DriverManager.getConnection(dbURL, "root", "0000");
+				    Statement stmt = conn.createStatement();
+				    ResultSet rs = null;
+				%>
+				   
+				   
+				<%
+				      
+				      strSQL = "SELECT * FROM message_3 where msgid='" + userID + "'";
+				      rs = stmt.executeQuery(strSQL);
+				      for (int i = 1; i < 10; i++){
+				      while(rs.next()){
+				         String msgtitle = rs.getString("msgtitle");
+				         String msgcontents = rs.getString("msgcontents");
+				         String msgsendid = rs.getString("msgsendid");
+				         String msgdate = rs.getString("msgdate");
+				         
+				%>
+				   <TR>  
+				      <TD><%=msgsendid %></TD>
+				      <TD><%=msgtitle %></TD>
+				      <TD><%=msgcontents %></TD>  
+					  <TD><%=msgdate %></TD>         
+				   </TR>  
+				         
+				<% } }%>
+				</TBODY>
+				</TABLE>   
+				    
+			</div><!-- table Wrapper End -->
+			<br>
+			<button class="write_button" type="button" onclick=" location.href='main.jsp'">메인화면</button>
+			<button class="write_button" type="button" onclick=" location.href='message_send.jsp'">쪽지 보내기</button>                                                   
+			<!-- <a href='main.jsp'>[메인화면]</a>
+				<a href='message_send.jsp'>[쪽지 보내기]</a> -->
+			<!-- 쪽지 보내는 테이블 -->
+			  
+			<!-- <TABLE border='0' width='600' cellpadding='0' cellspacing='0'>     
+			      <TD align='left'> 
+			      </TD><TD align='right'>      </TD>
+			   </TR>
+			</TABLE> -->
+		</div><!-- contents end -->
+		
+		<div id="footer">
+		<span class="footer_text">About Us</span>
+		<p>동국대학교의 열정적인 웹프로그래밍 수업 수강생들입니다.</p>
+    	</div>	
+	</div><!-- container ends -->
+       
 </BODY>                     
 </HTML>

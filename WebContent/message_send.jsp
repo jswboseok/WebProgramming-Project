@@ -146,7 +146,7 @@ browsing_window.focus();
                     <% } %>
                     
                     <!-- 고객센터부분 _11/23 -->
-                    <li><a class="link" href="#">고객센터</a></li>
+                    <li><a class="link" onclick="location='service.jsp'">고객센터</a></li>
                     <!-- 마이페이지 : 로그인을 안하여 세션이 없다면, 경고창 뜨게 하기. 1128 -->
                     <%
                     	if(userID==null){ //로그인 되어있지 않다면,
@@ -179,95 +179,98 @@ browsing_window.focus();
 	
         </div>
         <div id ="contents">
-        	
+		<!-- 쪽지보내는 화면 -->
+		<center>
+		
+		<% 
+		String s_id = (String)session.getAttribute("userID");%>
 
-<center>
+		<center><font size='3'><b> 쪽지 보내기 </b></font></center>                   
+		
+		<TABLE border='0' width='600' cellpadding='0' cellspacing='0'>
+		   <TR>
+		      <TD><hr size='1' noshade>
+		      </TD>
+		    </TR>
+		</TABLE>
 
-<% 
-String s_id = (String)session.getAttribute("userID");%>
-
-<center><font size='3'><b> 쪽지 보내기 </b></font>                   
-
-<TABLE border='0' width='600' cellpadding='0' cellspacing='0'>
-   <TR>
-      <TD><hr size='1' noshade>
-      </TD>
-    </TR>
-</TABLE>
-
-<FORM Name='Write' Action='message_input.jsp' Method='post' OnSubmit='return Check()'>
-
-<TABLE border='0' width='600' cellpadding='2' cellspacing='2'>
-   <TR>
-      <TD width='100' bgcolor='cccccc'>
-         <font size='2'><center><b>작성자</b></center></font>
-      </TD>
-      <TD>
-          <font size='2'><input type='text' size='12' name='msgsendid' value = <%= s_id %>></font>
-      </TD>
-   </TR>
-
-   <TR>
-      <TD width='100' bgcolor='cccccc'>
-         <font size='2'><center><b>보낼 ID</b></center></font>
-      </TD>
-      <TD>
-          <font size='2'><input type='text' size='12' maxlength='12' name='msgid'></font>
-          <input type='button' OnClick='Check_id()' value='받는 ID 확인하기'>
-      </TD>
-   </TR>
-
-   <TR>
-            <TD colspan='2'>
-               <hr size='1' noshade>
-            </TD>
-   </TR>
-
-   <TR>
-      <TD width='100' bgcolor='cccccc'>
-         <font size='2'><center><b>제목</b></center></font>
-      </TD>
-      <TD>
-         <font size='2'><input type='text' size='70' maxlength='50' name='msgtitle'></font>
-      </TD>
-   </TR>
-
-   <TR>
-      <TD bgcolor='cccccc'>
-         <font size='2'><center><b>내용</b></center></font>
-      </TD>
-      <TD>
-               <font size='2'>
-               <textarea cols='70' rows='15' wrap='virtual' name='msgcontents' ></textarea>
-               </font>
-            </TD>
-   </TR>
-
-   <TR>
-            <TD colspan='2'>
-               <hr size='1' noshade>
-            </TD>
-   </TR>
-
-   <TR>
-      <TD align='center' colspan='2' width='100%'>
-      <TABLE>
-         <TR>
-            <TD width='100' align='center'>
-               <input Type = 'Reset' Value = '다시 쓰기'>
-            </TD>
-            <TD width='200' align='center'>
-
-               <input Type = 'submit' Value = '전송하기' Name='Page'>
-            </TD>
-         </TR>
-      </TABLE>
-      </TD>
-   </TR>
-   
-</TABLE>
-
-</FORM>
+		<FORM Name='Write' Action='message_input.jsp' Method='post' OnSubmit='return Check()'>
+			<TABLE border='0' width='600' cellpadding='2' cellspacing='2'>
+			   <TR>
+			      <TD width='100' bgcolor='cccccc'>
+			         <font size='2'><center><b>작성자</b></center></font>
+			      </TD>
+			      <TD>
+			          <font size='2'><input type='text' size='12' name='msgsendid' value = <%= s_id %>></font>
+			      </TD>
+			   </TR>
+			
+			   <TR>
+			      <TD width='100' bgcolor='cccccc'>
+			         <font size='2'><center><b>보낼 ID</b></center></font>
+			      </TD>
+			      <TD>
+			          <font size='2'><input type='text' size='12' maxlength='12' name='msgid'></font>
+			          <input type='button' OnClick='Check_id()' value='받는 ID 확인하기'>
+			      </TD>
+			   </TR>
+			
+			   <TR>
+			            <TD colspan='2'>
+			               <hr size='1' noshade>
+			            </TD>
+			   </TR>
+			
+			   <TR>
+			      <TD width='100' bgcolor='cccccc'>
+			         <font size='2'><center><b>제목</b></center></font>
+			      </TD>
+			      <TD>
+			         <font size='2'><input type='text' size='70' maxlength='50' name='msgtitle'></font>
+			      </TD>
+			   </TR>
+			
+			   <TR>
+			      <TD bgcolor='cccccc'>
+			         <font size='2'><center><b>내용</b></center></font>
+			      </TD>
+			      <TD>
+			               <font size='2'>
+			               <textarea cols='70' rows='15' wrap='virtual' name='msgcontents' ></textarea>
+			               </font>
+			            </TD>
+			   </TR>
+			
+			   <TR>
+			            <TD colspan='2'>
+			               <hr size='1' noshade>
+			            </TD>
+			   </TR>
+			
+			   <TR>
+			      <TD align='center' colspan='2' width='100%'>
+			      <TABLE>
+			         <TR>
+			            <TD width='100' align='center'>
+			               <input Type = 'Reset' Value = '다시 쓰기'>
+			            </TD>
+			            <TD width='200' align='center'>
+			               <input Type = 'submit' Value = '전송하기' Name='Page'>
+			            </TD>
+			         </TR>
+			      </TABLE>
+			      </TD>
+			   </TR>
+			</TABLE>
+		
+		</FORM>
+		</div> <!-- contenst end -->
+		<div id="footer">
+			<span class="footer_text">About Us</span>
+			<p>동국대학교의 열정적인 웹프로그래밍 수업 수강생들입니다.</p>
+        </div>
+    </div><!-- container ends -->
+		
 
 </BODY>
 </HTML>

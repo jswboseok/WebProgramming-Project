@@ -122,10 +122,10 @@
                     %>
                      <li><a class="link" onclick="alert('로그인을 먼저 해주세요');">쪽지</a></li>
                     <%} else { %>
-                    <li><a class="link" onclick="location='letter.jsp'">쪽지</a> </li>
+                    <li><a class="link" onclick="location='message.jsp'">쪽지</a> </li>
                     <% } %>
                     <!-- 고객센터부분 _11/23 -->
-                    <li><a class="link" href="#">고객센터</a></li>
+                    <li><a class="link" onclick="location='service.jsp'">고객센터</a></li>
                      <!-- 로그인을 안하여 세션이 없다면, 경고창 뜨게 하기. 1128 -->
                     <%
                     	if(userID==null){ //로그인 되어있지 않다면,

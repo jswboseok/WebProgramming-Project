@@ -98,7 +98,7 @@
                     %>
                      <li><a class="link" onclick="alert('로그인을 먼저 해주세요');">쪽지</a></li>
                     <%} else { %>
-                    <li><a class="link" onclick="location='letter.jsp'">쪽지</a> </li>
+                    <li><a class="link" onclick="location='message.jsp'">쪽지</a> </li>
                     <% } %>
                     <!-- 고객센터부분 _11/23 -->
                     <li><a class="link" onclick="location='service.jsp'">고객센터</a></li>
@@ -116,9 +116,9 @@
                 </ul>
         	</nav>
         <div id="left_sidebar">
-        	<span class="left_bar_text">CATEGORY</span>
+        	<!-- <span class="left_bar_text">CATEGORY</span>
 			<hr>
-			<!-- 카테고리 요소 -->
+			카테고리 요소
 			<div id="category">
 				<ul>
 					<li><a class="cate_link" href="book.jsp">책</a></li>
@@ -126,8 +126,32 @@
 					<li><a class="cate_link" href="giftcon.jsp">기프티콘</a></li>
 					<li><a class="cate_link" href="extraItem.jsp">기타</a></li>
 				</ul>
-			</div>
-			
+			</div> -->
+			<div class="subPage_category">
+				
+				<input type="checkbox" id="menuicon2">
+				<label for="menuicon2">
+					<span> </span>
+					<span> </span>
+					<span> </span>
+				</label>
+				<div class="sidebar2">
+					<div class="quick_category2">
+					<span style="font-family: 'Noto Sans KR', sans-serif;font-size:28px;font-weight: 400;">CATEGORY</span> 
+					<!-- <hr>  -->
+					<!-- 카테고리 요소 --> 
+						<div id="category">
+							<ul>
+								<li><a class="cate_link" href="book.jsp">책</a></li>
+								<li><a class="cate_link" href="clothes.jsp">옷</a></li>
+								<li><a class="cate_link" href="giftcon.jsp">기프티콘</a></li>
+								<li><a class="cate_link" href="extraItem.jsp">기타</a></li><br>
+								
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div><!-- subPage_end -->
 			<!-- 네이버 지도 API -->
 			<span id="user_location">LOCATION<hr></span>
 			<div id="map" style="width:100%;height:350px;"></div>
@@ -139,54 +163,85 @@
         	<!-- 고객센터, 드롭다운 테이블 적용해서 Q&A형식 으로 구성,  -->
         	<span class="left_bar_text">Q&A</span>
 			<hr>
-			<ul class="menu">
+			<div class="QA_list">
+				<ul class="menu">
 				  <!-- Q1 -->
-				  <li id="Q"><span class="QA_font">Q. Lorem?</span>
+				  <li id="Q"><span class="QA_font">&nbsp;Q. 이 사이트는 어떤 사이트 인가요?</span>
 				    <ul><!-- A -->
 					      <li>
-						      <p> A. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla, 
-						      ligula sit amet ornare faucibus, elit elit gravida tortor, a faucibus ex ligula at velit. 
-						      Duis venenatis mauris quis eleifend ornare. Ut fermentum nisi non sem mattis, ac auctor est malesuada.
-						       Ut metus erat, dapibus sit amet nisi non, pharetra rutrum velit. Donec dapibus feugiat ipsum, 
-						       in iaculis felis malesuada et. Suspendisse quis tortor sit amet quam maximus pulvinar et et metus.
-						        Proin lacus enim, sagittis porta justo sit amet, luctus egestas diam. Curabitur at convallis nulla.
-						         In gravida et ex sit amet volutpat. Donec at tincidunt nisl.</p>
+						      <p> 저희 사이트는 동국대학교 웹프로그래밍 팀프로젝트로, 학생간의 중고거래 활성화를 위해 제작된 사이트입니다.<br>
+						          고객들이 자유롭게  물건을 사고 팔수 있도록 중간 역할자를 합니다.</p>
 					      </li>
 				    </ul>
 				  </li>
 				  <!-- Q2 -->
 				  <li id="Q">
-				    <span class="QA_font">Q. Lorem?</span>
+				    <span class="QA_font">&nbsp;Q. 사이트를 설명해주세요</span>
 				    <ul><!-- A -->
 					      <li id="A">
-						      <p> A. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla, 
-						      ligula sit amet ornare faucibus, elit elit gravida tortor, a faucibus ex ligula at velit. 
-						      Duis venenatis mauris quis eleifend ornare. Ut fermentum nisi non sem mattis, ac auctor est malesuada.
-						       Ut metus erat, dapibus sit amet nisi non, pharetra rutrum velit. Donec dapibus feugiat ipsum, 
-						       in iaculis felis malesuada et. Suspendisse quis tortor sit amet quam maximus pulvinar et et metus.
-						        Proin lacus enim, sagittis porta justo sit amet, luctus egestas diam. Curabitur at convallis nulla.
-						         In gravida et ex sit amet volutpat. Donec at tincidunt nisl.</p>
+						      <p> 저희 웹사이트는 크게 "팝니다" 와 "삽니다"로 판매자와 구매자를 연결시켜줍니다.<br>
+						          또한 구매자나 판매자는 각 카테고리, 책, 옷, 기프티콘, 기타 등에 대해 글을 등록함으로써  좀 더 손쉽게 거래를 진행시킬 수 있습니다.
+						          화면 구성 왼쪽에는 동국대학교 서울캠퍼스의 지도를 배치해 어디서 만날지 좀 더 명확하게 접근이 가능합니다.<br>
+						          중고 물품의 상태가 어떤지 알아보고 연락해야겠죠?<br>
+						          저희는 이미지 업로드를 지원하여 해당 물품이 외관상 결함은 없는지, 허위 매물은 아닌지 확인이 가능합니다.
+						         
+						           </p>
 					      </li>
 				    </ul>
 				  </li>
 				  <!-- Q3 -->
 				  <li id="Q">
 				    <!-- <a href="#">Q. 1</a>  -->
-				    <span class="QA_font">Q. Lorem?</span>
+				    <span class="QA_font">&nbsp;Q. 회원가입은 어떻게 하나요?</span>
 				    <ul><!-- A -->
 					      <li>
-						      <p> A. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla, 
-						      ligula sit amet ornare faucibus, elit elit gravida tortor, a faucibus ex ligula at velit. 
-						      Duis venenatis mauris quis eleifend ornare. Ut fermentum nisi non sem mattis, ac auctor est malesuada.
-						       Ut metus erat, dapibus sit amet nisi non, pharetra rutrum velit. Donec dapibus feugiat ipsum, 
-						       in iaculis felis malesuada et. Suspendisse quis tortor sit amet quam maximus pulvinar et et metus.
-						        Proin lacus enim, sagittis porta justo sit amet, luctus egestas diam. Curabitur at convallis nulla.
-						         In gravida et ex sit amet volutpat. Donec at tincidunt nisl.</p>
+						      <p>화면 상단의 로그인/회원가입 버튼을 클릭하셔서 회원가입을 진행하시면 됩니다.
+						      <br>단, 주의하실 점은 이 웹사이트는 학생들이 프로젝트로 만든 웹사이트므로 개인정보 보안에 유의해주시기 바랍니다.</p>
 					      </li>
 				    </ul>
 				  </li>
+				  <!-- Q4 -->
+				  <li id="Q">
+				    <!-- <a href="#">Q. 1</a>  -->
+				    <span class="QA_font">&nbsp;Q. 아이디와 비밀번호를 까먹었어요. 도와주세요</span>
+				    <ul><!-- A -->
+					      <li>
+						      <p>페이지 하단의 관리자 이메일 주소로,<br>
+						       아이디를 찾으시려는 경우, <b>이름</b>과 <b>생년월일</b>을<br>
+						       비밀번호를 찾으시려는 경우 <b>아이디</b>와 <b>생년월일</b> 그리고 <b>이름</b>을 기재하여 보내주시기 바랍니다.
+						     </p>
+					      </li>
+				    </ul>
+				  </li>
+				  <!-- Q5 -->
+				  <li id="Q">
+				    <!-- <a href="#">Q. 1</a>  -->
+				    <span class="QA_font">&nbsp;Q. 에러를 발견했어요</span>
+				    <ul><!-- A -->
+					      <li>
+						      <p> 우선 저희 웹사이트를 이용하심에 있어서 불편을 끼쳐드려 죄송합니다.<br>
+						          에러에 대한 설명과 함께 하단의 관리자 이메일 주소로 연락을 주시면 빠른 시일안에 고치도록 하겠습니다.
+						     </p>
+					      </li>
+				    </ul>
+				  </li>
+				   <!-- Q6 -->
+				  <li id="Q">
+				    <!-- <a href="#">Q. 1</a>  -->
+				    <span class="QA_font">&nbsp;Q. 판매자나 구매자가 잠적했어요</span>
+				    <ul><!-- A -->
+					      <li>
+						      <p> 하단 관리자 이메일 주소로 상대방의 아이디와 관련 게시글 번호를 알려주시면<br>
+						                저희가 해당 회원을 영구정지 시키겠습니다.<br>
+						          불편을 드려 진심으로 죄송합니다. 
+						     </p>
+					      </li>
+				    </ul>
+				  </li>
+				  
+				  
 			</ul>
-			
+		</div>
 
         </div>
         <!-- <div id="right_sidebar">

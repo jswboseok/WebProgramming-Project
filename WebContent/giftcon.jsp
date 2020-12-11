@@ -89,7 +89,7 @@
                     %>
                      <li><a class="link" onclick="alert('로그인을 먼저 해주세요');">쪽지</a></li>
                     <%} else { %>
-                    <li><a class="link" onclick="location='letter.jsp'">쪽지</a> </li>
+                    <li><a class="link" onclick="location='message.jsp'">쪽지</a> </li>
                     <% } %>
                     <!-- 고객센터부분 _11/23 -->
                     <li><a class="link" onclick="location='service.jsp'">고객센터</a></li>
@@ -107,9 +107,9 @@
         	</nav>
           
         <div id="left_sidebar">
-			<span class="left_bar_text">CATEGORY</span>
+			<!-- <span class="left_bar_text">CATEGORY</span>
 			<hr>
-			<!-- 카테고리 요소 -->
+			카테고리 요소
 			<div id="category">
 				<ul>
 					<li><a class="cate_link" href="book.jsp">책</a></li>
@@ -117,7 +117,32 @@
 					<li><a class="cate_link" href="giftcon.jsp">기프티콘</a></li>
 					<li><a class="cate_link" href="extraItem.jsp">기타</a></li>
 				</ul>
-			</div>
+			</div> -->
+			<div class="subPage_category">
+				
+				<input type="checkbox" id="menuicon2">
+				<label for="menuicon2">
+					<span> </span>
+					<span> </span>
+					<span> </span>
+				</label>
+				<div class="sidebar2">
+					<div class="quick_category2">
+					<span style="font-family: 'Noto Sans KR', sans-serif;font-size:28px;font-weight: 400;">CATEGORY</span> 
+					<!-- <hr>  -->
+					<!-- 카테고리 요소 --> 
+						<div id="category">
+							<ul>
+								<li><a class="cate_link" href="book.jsp">책</a></li>
+								<li><a class="cate_link" href="clothes.jsp">옷</a></li>
+								<li><a class="cate_link" href="giftcon.jsp">기프티콘</a></li>
+								<li><a class="cate_link" href="extraItem.jsp">기타</a></li><br>
+								
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div><!-- subPage_end -->
 			<!-- 네이버 지도 API -->
 			<span id="user_location">LOCATION<hr></span>
 			<div id="map" style="width:100%;height:350px;"></div>

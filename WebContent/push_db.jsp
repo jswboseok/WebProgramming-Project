@@ -48,7 +48,8 @@
 	 String encType = "utf-8";
 	 String savefile = "img";
 	 ServletContext scontext = getServletContext();
-	 realFolder = scontext.getRealPath(savefile);
+	 //realFolder = scontext.getRealPath(savefile);
+	 realFolder=request.getRealPath("img");
 	 String name, title, content, category, isbuy; // 쿼리요소
 	 
 	 try{
