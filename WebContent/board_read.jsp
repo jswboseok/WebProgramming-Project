@@ -16,6 +16,7 @@
     <title>동국마켓</title>
     <!-- 외부 css 링크하기 -->
     <link href="css/main.css" rel="stylesheet" type="text/css">
+    <link href="css/table.css" rel="stylesheet" type="text/css">
     <!-- CJH, 제목 폰트 관련 추가 (11/23)  -->
      <link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
@@ -67,7 +68,7 @@
 	%>
 </head>
 <body>
-    <div id ="container">
+    <!-- <div id ="container"> -->
     <!-- 로그인된  사람은 로그인 정보를 담을 수 있도록 만듬 11/27 -->
 	<%
 		String userID=null;
@@ -110,7 +111,7 @@
     		}
     	%>
         <div id ="headerTop">
-        <h1 id="headerFont"><a href="main.jsp" style="text-decoration:none; color:black;">동국대학교 중고거래장터</a></h1>
+        <h1 id="headerFont"><a href="main.jsp" style="text-decoration:none; color:black;">동국마켓</a></h1>
         </div>
             <nav id="topMenu">
                 <ul>
@@ -139,17 +140,31 @@
                 </ul>
         	</nav>
         <div id="left_sidebar">
-        	<span class="left_bar_text">CATEGORY</span>
-			<hr>
-			<!-- 카테고리 요소 -->
-			<div id="category">
-				<ul>
-					<li><a class="cate_link" href="book.jsp">책</a></li>
-					<li><a class="cate_link" href="clothes.jsp">옷</a></li>
-					<li><a class="cate_link" href="giftcon.jsp">기프티콘</a></li>
-					<li><a class="cate_link" href="extraItem.jsp">기타</a></li>
-				</ul>
-			</div>
+        	<div class="subPage_category">
+				
+				<input type="checkbox" id="menuicon2">
+				<label for="menuicon2">
+					<span> </span>
+					<span> </span>
+					<span> </span>
+				</label>
+				<div class="sidebar2">
+					<div class="quick_category2">
+					<span style="font-family: 'Noto Sans KR', sans-serif;font-size:28px;font-weight: 400;">CATEGORY</span> 
+					<!-- <hr>  -->
+					<!-- 카테고리 요소 --> 
+						<div id="category">
+							<ul>
+								<li><a class="cate_link" href="book.jsp">책</a></li>
+								<li><a class="cate_link" href="clothes.jsp">옷</a></li>
+								<li><a class="cate_link" href="giftcon.jsp">기프티콘</a></li>
+								<li><a class="cate_link" href="extraItem.jsp">기타</a></li><br>
+								
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div><!-- subPage_end -->
 			<!-- 네이버 지도 API -->
 			<span id="user_location">LOCATION<hr></span>
 			<div id="map" style="width:100%;height:350px;"></div>
@@ -196,23 +211,33 @@
 			 		imgfile = rs.getString("imgfile");
 			   }
 			%>
-			<fieldset>
-				<table border="0" width="500">
+			
+			<div class="table-wrapper">
+				<table class="fl-table" border="0" width="500"><!-- <table border="0" width="500"> -->
+					<thead style="background:#D27328;">
+						<tr>
+						<th style="text-align:center;">게시글</td>
+						</tr>
+
+					</thead>
+					<tbody>
 				   <tr>
 				      <td width="100">목적 : </td>
-				      <td><%=isbuy%></td>
+				      <td style="text-align:left;"><%=isbuy%></td>
 				   </tr>
 				   <tr>
 				      <td width="100">카테고리 : </td>
-				      <td><%=category %></td>
+				      <td style="text-align:left;"><%=category %></td>
 				   </tr>
 				   <tr>
 				      <td width="100">글쓴이 : </td>
-				      <td><%=name %></td>
+				      <td style="text-align:left;"><%=name %></td>
 				   </tr>
 				   <tr>
-				      <td>글내용 : </td>
-				      <td><%=content %></td>
+				      <td height="200px">글내용</td>
+				       <td style="text-align:left;">
+				       <%=content %>
+				      </td> 
 				   </tr>
 				   <% if(imgfile == null || !(imgfile.equals("null"))){%>
 				   		<tr>
@@ -220,17 +245,18 @@
 				      		<td><img src="<%=realFolder + "\\" + imgfile%>" width=380 height=284></img></td>
 				   		</tr>
 				   	<%} %> 
-				</table><br><br>
-			</fieldset>
+					</tbody>
+				</table>
+			</div>
 			<hr>
-			<a href="main.jsp">메인 화면으로</a>&nbsp;
+			<a class="detail_link" href="main.jsp">[메인 화면으로]</a>&nbsp;
 			
 			<%if(name.equals(userID)){ %>
-				<a href="delete.jsp?id=<%=id %>">글삭제</a>
-				<a href="modify.jsp?id=<%=id %>">글수정</a>
+				<a class="detail_link" href="delete.jsp?id=<%=id %>">[글삭제]</a>
+				<a class="detail_link" href="modify.jsp?id=<%=id %>">[글수정]</a>
 			<%} else{ %>
-				<a href="board_read.jsp?id=<%=id %>" onclick="alert('권한이 없습니다')">글삭제</a>
-				<a href="board_read.jsp?id=<%=id %>" onclick="alert('권한이 없습니다')">글수정</a>
+				<a class="detail_link" href="board_read.jsp?id=<%=id %>" onclick="alert('권한이 없습니다')">[글삭제]</a>
+				<a class="detail_link" href="board_read.jsp?id=<%=id %>" onclick="alert('권한이 없습니다')">[글수정]</a>
 			<%}%>
 			
         </div>
@@ -255,8 +281,13 @@
         	
 		</div> --> 
         <div id="footer">
-			
+			<span class="footer_text">About Us</span>
+			<p>동국대학교의 열정적인 웹프로그래밍 수업 수강생<br>
+			&nbsp;2016112109 컴퓨터공학전공 장석운, 
+			   2015112113 컴퓨터공학전공 정용헌,
+			   2017112095 컴퓨터공학전공 최준호 <br>
+			   송양의 교수님 웹프로그래밍_02반 - 3조<br>
         </div>
-    </div>
+    </div><!-- container ends -->
 </body>
 </html>

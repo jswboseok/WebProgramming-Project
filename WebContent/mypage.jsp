@@ -67,7 +67,7 @@
 			
 			// 마지막 로그인 정보(세션만들어진 시간) 1128
 			long lastLog = (long)session.getAttribute("log");
-			SimpleDateFormat fmat=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+			SimpleDateFormat fmat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			
 			//로그인용 세션 ID
 			String userforLogin=null;
@@ -118,7 +118,7 @@
     		}//else end
     	%>
         <div id ="headerTop">
-        <h1 id="headerFont"><a href="main.jsp" style="text-decoration:none; color:black;">동국대학교 중고거래장터</a></h1>
+        <h1 id="headerFont"><a href="main.jsp" style="text-decoration:none; color:black;">동국마켓</a></h1>
         </div>
         
 			<!-- CJH, navigation bar를 위해 버튼식 구성을 <a>태그와 <ul><li>식으로 변경 11/23 -->
@@ -249,38 +249,11 @@
 			            <td><%=rs.getString("id") %></td>
 			            <td><%=rs.getString("isbuy") %></td>
 			            <td><%=rs.getString("category") %></td>
-			            <td><a href="board_read.jsp?id=<%=id %>"><%=rs.getString("title") %></a></td>
+			            <td><a class="detail_link" href="board_read.jsp?id=<%=id %>"><%=rs.getString("title") %></a></td>
 			            <td><%=rs.getString("name") %></td>
 			            
 			        </tr>
-			        <!-- <tr>
-			            <td>Content 2</td>
-			            <td>Content 2</td>
-			            <td>Content 2</td>
-			            <td>Content 2</td>
-			           
-			        </tr>
-			        <tr>
-			            <td>Content 3</td>
-			            <td>Content 3</td>
-			            <td>Content 3</td>
-			            <td>Content 3</td>
-			            
-			        </tr>
-			        <tr>
-			            <td>Content 4</td>
-			            <td>Content 4</td>
-			            <td>Content 4</td>
-			            <td>Content 4</td>
-			            
-			        </tr>
-			        <tr>
-			            <td>Content 5</td>
-			            <td>Content 5</td>
-			            <td>Content 5</td>
-			            <td>Content 5</td>
-			           
-			        </tr> -->
+			       
 			        <%} } %> <!-- while end --> 
 			        <tbody>
 			    </table><!-- fl-table end -->
@@ -289,7 +262,12 @@
        
         <div id="footer">
 			<span class="footer_text">About Us</span>
-			<p>동국대학교의 열정적인 웹프로그래밍 수업 수강생들입니다.</p>
+			<p>동국대학교의 열정적인 웹프로그래밍 수업 수강생<br>
+			&nbsp;2016112109 컴퓨터공학전공 장석운, 
+			   2015112113 컴퓨터공학전공 정용헌,
+			   2017112095 컴퓨터공학전공 최준호 <br>
+			   송양의 교수님 웹프로그래밍_02반 - 3조<br>
+			</p>
         </div>
 
 		<%

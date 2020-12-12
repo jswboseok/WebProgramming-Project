@@ -24,8 +24,40 @@
 	%>
 <!--기본 틀 구성하기 11_18-->
     <div id ="container">
+    <!-- 로그인 되어있지 않다면,  -->
+    	<%
+    		if(userID == null){
+    	%>
+    	<!-- CJH, 로그인 회원가입 창을 우측 화면 상단으로 올리기,  -->
+    	<header>
+    		<nav>
+    			<ul class="login_menu">
+    				<li><img src="images/netlog.svg" height="30" width="30"></li>
+    				<li><a href="login.jsp">로그인</a>
+    				<li><a href="Join.jsp">회원가입</a>
+    			
+    			</ul>
+    		</nav>
+    	</header>
+    	<%
+    		} else{
+    	%>
+    	<!-- 로그인 되어 있다면, -->
+    	<header>
+    		<nav>
+    			<ul class="login_menu">
+    				<li><img src="images/netlog.svg" height="30" width="30"></li>
+    				<li><a href="#">환영합니다 <%=userID%> 님</a></li>
+    				<li><a href="logoutAction.jsp">로그아웃</a></li>
+    			
+    			</ul>
+    		</nav>
+    	</header>
+    	<%
+    		}
+    	%>
         <div id ="headerTop">
-        <h1 id="headerFont"><a href="main.jsp" style="text-decoration:none; color:black;">동국대학교 중고거래장터</a></h1>
+        <h1 id="headerFont"><a href="main.jsp" style="text-decoration:none; color:black;">동국마켓</a></h1>
         </div>
 			<!-- CJH, navigation bar를 위해 버튼식 구성을 <a>태그와 <ul><li>식으로 변경 11/23 -->
             <nav id="topMenu">
@@ -204,7 +236,12 @@
         	
 		</div> -->
         <div id="footer">
-
+			<span class="footer_text">About Us</span>
+			<p>동국대학교의 열정적인 웹프로그래밍 수업 수강생<br>
+			&nbsp;2016112109 컴퓨터공학전공 장석운, 
+			   2015112113 컴퓨터공학전공 정용헌,
+			   2017112095 컴퓨터공학전공 최준호 <br>
+			   송양의 교수님 웹프로그래밍_02반 - 3조<br>
         </div>
 
     </div>

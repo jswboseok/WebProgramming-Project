@@ -129,7 +129,7 @@ browsing_window.focus();
     		}
     	%>
         <div id ="headerTop">
-        <h1 id="headerFont"><a href="main.jsp" style="text-decoration:none; color:black;">동국대학교 중고거래장터</a></h1>
+        <h1 id="headerFont"><a href="main.jsp" style="text-decoration:none; color:black;">동국마켓</a></h1>
         </div>
 			<!-- CJH, navigation bar를 위해 버튼식 구성을 <a>태그와 <ul><li>식으로 변경 11/23 -->
             <nav id="topMenu">
@@ -159,10 +159,10 @@ browsing_window.focus();
                     <% } %>
                 </ul>
                 </nav>
-                  <div id="left_sidebar">
-        	<span class="left_bar_text">CATEGORY</span>
+            <div id="left_sidebar">
+        	<!-- <span class="left_bar_text">CATEGORY</span>
 			<hr>
-			<!-- 카테고리 요소 -->
+			카테고리 요소
 			<div id="category">
 				<ul>
 					<li><a class="cate_link" href="book.jsp">책</a></li>
@@ -171,7 +171,31 @@ browsing_window.focus();
 					<li><a class="cate_link" href="extraItem.jsp">기타</a></li>
 				</ul>
 			</div>
-			
+			 -->
+			 <div class="subPage_category">
+				
+				<input type="checkbox" id="menuicon2">
+				<label for="menuicon2">
+					<span> </span>
+					<span> </span>
+					<span> </span>
+				</label>
+				<div class="sidebar2">
+					<div class="quick_category2">
+					<span style="font-family: 'Noto Sans KR', sans-serif;font-size:28px;font-weight: 400;">CATEGORY</span> 
+					<!-- <hr>  -->
+					<!-- 카테고리 요소 --> 
+						<div id="category">
+							<ul>
+								<li><a class="cate_link" href="book.jsp">책</a></li>
+								<li><a class="cate_link" href="clothes.jsp">옷</a></li>
+								<li><a class="cate_link" href="giftcon.jsp">기프티콘</a></li>
+								<li><a class="cate_link" href="extraItem.jsp">기타</a></li><br>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div><!-- subPage_end -->
 			<!-- 네이버 지도 API -->
 			<span id="user_location">LOCATION<hr></span>
 			<div id="map" style="width:100%;height:350px;"></div>
@@ -267,7 +291,11 @@ browsing_window.focus();
 		</div> <!-- contenst end -->
 		<div id="footer">
 			<span class="footer_text">About Us</span>
-			<p>동국대학교의 열정적인 웹프로그래밍 수업 수강생들입니다.</p>
+			<p>동국대학교의 열정적인 웹프로그래밍 수업 수강생<br>
+			&nbsp;2016112109 컴퓨터공학전공 장석운, 
+			   2015112113 컴퓨터공학전공 정용헌,
+			   2017112095 컴퓨터공학전공 최준호 <br>
+			   송양의 교수님 웹프로그래밍_02반 - 3조<br>
         </div>
     </div><!-- container ends -->
 		

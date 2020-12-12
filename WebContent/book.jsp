@@ -9,6 +9,7 @@
 	<meta charset="UTF-8">
 	<title>동국마켓</title>
 	<link href="css/main.css" rel="stylesheet" type="text/css">
+	<link href="css/table.css" rel="stylesheet" type="text/css">
 	 <!-- CJH, 제목 폰트 관련 추가 (11/23 && 11/28)  -->
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
@@ -76,7 +77,7 @@
     		}
     	%>        
         <div id ="headerTop">
-        <h1 id="headerFont"><a href="main.jsp" style="text-decoration:none; color:black;">동국대학교 중고거래장터</a></h1>
+        <h1 id="headerFont"><a href="main.jsp" style="text-decoration:none; color:black;">동국마켓</a></h1>
         </div>
 			<!-- CJH, navigation bar를 위해 버튼식 구성을 <a>태그와 <ul><li>식으로 변경 11/23 -->
             <nav id="topMenu">
@@ -149,15 +150,18 @@
 			<div id="map" style="width:100%;height:350px;"></div>
         </div>
         <div id ="contents">
-			<table border="1" align="center" width="100%">
-		      <tr>
-			     <td align="center" bgcolor="silver" width="7%">번호</td>
-			      <td align="center" bgcolor="silver" width="14%">목적</td>
-			      <td align="center" bgcolor="silver" width="14%">카테고리</td>
-			      <td align="center" bgcolor="silver" width="54">글제목</td>
-			      <td align="center" bgcolor="silver" width="12">글쓴이</td>
-		      </tr>
-      		
+        <div class="table-wrapper">
+			<table class="fl-table">
+		      <thead>
+			      <tr>    
+				      <th width="7%">번호</th>
+				      <th width="14%">목적</th>
+				      <th width="14%">카테고리</th>
+				      <th width="54">글제목</th>
+				      <th width="12">글쓴이</th>
+			      </tr>
+			 </thead>
+      		<tbody>
       		
       		
       		<!--  DB에서 데이터 얻어와 화면에 보여주는 부분 -->
@@ -196,23 +200,25 @@
 		         if(category.equals("책")){
 		         %>
 		            <tr>
-		               <td align="center"><%=rs.getString("id") %></td>
-		               <td align="center"><%=rs.getString("isbuy") %></td>
-		               <td align="center"><%=rs.getString("category") %></td>
+		               <td><%=rs.getString("id") %></td>
+		               <td><%=rs.getString("isbuy") %></td>
+		               <td><%=rs.getString("category") %></td>
 		               <%-- <td align="center"><a href="Board-read.jsp?id=<%=id%>"><%=rs.getString("title") %></a></td> --%>
 		                <% if(userID == null){%>
-		               <td align="center"><a href="book.jsp" onclick="alert('로그인을 먼저 해주세요.')"><%=rs.getString("title") %></a></td>
-		               <%}else{%><td align="center"><a href="board_read.jsp?id=<%=id%>""><%=rs.getString("title") %></a></td>
+		               <td><a class="detail_link" href="book.jsp" onclick="alert('로그인을 먼저 해주세요.')"><%=rs.getString("title") %></a></td>
+		               <%}else{%><td><a class="detail_link" href="board_read.jsp?id=<%=id%>""><%=rs.getString("title") %></a></td>
 		               <%}%>
-		               <td align="center"><%=rs.getString("name") %></td>
+		               <td><%=rs.getString("name") %></td>
 		            </tr>
 		         <%}  }%>
-
-      		</table><br>
+			</tbody>
+      		</table>
+      		</div><!-- wrapper ends -->
+      		<br>
       		<% if(userID == null){%>
-		     	<button type="button" onclick="alert('로그인을 먼저 해주세요.')">글쓰기</button>
+		     	<button class="write_button" type="button" onclick="alert('로그인을 먼저 해주세요.')">글쓰기</button>
 		     <%}else{%>
-		     	<button type="button" onclick=" location.href='write.jsp'">글쓰기</button>
+		     	<button class="write_button" type="button" onclick=" location.href='write.jsp'">글쓰기</button>
 		     <%}%>
         </div>
         <!-- <div id="right_sidebar">
@@ -237,7 +243,11 @@
 		</div> -->
         <div id="footer">
 			<span class="footer_text">About Us</span>
-			<p>동국대학교의 열정적인 웹프로그래밍 수업 수강생들입니다.</p>
+			<p>동국대학교의 열정적인 웹프로그래밍 수업 수강생<br>
+			&nbsp;2016112109 컴퓨터공학전공 장석운, 
+			   2015112113 컴퓨터공학전공 정용헌,
+			   2017112095 컴퓨터공학전공 최준호 <br>
+			   송양의 교수님 웹프로그래밍_02반 - 3조<br>
         </div>
 
 

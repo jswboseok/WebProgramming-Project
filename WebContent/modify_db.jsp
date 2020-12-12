@@ -19,7 +19,26 @@
 	<!-- CJH, 제목 폰트 관련 추가 (11/23 && 11/28)  -->
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
-	
+	<!-- 1201 Naver Map API -->
+	<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=db4sb1wr4q&callback=initMap"></script>
+	<script type="text/javascript">
+        var map = null;
+
+        function initMap() {
+            map = new naver.maps.Map('map', {
+                center: new naver.maps.LatLng(37.55828, 127.00030),//동국대 위치로 수정하기.
+                zoom: 16
+            });
+            var marker = new naver.maps.Marker({
+                position: new naver.maps.LatLng(37.55828, 127.00030),
+                map: map,
+            }); 
+            naver.maps.Event.addListener(map, 'click', function(e) {
+            marker.setPosition(e.latlng);
+        	});
+        }
+       
+    </script>
 	<!--  img file path를 받아서 db에 넘김 -->
 	<%
 	 MultipartRequest multi = null;
@@ -30,9 +49,9 @@
 	 String encType = "utf-8";
 	 String savefile = "img";
 	 ServletContext scontext = getServletContext();
-	 /* realFolder = scontext.getRealPath(savefile); */
+	 /* realFolder = scontext.getRealPath(savefile); 석운쓰코드*/
 	 //realFolder = scontext.getRealPath(savefile);
-	 realFolder=request.getRealPath("img");
+	 realFolder=request.getRealPath("img"); // 준호 코드 하지만 크롬창에 로컬 주소 입력하고 홈페이지 접근시 사진이 안보여..
 	 String name, title, content, category, isbuy; // 쿼리요소
 	 
 	 try{
@@ -77,7 +96,7 @@
     		<!-- </div> -->
     	</header>
         <div id ="headerTop">
-        <h1 id="headerFont"><a href="main.jsp" style="text-decoration:none; color:black;">동국대학교 중고거래장터</a></h1>
+        <h1 id="headerFont"><a href="main.jsp" style="text-decoration:none; color:black;">동국마켓</a></h1>
         </div>
 			<!-- CJH, navigation bar를 위해 버튼식 구성을 <a>태그와 <ul><li>식으로 변경 11/23 -->
             <nav id="topMenu">
@@ -108,17 +127,34 @@
         	</nav>
           
         <div id="left_sidebar">
-			<span class="left_bar_text">CATEGORY</span>
-			<hr>
-			<!-- 카테고리 요소 -->
-			<div id="category">
-				<ul>
-					<li><a class="cate_link" href="book.jsp">책</a></li>
-					<li><a class="cate_link" href="clothes.jsp">옷</a></li>
-					<li><a class="cate_link" href="giftcon.jsp">기프티콘</a></li>
-					<li><a class="cate_link" href="extraItem.jsp">기타</a></li>
-				</ul>
-			</div>
+			<div class="subPage_category">
+				
+				<input type="checkbox" id="menuicon2">
+				<label for="menuicon2">
+					<span> </span>
+					<span> </span>
+					<span> </span>
+				</label>
+				<div class="sidebar2">
+					<div class="quick_category2">
+					<span style="font-family: 'Noto Sans KR', sans-serif;font-size:28px;font-weight: 400;">CATEGORY</span> 
+					<!-- <hr>  -->
+					<!-- 카테고리 요소 --> 
+						<div id="category">
+							<ul>
+								<li><a class="cate_link" href="book.jsp">책</a></li>
+								<li><a class="cate_link" href="clothes.jsp">옷</a></li>
+								<li><a class="cate_link" href="giftcon.jsp">기프티콘</a></li>
+								<li><a class="cate_link" href="extraItem.jsp">기타</a></li><br>
+								
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div><!-- subPage_end -->
+			<!-- 네이버 지도 API -->
+			<span id="user_location">LOCATION<hr></span>
+			<div id="map" style="width:100%;height:350px;"></div>
         </div>
         <div id ="contents">
         
@@ -164,7 +200,7 @@
 			%>
 			<center>
 				<h2>글이 수정되었습니다.</h2>
-				<a href="main.jsp">게시글 목록 보기</a>
+				<a class="detail_link" href="main.jsp">게시글 목록 보기</a>
 			</center>
         </div>
         <!-- <div id="right_sidebar">
@@ -189,7 +225,12 @@
         	
 		</div> -->
         <div id="footer">
-
+			<span class="footer_text">About Us</span>
+			<p>동국대학교의 열정적인 웹프로그래밍 수업 수강생<br>
+			&nbsp;2016112109 컴퓨터공학전공 장석운, 
+			   2015112113 컴퓨터공학전공 정용헌,
+			   2017112095 컴퓨터공학전공 최준호 <br>
+			   송양의 교수님 웹프로그래밍_02반 - 3조<br>
         </div>
 
 

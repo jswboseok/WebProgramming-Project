@@ -5,6 +5,7 @@
 div {
     border:1px solid #ccc;
 }
+
 /*body�쓽 �룿�듃�뿉 ���빐�꽌, */
 /* body{
 	font-family: 'Noto Sans KR', sans-serif;
@@ -84,7 +85,7 @@ div {
 	/*�쎒�궗�씠�듃 �젣紐� �룿�듃�뿉 愿��젴�맂 css*/
 	font-family: 'Nanum Pen Script', cursive; /*CJH : 11/23 added */
 	font-weight: bold;
-	font-size: 50px;
+	font-size: 60px;
 	text-align: center;
 }
 
@@ -184,9 +185,18 @@ div {
     position:relative;
     
 }
-/*----moving subCategory*/
-.subPage_category{
-	border:none;
+/*detail한 link들, 글쓰기와 관련*/
+.detail_link{
+	color:#000;
+	text-decoration: none;
+	
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size:16px;
+	font-weight: 400;
+}
+.detail_link:hover{
+	text-decoration: underline; 
+	color: red;
 }
 
 /*---------- moving check box ---------*/
@@ -198,18 +208,17 @@ div {
 	translate(-50%,-50%);
 	border:0;
 }
-
-input[id="menuicon"]{
+input[id="menuicon1"]{
 	display:none;
 }
-input[id="menuicon"] + label {
+input[id="menuicon1"] + label {
 	display:block;
 	width:40px;
 	height:30px;
 	position:relative;
 	cursor:pointer;
 }
-input[id="menuicon"] + label span {
+input[id="menuicon1"] + label span {
 	display:block;
 	position:absolute;
 	width:100%;
@@ -218,39 +227,46 @@ input[id="menuicon"] + label span {
 	background:#D27D32;
 	transition:all .35s;
 }
-input[id="menuicon"] + label span:nth-child(1) {
+input[id="menuicon1"] + label span:nth-child(1) {
 	top:0;
 }
-input[id="menuicon"] + label span:nth-child(2) {
+input[id="menuicon1"] + label span:nth-child(2) {
 	top:50%;
 	transform:translateY(-50%);
 } /* 비슷하게 사용할 수 있는 style top:calc(50% - 2.5px); margin-top:-2.5px;*/
-input[id="menuicon"] + label span:nth-child(3) {
+input[id="menuicon1"] + label span:nth-child(3) {
 	bottom:0;
 }
-input[id="menuicon"]:checked + label span:nth-child(1) {
+input[id="menuicon1"]:checked + label span:nth-child(1) {
 	top:50%;transform:translateY(-50%) rotate(45deg);
 }
-input[id="menuicon"]:checked + label span:nth-child(2) {
+input[id="menuicon1"]:checked + label span:nth-child(2) {
 	opacity:0;
 }
-input[id="menuicon"]:checked + label span:nth-child(3) {
+input[id="menuicon1"]:checked + label span:nth-child(3) {
 	bottom:50%;transform:translateY(50%) rotate(-45deg);
 }
-div[class="sidebar"]{
+div[class="sidebar1"]{
 	width:300px;
 	height:100%; 
-	background:#FFEFD5;
+	/* background:#FFEFD5; */
 	position:fixed; /*레이어 속성 고정*/
-	top:0;
+	top:20px;
 	left:-300px; /*width ! */
 	z-index:1;
 	transition:all .35s;
+	
+	visibility:hidden;
+	border:0;
+	
 }
-input[id="menuicon"]:checked + label +div{ /*인접요소선택자*/
-	left:0; /*-300d에서*/
+
+input[id="menuicon1"]:checked + label+div{ /*인접요소선택자*/
+	left:0px; /*-300d에서*/
+	visibility:visible;
+	border:0;
 }
-.quick_category{
+.quick_category1{
 	position:relative;
 	top:25%;
 	border:0;
@@ -464,7 +480,7 @@ header{
 	color: red;
 }
 #footer {
-    height:5%;
+    height:7%;
     clear:both;
     padding:20px;
     border-left:none;

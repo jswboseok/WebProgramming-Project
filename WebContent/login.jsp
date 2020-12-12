@@ -18,7 +18,7 @@
 <!--기본 틀 구성하기 11_18-->
     <div id ="container">
         <div id ="headerTop">
-        <h1 id="headerFont"><a href="main.jsp" style="text-decoration:none; color:black;">동국대학교 중고거래장터</a></h1>
+        <h1 id="headerFont"><a href="main.jsp" style="text-decoration:none; color:black;">동국마켓</a></h1>
         </div>
 			<!-- CJH, navigation bar를 위해 버튼식 구성을 <a>태그와 <ul><li>식으로 변경 11/23 -->
             <nav id="topMenu">
@@ -66,7 +66,7 @@
         
        
         <div id="footer">
-
+			
         </div>
 </div>
 </body>
