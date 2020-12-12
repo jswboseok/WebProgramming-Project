@@ -11,6 +11,7 @@
 <META http-equiv="Content-Type" content="text/html; charset=euc-kr">
 <title>동국마켓</title>
 	<link href="css/main.css" rel="stylesheet" type="text/css">
+	<link href="css/table.css" rel="stylesheet" type="text/css">
 	 <!-- CJH, 제목 폰트 관련 추가 (11/23 && 11/28)  -->
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
@@ -209,86 +210,97 @@ browsing_window.focus();
 		<% 
 		String s_id = (String)session.getAttribute("userID");%>
 
-		<center><font size='3'><b> 쪽지 보내기 </b></font></center>                   
+		<!-- <center><font size='3'><b> 쪽지 보내기 </b></font></center>   -->                 
 		
-		<TABLE border='0' width='600' cellpadding='0' cellspacing='0'>
+		<!-- <TABLE border='0' width='600' cellpadding='0' cellspacing='0'>
 		   <TR>
 		      <TD><hr size='1' noshade>
 		      </TD>
 		    </TR>
-		</TABLE>
+		</TABLE> -->
 
 		<FORM Name='Write' Action='message_input.jsp' Method='post' OnSubmit='return Check()'>
-			<TABLE border='0' width='600' cellpadding='2' cellspacing='2'>
-			   <TR>
-			      <TD width='100' bgcolor='cccccc'>
-			         <font size='2'><center><b>작성자</b></center></font>
-			      </TD>
-			      <TD>
-			          <font size='2'><input type='text' size='12' name='msgsendid' value = <%= s_id %>></font>
-			      </TD>
-			   </TR>
-			
-			   <TR>
-			      <TD width='100' bgcolor='cccccc'>
-			         <font size='2'><center><b>보낼 ID</b></center></font>
-			      </TD>
-			      <TD>
-			          <font size='2'><input type='text' size='12' maxlength='12' name='msgid'></font>
-			          <input type='button' OnClick='Check_id()' value='받는 ID 확인하기'>
-			      </TD>
-			   </TR>
-			
-			   <TR>
-			            <TD colspan='2'>
-			               <hr size='1' noshade>
-			            </TD>
-			   </TR>
-			
-			   <TR>
-			      <TD width='100' bgcolor='cccccc'>
-			         <font size='2'><center><b>제목</b></center></font>
-			      </TD>
-			      <TD>
-			         <font size='2'><input type='text' size='70' maxlength='50' name='msgtitle'></font>
-			      </TD>
-			   </TR>
-			
-			   <TR>
-			      <TD bgcolor='cccccc'>
-			         <font size='2'><center><b>내용</b></center></font>
-			      </TD>
-			      <TD>
-			               <font size='2'>
-			               <textarea cols='70' rows='15' wrap='virtual' name='msgcontents' ></textarea>
-			               </font>
-			            </TD>
-			   </TR>
-			
-			   <TR>
-			            <TD colspan='2'>
-			               <hr size='1' noshade>
-			            </TD>
-			   </TR>
-			
-			   <TR>
-			      <TD align='center' colspan='2' width='100%'>
-			      <TABLE>
-			         <TR>
-			            <TD width='100' align='center'>
-			               <input Type = 'Reset' Value = '다시 쓰기'>
-			            </TD>
-			            <TD width='200' align='center'>
-			               <input Type = 'submit' Value = '전송하기' Name='Page'>
-			            </TD>
-			         </TR>
-			      </TABLE>
-			      </TD>
-			   </TR>
-			</TABLE>
-		
+		<div class="table-wrapper">
+			<TABLE class="fl-table" border='0' width='600' cellpadding='2' cellspacing='2'>
+					<thead style="background:#D27328;">
+							<tr>
+							<th style="text-align:center;">쪽지 보내기</td>
+							</tr>
+	
+					</thead>
+					<TBODY>
+				   <TR>
+				      <TD width='100' ><!-- bgcolor='cccccc' -->
+				         <font size='2'><center><b>작성자</b></center></font>
+				      </TD>
+				      <TD style="text-align:left">
+				          <font size='2'><input type='text' size='12' name='msgsendid' value = <%= s_id %>></font>
+				      </TD>
+				   </TR>
+				
+				   <TR>
+				      <TD width='100' >
+				         <font size='2'><center><b>보낼 ID</b></center></font>
+				      </TD>
+				      <TD style="text-align:left">
+				          <font size='2'><input type='text' size='12' maxlength='12' name='msgid'></font>
+				          <input type='button' OnClick='Check_id()' value='받는 ID 확인하기'>
+				      </TD>
+				   </TR>
+				
+				   <!-- <TR>
+				            <TD colspan='2'>
+				               <hr size='1' noshade>
+				            </TD>
+				   </TR> -->
+				
+				   <TR>
+				      <TD width='100' >
+				         <font size='2'><center><b>제목</b></center></font>
+				      </TD>
+				      <TD style="text-align:left">
+				         <font size='2'><input type='text' size='70' maxlength='50' name='msgtitle'></font>
+				      </TD>
+				   </TR>
+				
+				   <TR>
+				      <TD >
+				         <font size='2'><center><b>내용</b></center></font>
+				      </TD>
+				      <TD style="text-align:left">
+				        <font size='2'>
+				        <textarea cols='70' rows='15' wrap='virtual' name='msgcontents' ></textarea>
+				        </font>
+				      </TD>
+				   </TR>
+				
+				   <!-- <TR>
+				            <TD colspan='2'>
+				               <hr size='1' noshade>
+				            </TD>
+				   </TR> -->
+				
+				   <!-- <TR>
+				      <TD align='center' colspan='2' width='100%'>
+				      <TABLE>
+				         <TR>
+				            <TD width='100' align='center'>
+				               <input Type = 'Reset' Value = '다시 쓰기'>
+				            </TD>
+				            <TD width='200' align='center'>
+				               <input Type = 'submit' Value = '전송하기' Name='Page'>
+				            </TD>
+				         </TR>
+				      </TABLE>
+				      </TD>
+				   </TR> -->
+				</TABLE>
+				<input Type = 'Reset' class="write_button" Value = '다시 쓰기'>
+				<input Type = 'submit' class="write_button" Value = '전송하기' Name='Page'>
+			</div>
 		</FORM>
 		</div> <!-- contenst end -->
+		
 		<div id="footer">
 			<span class="footer_text">About Us</span>
 			<p>동국대학교의 열정적인 웹프로그래밍 수업 수강생<br>

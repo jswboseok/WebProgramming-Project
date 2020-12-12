@@ -8,6 +8,7 @@
 	<meta charset="UTF-8">
 	<title>동국마켓</title>
 	<link href="css/main.css" rel="stylesheet" type="text/css">
+	<link href="css/table.css" rel="stylesheet" type="text/css">
 	<!-- 글쓰기 창 -JSW  -->
 	 <!-- CJH, 제목 폰트 관련 추가 (11/23 && 11/28)  -->
 	<link rel="preconnect" href="https://fonts.gstatic.com">
@@ -89,7 +90,7 @@
                     %>
                      <li><a class="link" onclick="alert('로그인을 먼저 해주세요');">쪽지</a></li>
                     <%} else { %>
-                    <li><a class="link" onclick="location='letter.jsp'">쪽지</a> </li>
+                    <li><a class="link" onclick="location='message.jsp'">쪽지</a> </li>
                     <% } %>
                     <!-- 고객센터부분 _11/23 -->
                     <li><a class="link" href="#">고객센터</a></li>
@@ -177,16 +178,23 @@
 			
 			
         <!-- ---------------------------------------------------------------------- -->
-		    <center><h2>글쓰기</h2></center>
-		    <fieldset>
+		    <!-- <center><h2>게시글 수정</h2></center> -->
+		    
 				<form action="modify_db.jsp?id=<%=request.getParameter("id") %>" enctype="multipart/form-data" method="POST" >
-					<table border="0">
+					<div class="table-wrapper">
+					<table class="fl-table" border="0">
+						<thead style="background:#D27328;">
+							<tr>
+							<th style="text-align:center;">게시글 수정</td>
+							</tr>
+						</thead>
+						<tbody>
 				        <tr> 
 				        	<td>제목 : </td>
-				         	<td><input type="text" name="title" size="50" value=<%=title %>>(10자 이내)</td>
+				         	<td style="text-align:left"><input type="text" name="title" size="50" value=<%=title %>>(10자 이내)</td>
 				      	</tr>
 				      		<td>목적 : </td>
-				        	<td><select name="isbuy">
+				        	<td style="text-align:left"><select name="isbuy">
 				        	<% if(isbuy.equals("팝니다")){ %>
 				        		<option selected>팝니다</option>
 				         		<option>삽니다</option>
@@ -198,7 +206,7 @@
 				       	</tr>
 				       	<tr>
 				        	<td>카테고리 : </td>
-				          	<td><select name="category">
+				          	<td style="text-align:left"><select name="category">
 				          	<% switch(category){
 				          	case "책":
 				          		%>  
@@ -238,18 +246,21 @@
  				       	</tr>
  				       	<tr>
  				       		<td>파일 업로드 : </td>
- 				       		<td><input type="file" name="filename1" size=40></td>
+ 				       		<td style="text-align:left" ><input type="file" name="filename1" size=40></td>
  				       	</tr>
  				       	<tr>
 				        	<td>내용 : </td>
-				          	<td><textarea name="content" cols="60" rows="10"><%=content %></textarea></td>
+				          	<td style="text-align:left"><textarea name="content" cols="60" rows="10"><%=content %></textarea></td>
 				       	</tr>
+				       	</tbody>
 				    </table><br><br>
-				   	<input type="submit" value="등록하기">
-			   		<input type="reset" value="다시쓰기">
-				</form>
-			</fieldset>
-		   	<a href="main.jsp">메인 화면으로</a>
+				   	&nbsp; <input type="submit" class="write_button" value="등록하기">
+			   		&nbsp; <input type="reset" class="write_button" value="다시쓰기">
+			   		<br>
+			   		</div>
+				</form><br>
+			
+		   		<a class="detail_link"href="main.jsp">[ 메인 화면으로 ]</a>
         </div>
         <!-- <div id="right_sidebar">
 		CJH : 11/23,로그인창에 대하여 fieldset과 legend태그로 묶어주기, 

@@ -21,7 +21,31 @@ a:hover		{color:black;text-decoration:underline;}
 	 font-family: 'Noto Sans KR', sans-serif;
 	font-size:16px;
 	font-weight: 400;
+}
+.table_button{
+	width: 200px;
+    display: block;
+    background: #000;
+    
+    border: 1px solid #000;
+    color: #fff;
+    text-align: center;
+    padding: 13px 0;
+    font-weight: normal;
+    /*상우하좌*/
+    margin: 10px 22px 10px 26px;
+    
+    transition-duration: .4s;
+    -webkit-transition-duration: .4s;
+    -moz-transition-duration: .4s;
+    -o-transition-duration: .4s;
+    letter-spacing: 1px;
 }	
+.tabe_button:hover{
+	color: #242526;
+	background-color:#f7f7f7;
+}
+
 .table-wrapper{
     /* margin: 10px 70px 70px; */
      box-shadow: 0px 10px 20px rgba( 0, 0, 0, 0.2 ); 

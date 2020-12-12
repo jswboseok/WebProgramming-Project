@@ -7,6 +7,7 @@
 	<meta charset="UTF-8">
 	<title>동국마켓</title>
 	<link href="css/main.css" rel="stylesheet" type="text/css">
+	<link href="css/table.css" rel="stylesheet" type="text/css">
 	<!-- 글쓰기 창 -JSW  -->
 	 <!-- CJH, 제목 폰트 관련 추가 (11/23 && 11/28)  -->
 	<link rel="preconnect" href="https://fonts.gstatic.com">
@@ -140,23 +141,30 @@
         
         <!-- CONTENT 부분  -->
         <!-- ---------------------------------------------------------------------- -->
-		    <center><h2>글쓰기</h2></center>
-		    <fieldset>
+		    
 				<form action="push_db.jsp" enctype="multipart/form-data" method="POST" >
-					<table border="0">
+				<div class="table-wrapper">
+					<table class="fl-table" border="0">
+						<thead style="background:#D27328;">
+							<tr>
+							<th style="text-align:center;">글쓰기</td>
+							</tr>
+	
+						</thead>
+						<tbody>
 				        <tr> 
 				        	<td>제목 : </td>
-				         	<td><input type="text" name="title" size="50">(10자 이내)</td>
+				         	<td style="text-align:left" ><input type="text" name="title" size="50">(10자 이내)</td>
 				      	</tr>
 				      		<td>목적 : </td>
-				        	<td><select name="isbuy">
+				        	<td style="text-align:left" ><select name="isbuy">
 				         		<option>팝니다</option>
 				         		<option>삽니다</option>
 				         	</select></td>
 				       	</tr>
 				       	<tr>
 				        	<td>카테고리 : </td>
-				          	<td><select name="category">
+				          	<td style="text-align:left" ><select name="category">
 				         		<option>책</option>
 				         		<option>옷</option>
 				         		<option>기프티콘</option>
@@ -165,18 +173,24 @@
  				       	</tr>
  				       	<tr>
  				       		<td>파일 업로드 : </td>
- 				       		<td><input type="file" name="filename1" size=40></td>
+ 				       		<td style="text-align:left"><input type="file" name="filename1" size=40></td>
  				       	</tr>
  				       	<tr>
 				        	<td>내용 : </td>
-				          	<td><textarea name="content" cols="60" rows="10"></textarea></td>
+				          	<td style="text-align:left" ><textarea name="content" cols="60" rows="10"></textarea></td>
 				       	</tr>
+				       	</tbody>
 				    </table><br><br>
-				   	<input type="submit" value="등록하기">
-			   		<input type="reset" value="다시쓰기">
-				</form>
-			</fieldset>
-		   	<a class="detail_link" href="main.jsp">[ 메인 화면으로 ]</a>
+				   	&nbsp; <input type="submit" class="write_button" value="등록하기">
+			   		&nbsp;<input type="reset" class="write_button" value="다시쓰기">
+			   		<br>
+			   		</div>
+				</form><br>
+				<a class="detail_link" href="main.jsp">[ 메인 화면으로 ]</a>
+				
+				
+			
+		   	
         </div>
         <!-- <div id="right_sidebar">
 		CJH : 11/23,로그인창에 대하여 fieldset과 legend태그로 묶어주기, 
