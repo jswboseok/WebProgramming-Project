@@ -42,6 +42,38 @@
 	%>
 <!--기본 틀 구성하기 11_18-->
     <div id ="container">
+    <!-- 로그인 되어있지 않다면,  -->
+    	<%
+    		if(userID == null){
+    	%>
+    	<!-- CJH, 로그인 회원가입 창을 우측 화면 상단으로 올리기,  -->
+    	<header>
+    		<nav>
+    			<ul class="login_menu">
+    				<li><img src="images/netlog.svg" height="30" width="30"></li>
+    				<li><a href="login.jsp">로그인</a></li>
+    				<li><a href="Join.jsp">회원가입</a></li>
+    			
+    			</ul>
+    		</nav>
+    	</header>
+    	<%
+    		} else{
+    	%>
+    	<!-- 로그인 되어 있다면, -->
+    	<header>
+    		<nav>
+    			<ul class="login_menu">
+    				<li><img src="images/netlog.svg" height="30" width="30"></li>
+    				<li><a href="#">환영합니다 <%=userID%> 님</a></li>
+    				<li><a href="logoutAction.jsp">로그아웃</a></li>
+    			
+    			</ul>
+    		</nav>
+    	</header>
+    	<%
+    		}
+    	%>
         <div id ="headerTop">
         <h1 id="headerFont"><a href="main.jsp" style="text-decoration:none; color:black;">동국마켓</a></h1>
         </div>
