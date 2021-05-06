@@ -4,5 +4,6 @@
   <img src="image\11.PNG" title="main.jsp"></img>
 </p><br>
 
+- jdk 1.8.0_251
 - tomcat 8.5
 - mysql
